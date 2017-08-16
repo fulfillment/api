@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Merchant
+  summary: Get a list of merchant shipping methods
+  operationId: getMerchantMethods
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: Merchant Id
+      required: true
+      type: integer
+      format: int64
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>carrier</b>
+      required: false
+      type: string
+  responses:
+    '200':
+      description: success

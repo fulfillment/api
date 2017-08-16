@@ -1,0 +1,68 @@
+required:
+  - id
+  - orderItems
+  - validatedConsignee
+properties:
+  id:
+    description: Unique id for this order
+    type: integer
+  merchantOrderId:
+    description: Order Id that belongs to the merchant
+    type: integer
+  merchantShippingMethod:
+    $ref: '#/definitions/MerchantShippingMethod'
+  shippingCharge:
+    description: The cost FDC charged to ship this order
+    type: number
+    format: double
+  totalOz:
+    type: number
+    format: double
+  trackingNo:
+    type: string
+  orderedDate:
+    description: The date sent to FDC by a client signifying when the order was sent
+    type: string
+    format: date-time
+  recordedOn:
+    description: The date this order entered FDC's system
+    type: string
+    format: date-time
+  despatchDate:
+    description: The date this order was finished being packed
+    type: string
+    format: date-time
+  deliveryDate:
+    description: The date this order was delivered to the consignee
+    type: string
+    format: date-time
+  returnDate:
+    description: 'If this order was returned, the date that is arrived at our facility'
+    type: string
+    format: date-time
+  merchant:
+    $ref: '#/definitions/Merchant'
+  warehouse:
+    $ref: '#/definitions/Warehouse'
+  orderItems:
+    type: array
+    items:
+      $ref: '#/definitions/OrderItem'
+  statuses:
+    type: array
+    items:
+      $ref: '#/definitions/OrderStatus'
+  originalConsignee:
+    $ref: '#/definitions/ContactInfo'
+  validatedConsignee:
+    $ref: '#/definitions/ContactInfo'
+  orderSkus:
+    type: array
+    items:
+      $ref: '#/definitions/OrderSku'
+  rma: {}
+  events:
+    type: array
+    items:
+      $ref: '#/definitions/OrderStatusEvent'
+type: object

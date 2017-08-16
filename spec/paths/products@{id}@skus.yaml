@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Product
+  summary: Get the SKUs associated with this product
+  description: ''
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: ID of product
+      required: true
+      type: integer
+      format: int64
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/SkuProduct'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Product not found

@@ -12,7 +12,8 @@
     "portfinder": "^1.0.3",
     "shelljs": "^0.7.0",
     "swagger-repo": "^1.0.0",
-    "swagger-ui": "^2.1.4"
+    "swagger-ui": "^2.1.4",
+    "graceful-fs": "~4.1.11"
   },
   "private": true,
   "scripts": {
@@ -22,5 +23,8 @@
     "test": "swagger-repo validate",
     "start": "gulp serve",
     "deploy-branch": "node ./scripts/deploy-branch.js"
+  },
+  "engines": {
+    "node": ">=4.10.3 <=6.11.2"
   }
 }

@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Order
+  summary: Add a new sku to an order
+  operationId: addOrderSku
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: ID of order that needs to be fetched
+      required: true
+      type: integer
+      format: int64
+    - name: body
+      in: body
+      description: The order sku to update
+      required: true
+      schema:
+        $ref: '#/definitions/newOrderItem'
+  responses:
+    '400':
+      description: Invalid order object
+    '401':
+      description: You do not have permission to update orders

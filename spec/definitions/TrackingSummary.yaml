@@ -1,0 +1,34 @@
+properties:
+  trackingNumber:
+    type: string
+  parentTrackingNumber:
+    type: string
+  carrier:
+    type: string
+  carrierShippingClass:
+    type: string
+  origin:
+    type: string
+  destination:
+    type: string
+  lastCarrierStatus:
+    type: string
+  lastStatusCategory:
+    type: string
+  lastStatusDateTime:
+    type: string
+  lastStatusMessage:
+    type: string
+  lastCheckedDateTime:
+    type: string
+  lastUpdatedDateTime:
+    type: string
+  firstAddedDateTime:
+    type: string
+  fdcOrderId:
+    type: integer
+  events:
+    type: array
+    items:
+      $ref: '#/definitions/TrackingEvent'
+type: object

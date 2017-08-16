@@ -1,0 +1,19 @@
+properties:
+  trackingNumber:
+    description: Tracking Number for this Tracking Event
+    type: string
+  time:
+    type: string
+  location:
+    type: string
+  status:
+    type: string
+  statusCategory:
+    type: string
+  isUtc:
+    type: boolean
+  source:
+    type: string
+  summary:
+    type: string
+type: object

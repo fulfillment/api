@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Order
+  summary: Get a history of statuses for an order
+  operationId: getOrderStatusHistory
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: ID of order that needs to be fetched
+      required: true
+      type: integer
+      format: int64
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/OrderStatus'

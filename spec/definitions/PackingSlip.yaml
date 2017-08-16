@@ -1,0 +1,14 @@
+properties:
+  headerItems:
+    type: array
+    items:
+      type: string
+  barCodeScanValue:
+    type: array
+    items:
+      type: string
+  items:
+    type: array
+    items:
+      $ref: '#/definitions/PackingSlipItem'
+type: object

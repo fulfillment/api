@@ -1,0 +1,109 @@
+get:
+  tags:
+    - Product
+  summary: Get a list of products
+  description: |-
+    To use multiple arguments in a filter separate values with a comma. <br/>
+         *              EX: 465,123,644 <br/>
+         *              A valid api call with multiple filters would look like this: http://api.fulfillment.com/endpoint?warehouses=10,12,13
+  operationId: getProducts
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/pageIndex'
+    - name: productIds
+      in: query
+      description: Product IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: merchantIds
+      in: query
+      description: Merchant IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: types
+      in: query
+      description: Product types to filter by
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: names
+      in: query
+      description: Product names to filter by
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: descriptions
+      in: query
+      description: Product descriptions to filter by
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: namesOrDescriptions
+      in: query
+      description: Filter by name or description
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: skus
+      in: query
+      description: Filter Products by the name of a sku associated with it
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>originalProduct,merchant</b>
+      required: false
+      type: string
+    - name: orderBy
+      in: query
+      description: Column name to sort by. Column name + ASC or DESC
+      required: false
+      type: string
+  responses:
+    '200':
+      description: successful operation
+post:
+  tags:
+    - Product
+  summary: Create a new product
+  operationId: createProduct
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: body
+      in: body
+      description: The product to create
+      required: true
+      schema:
+        $ref: '#/definitions/Product'
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>originalProduct,merchant</b>
+      required: false
+      type: string
+  responses:
+    '400':
+      description: Invalid product object
+    '403':
+      description: You do not have permission to create products

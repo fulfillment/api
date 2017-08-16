@@ -1,0 +1,12 @@
+properties:
+  id:
+    description: Unique id for this status
+    type: integer
+  name:
+    type: string
+  reason:
+    type: string
+  isClosed:
+    description: If this status signifies the order is closed
+    type: boolean
+type: object

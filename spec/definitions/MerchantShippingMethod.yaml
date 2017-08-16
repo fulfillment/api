@@ -1,0 +1,31 @@
+required:
+  - warehouse
+  - merchant
+  - iso2
+  - merchantMethod
+  - carrierMethod
+properties:
+  id:
+    description: The id of the warehouse associated with this method
+    type: integer
+  warehouse:
+    description: The id of the warehouse associated with this method
+    type: integer
+  merchant:
+    description: The id of the merchant associated with this method
+    type: integer
+  iso2:
+    description: The country ISO associated with this method
+    type: string
+  merchantMethod:
+    description: The name of this method
+    type: string
+  carrierMethod:
+    description: The carrier method id associated with this method
+    type: integer
+  createdBy:
+    $ref: '#/definitions/User'
+  recordedOn:
+    type: string
+    format: date-time
+type: object

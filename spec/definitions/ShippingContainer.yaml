@@ -1,0 +1,20 @@
+properties:
+  id:
+    description: ShippingContainer unique identifier
+    type: integer
+  shippingContainerType:
+    $ref: '#/definitions/ShippingContainerType'
+  product:
+    $ref: '#/definitions/Product'
+  service:
+    $ref: '#/definitions/Service'
+  weightType: {}
+  maxWeight:
+    type: number
+    format: float
+  createdBy:
+    $ref: '#/definitions/User'
+  createdAt:
+    type: string
+    format: date-time
+type: object

@@ -1,0 +1,38 @@
+properties:
+  id:
+    description: Merchant unique identifier
+    type: integer
+  name:
+    description: Merchant name
+    type: string
+  lastRecordedOn:
+    type: string
+  accountBal:
+    description: Account Balance
+    type: number
+    format: double
+  holdsFunds:
+    description: Merchant on hold because of lack of funds
+    type: boolean
+  holdsClient:
+    description: Merchant on hold for another reason
+    type: boolean
+  orderGrouping:
+    description: Whether a Merchant's orders should be grouped
+    type: boolean
+  blockShippingApi:
+    description: Boolean
+    type: boolean
+  salesExecutive:
+    type: integer
+  accountManager:
+    description: User ID for the Sales Executive for this Merchant
+    type: integer
+  isActive:
+    description: User ID for the Account Manager for this Merchant
+    type: boolean
+  fees:
+    type: array
+    items:
+      $ref: '#/definitions/MerchantFees'
+type: object

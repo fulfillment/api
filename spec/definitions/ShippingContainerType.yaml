@@ -1,0 +1,8 @@
+properties:
+  id:
+    description: ShippingContainerType unique identifier
+    type: integer
+  name:
+    description: ShippingContainerType name
+    type: string
+type: object

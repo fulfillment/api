@@ -1,0 +1,25 @@
+get:
+  tags:
+    - Audit
+  summary: Get a list of audits of the balance for a merchant
+  description: |-
+    To use multiple arguments in a filter separate values with a comma. <br/>
+         *              EX: 465,123,644 <br/>
+         *              A valid api call with multiple filters would look like this: http://api.fulfillment.com/endpoint?warehouses=10,12,13
+  operationId: getBalanceAudit
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/pageIndex'
+    - name: ids
+      in: query
+      description: Merchant IDs to filter by (restricted to FDC employees)
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+  responses:
+    '200':
+      description: success
+      schema:
+        $ref: '#/definitions/MerchantBalanceAudit'

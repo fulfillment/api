@@ -1,0 +1,211 @@
+get:
+  tags:
+    - Order
+  summary: Get a list of orders
+  description: |-
+    To use multiple arguments in a filter separate values with a comma. <br/>
+      *              EX: 465,123,644 <br/>
+      *              A valid api call with multiple filters would look like this: http://api.fulfillment.com/endpoint?warehouses=10,12,13
+  operationId: getOrders
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/pageIndex'
+    - name: fromDate
+      in: query
+      description: Filter orders created after this date
+      required: false
+      type: string
+    - name: toDate
+      in: query
+      description: Filter orders created before this date
+      required: false
+      type: string
+    - name: ids
+      in: query
+      description: Order IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: merchantOrderIds
+      in: query
+      description: Merchant Order IDs to filter by
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: merchantIds
+      in: query
+      description: Merchant IDs to filter by
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: dateType
+      in: query
+      description: The date type to search by
+      required: false
+      type: integer
+      enum:
+        - recordedOn
+        - shippedOn
+        - departedOn
+        - returnedOn
+    - name: warehouseIds
+      in: query
+      description: Warehouse IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: statusIds
+      in: query
+      description: Status IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: shipStatusIds
+      in: query
+      description: Shipment Status IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: carrierMethodIds
+      in: query
+      description: Carrier Shipping Method IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: carrierIds
+      in: query
+      description: Carrier IDs to filter by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: firstNames
+      in: query
+      description: Filter Orders by a consignee first name
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: lastNames
+      in: query
+      description: Filter Orders by a consignee last name
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: address1
+      in: query
+      description: Filter Orders by a consignee address line 1
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: address2
+      in: query
+      description: Filter Orders by a consignee address line 2
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: cities
+      in: query
+      description: Filter Orders by a consignee city
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: states
+      in: query
+      description: Filter Orders by a consignee state
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: postalCodes
+      in: query
+      description: Filter Orders by a consignee zip
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: countryIds
+      in: query
+      description: Filter Orders by a consignee's country. Accepts either Id or ISO2
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>statusHistory, orderItems, orderSkus,
+        fipStatusHistory, orderProfileDetails</b>
+      required: false
+      type: string
+    - name: orderBy
+      in: query
+      description: Column name to sort by. Column name + ASC or DESC
+      required: false
+      type: string
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Order'
+    '400':
+      description: Must provide a fromDate and toDate or identifiers.
+post:
+  tags:
+    - Order
+  summary: Create a new order
+  operationId: createOrder
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: body
+      in: body
+      description: The order to create
+      required: true
+      schema:
+        $ref: '#/definitions/newOrder'
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>statusHistory, orderItems, orderSkus,
+        fipStatusHistory</b>
+      required: false
+      type: string
+  responses:
+    '200':
+      description: Order Accepted
+    '400':
+      description: Invalid order object
+    '401':
+      description: You do not have permission to create orders

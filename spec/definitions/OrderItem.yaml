@@ -1,0 +1,23 @@
+properties:
+  id:
+    type: integer
+  skuLegacy:
+    type: string
+  productId:
+    type: integer
+  quantity:
+    type: integer
+  lotNum:
+    type: integer
+  moItemId:
+    type: integer
+  declaredValue:
+    type: number
+    format: double
+  orderId:
+    type: integer
+  merchantId:
+    type: integer
+  sku:
+    $ref: '#/definitions/Sku'
+type: object

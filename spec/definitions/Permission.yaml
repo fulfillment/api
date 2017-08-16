@@ -1,0 +1,8 @@
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  fdcOnly:
+    type: boolean
+type: object

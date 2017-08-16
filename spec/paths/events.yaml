@@ -1,0 +1,18 @@
+post:
+  tags:
+    - Order Status Event
+  summary: Add a new event for an order
+  operationId: addOrderStatusEvent
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: body
+      in: body
+      description: The event to add
+      required: true
+      schema:
+        $ref: '#/definitions/OrderStatusEvent'
+  responses:
+    '400':
+      description: Invalid Events object
+    '401':
+      description: You do not have permission to update Events

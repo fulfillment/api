@@ -1,0 +1,30 @@
+required:
+  - id
+properties:
+  id:
+    description: User unique identifier
+    type: integer
+  merchantId:
+    description: Id of the merchant user belongs to
+    type: integer
+  name:
+    description: Name of the user
+    type: string
+  username:
+    description: User's email
+    type: string
+  deptLeader:
+    type: boolean
+  createDate:
+    type: string
+  contactInfo:
+    $ref: '#/definitions/ContactInfo'
+  roles:
+    type: array
+    items:
+      $ref: '#/definitions/Role'
+  permissions:
+    type: array
+    items:
+      $ref: '#/definitions/Permission'
+type: object

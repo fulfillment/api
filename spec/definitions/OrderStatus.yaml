@@ -1,0 +1,18 @@
+properties:
+  id:
+    type: integer
+  date:
+    description: Date this status was created
+    type: string
+    format: date-time
+  isSystemChange:
+    type: boolean
+  userId:
+    type: integer
+  order:
+    $ref: '#/definitions/Order'
+  status:
+    $ref: '#/definitions/Status'
+  reason:
+    type: string
+type: object

@@ -1,0 +1,13 @@
+required:
+  - sku
+  - declaredValue
+  - quantity
+properties:
+  quantity:
+    type: integer
+  sku:
+    type: string
+  declaredValue:
+    type: number
+    format: double
+type: object

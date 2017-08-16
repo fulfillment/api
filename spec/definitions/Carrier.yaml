@@ -1,0 +1,14 @@
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  methods:
+    type: array
+    items:
+      $ref: '#/definitions/CarrierMethod'
+  services:
+    type: array
+    items:
+      $ref: '#/definitions/Service'
+type: object

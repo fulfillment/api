@@ -1,0 +1,64 @@
+get:
+  tags:
+    - Shipping Container
+  summary: Get a list of Shipping Containers
+  operationId: getShippingContainers
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/pageIndex'
+    - name: shippingContainerIds
+      in: query
+      description: Filter by ShippingContainer IDs
+      required: false
+      type: integer
+    - name: shippingContainerTypeIds
+      in: query
+      description: Filter by ShippingContainerType IDs
+      required: false
+      type: integer
+    - name: productIds
+      in: query
+      description: Filter by Product IDs
+      required: false
+      type: integer
+    - name: merchantIds
+      in: query
+      description: Filter by Merchant IDs
+      required: false
+      type: integer
+    - name: warehouseIds
+      in: query
+      description: Filter by Warehouse IDs
+      required: false
+      type: integer
+    - name: serviceIds
+      in: query
+      description: Filter by Service IDs
+      required: false
+      type: integer
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingContainer'
+post:
+  tags:
+    - Shipping Container
+  summary: Create a new ShippingContainer
+  operationId: createShippingContainer
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: body
+      in: body
+      description: The ShippingContainer to create
+      required: true
+      schema:
+        $ref: '#/definitions/CreateShippingContainerRequest'
+  responses:
+    '400':
+      description: Invalid ShippingContainer object
+    '403':
+      description: You do not have permission to create ShippingContainers

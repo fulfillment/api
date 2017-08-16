@@ -2,7 +2,7 @@
   "generator-openapi-repo": {
     "importExistingSpec": true,
     "importedSpec": "v2/swagger.json",
-    "name": "Fulfillment.com API v2",
+    "name": "Fulfillment.com v2",
     "repo": "fulfillment/api",
     "splitSpec": false,
     "samples": true,

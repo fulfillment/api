@@ -1,0 +1,36 @@
+properties:
+  printer: {}
+  shipJob: {}
+  id:
+    type: integer
+  jobType:
+    description: The type of job run
+    type: string
+  status:
+    description: Current status of this job"
+    type: integer
+  itemsFound:
+    description: Number of items discovered in the provided data
+  itemsProcessed:
+    description: Number of items created from the provided data"
+  itemErrors:
+    description: Number of items with errors from the provided data
+  startDate:
+    type: string
+    format: date-time
+  endDate:
+    type: string
+    format: date-time
+  fileName:
+    description: Name of the original file provided
+    type: string
+  convertedFilePath:
+    description: Path of the converted file
+    type: string
+  processReportFilePath:
+    description: Path of the report detailing this job
+    type: string
+  history:
+    $ref: '#/definitions/JobHistory'
+  attempts: {}
+type: object

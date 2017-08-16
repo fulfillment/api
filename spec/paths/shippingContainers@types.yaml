@@ -1,0 +1,21 @@
+get:
+  tags:
+    - Shipping Container
+  summary: Get a list of Shipping Containers Types
+  operationId: getShippingContainerTypes
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/pageIndex'
+    - name: shippingContainerTypeIds
+      in: query
+      description: Filter by ShippingContainerType IDs
+      required: false
+      type: integer
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingContainerType'

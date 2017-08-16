@@ -1,0 +1,39 @@
+required:
+  - fulfillmentFee
+  - pickingFee
+  - kittingFee
+  - printingFee
+  - returnFee
+properties:
+  id:
+    description: Unique identifier for this warehouse fees
+    type: integer
+  name:
+    description: The (optional) name of the warehouse fee
+    type: string
+  fulfillmentFee:
+    description: Fee for fulfillment
+    type: number
+    format: float
+  pickingFee:
+    description: Fee for picking
+    type: number
+    format: float
+  kittingFee:
+    description: Fee for kitting
+    type: number
+    format: float
+  printingFee:
+    description: Fee for printing
+    type: number
+    format: float
+  returnFee:
+    description: Fee for returns
+    type: number
+    format: float
+  isDefault:
+    description: Default fee for this warehouse
+    type: boolean
+  warehouse:
+    $ref: '#/definitions/Warehouse'
+type: object

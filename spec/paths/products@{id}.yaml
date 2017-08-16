@@ -1,0 +1,73 @@
+get:
+  tags:
+    - Product
+  summary: Find a product by Id
+  description: Returns a product based on Id
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: ID of product that needs to be fetched
+      required: true
+      type: integer
+      format: int64
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>originalProduct,merchant</b>
+      required: false
+      type: string
+  responses:
+    '200':
+      description: success
+      schema:
+        $ref: '#/definitions/Product'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Product not found
+put:
+  tags:
+    - Product
+  summary: Update an existing product
+  description: ''
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: Id of the product
+      required: true
+      type: integer
+    - name: body
+      in: body
+      description: Product object that needs to be updated
+      required: true
+      schema:
+        $ref: '#/definitions/Product'
+  responses:
+    '400':
+      description: Invalid ID supplied
+    '403':
+      description: Can only update products for your own merchant
+    '404':
+      description: Product not found
+    '405':
+      description: Validation exception
+delete:
+  tags:
+    - Product
+  summary: Deletes a product
+  description: ''
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: Id of product to delete
+      required: true
+      type: integer
+  responses:
+    '403':
+      description: Insufficient privaleges to access this product
+    '404':
+      description: Product not found

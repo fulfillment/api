@@ -1,0 +1,42 @@
+required:
+  - firstName
+  - lastName
+  - email
+  - phone
+  - address1
+  - city
+  - province
+  - postalCode
+  - country
+properties:
+  email:
+    description: 'Email, required for international shipments'
+    type: string
+  firstName:
+    type: string
+  lastName:
+    type: string
+  phone:
+    description: 'Phone Number, required for international shipments'
+    type: integer
+  address1:
+    description: Address Line 1
+    type: string
+  address2:
+    description: Address Line 2
+    type: string
+  city:
+    description: City
+    type: string
+  province:
+    description: Province / State
+    type: string
+  postalCode:
+    description: Postal Code / Zip
+    type: string
+  country:
+    description: 'Country, please provide the 2 character ISO code'
+    type: string
+  companyName:
+    type: string
+type: object

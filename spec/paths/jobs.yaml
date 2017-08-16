@@ -1,0 +1,48 @@
+get:
+  tags:
+    - Inventory
+  summary: Get all jobs
+  operationId: getJobs
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: fromDate
+      in: query
+      description: Filter jobs created after this date
+      required: false
+      type: string
+    - name: toDate
+      in: query
+      description: Filter jobs created before this date
+      required: false
+      type: string
+    - name: status
+      in: query
+      description: Status IDs to filter current status of a Job by
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: merchantIds
+      in: query
+      description: Merchant IDs to filter by
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+    - name: types
+      in: query
+      description: Types of Jobs to get
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Job'

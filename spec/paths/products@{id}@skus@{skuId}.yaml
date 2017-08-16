@@ -1,0 +1,29 @@
+delete:
+  tags:
+    - Product
+  summary: Removes a sku association
+  description: >-
+    Unless explicitly stated with the <b>deleteSku</b> param <b>only the
+    association between the sku and the product will be removed.</b>
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: Id of the product
+      required: true
+      type: integer
+    - name: skuId
+      in: path
+      description: Id of the sku relationship to remove
+      required: true
+      type: integer
+    - name: deleteSku
+      in: query
+      description: Indicate whether the sku should be deleted
+      required: false
+      type: boolean
+  responses:
+    '403':
+      description: Insufficient privileges to access this sku relationship
+    '404':
+      description: Sku relationship not found

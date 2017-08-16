@@ -1,0 +1,54 @@
+required:
+  - warehouse
+  - merchant
+  - carrierMethod
+properties:
+  id:
+    type: integer
+  warehouse:
+    $ref: '#/definitions/Warehouse'
+  merchant:
+    $ref: '#/definitions/Merchant'
+  carrierName:
+    description: Name of the carrier that owns this method
+    type: string
+  carrierMethod:
+    $ref: '#/definitions/CarrierMethod'
+  carrierMethodName:
+    type: string
+  minimumWeight:
+    type: number
+    format: float
+  maximumWeight:
+    type: number
+    format: float
+  priceUom:
+    type: number
+    format: float
+  shouldReprintPostage:
+    type: boolean
+  isTracked:
+    type: boolean
+  isActive:
+    type: boolean
+  isFlat:
+    type: boolean
+  isDomestic:
+    type: boolean
+  isIntUsa:
+    type: boolean
+  isEU:
+    type: boolean
+  createdBy:
+    $ref: '#/definitions/User'
+  recordedOn:
+    type: string
+    format: date-time
+  systemRate:
+    type: number
+    format: float
+  binId:
+    type: integer
+  carrier:
+    $ref: '#/definitions/Carrier'
+type: object

@@ -1,0 +1,14 @@
+get:
+  tags:
+    - Support Data
+  summary: Get a list of Order Statuses
+  operationId: getOrderStatuses
+  parameters:
+    - $ref: '#/parameters/authHeader'
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Status'

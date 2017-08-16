@@ -1,0 +1,23 @@
+required:
+  - merchantOrderId
+  - items
+  - recipient
+  - shippingMethod
+properties:
+  merchantId:
+    type: string
+  merchantOrderId:
+    type: string
+  items:
+    type: array
+    items:
+      $ref: '#/definitions/newOrderItem'
+  recipient:
+    $ref: '#/definitions/newContactInfo'
+  shippingMethod:
+    type: string
+  notes:
+    type: string
+  integrator:
+    type: string
+type: object

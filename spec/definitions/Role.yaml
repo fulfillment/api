@@ -1,0 +1,12 @@
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  permissions:
+    type: array
+    items:
+      $ref: '#/definitions/Permission'
+  merchant:
+    $ref: '#/definitions/Merchant'
+type: object

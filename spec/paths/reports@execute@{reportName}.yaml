@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Report
+  summary: Generates a report
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: reportName
+      in: path
+      description: The type of report to return
+      required: true
+      type: string
+    - name: reportDate
+      in: query
+      description: Date for this report. Ex 2016-04-06
+      required: true
+      type: string
+    - name: divertEmail
+      in: query
+      description: Email to divert all reports to.
+      required: false
+      type: string
+    - name: merchantId
+      in: query
+      description: Merchant Id to specify which reports to send.
+      required: false
+      type: string
+  responses:
+    '200':
+      description: Success
+    '404':
+      description: Nothing found

@@ -1,0 +1,39 @@
+put:
+  tags:
+    - Report Subscription
+  summary: Update a report subscription's email.
+  description: ID for the Report Subscription is needed.
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: Id of the report subscription
+      required: true
+      type: integer
+    - name: email
+      in: query
+      description: Email to change the report to.
+      required: true
+      type: string
+  responses:
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: ReportSubscription not found
+delete:
+  tags:
+    - Report Subscription
+  summary: Delete a report subscription.
+  description: Delete a report subscription based on it's ID.
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: Id of report subscription
+      required: true
+      type: integer
+  responses:
+    '400':
+      description: Invalid Report Subscription ID supplied.
+    '404':
+      description: Merchant doesn't exist.

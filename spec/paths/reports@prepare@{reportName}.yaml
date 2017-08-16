@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Report
+  summary: Generates the data behind a report
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: reportName
+      in: path
+      description: The type of report to return
+      required: true
+      type: string
+    - name: fromDate
+      in: query
+      description: Start date for this report. Ex 2016-04-06
+      required: true
+      type: string
+    - name: toDate
+      in: query
+      description: End date for this report. Ex 2016-04-06
+      required: true
+      type: string
+    - name: Merchants
+      in: query
+      description: limit scope of preparing to one or more clients
+      required: false
+      type: string
+      collectionFormat: multi
+  responses:
+    '404':
+      description: Nothing found

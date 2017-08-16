@@ -1,0 +1,13 @@
+required:
+  - shippingContainerTypeId
+  - productId
+properties:
+  shippingContainerTypeId:
+    type: integer
+  productId:
+    type: integer
+  serviceId: {}
+  weightTypeId: {}
+  maxWeight:
+    description: The maximum weight the container can support
+type: object

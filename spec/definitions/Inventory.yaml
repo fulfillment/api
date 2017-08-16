@@ -1,0 +1,53 @@
+properties:
+  id:
+    description: Unique identifier for this invenetory
+    type: integer
+  warehouseId:
+    description: ID of the warehouse
+    type: integer
+  quantity:
+    description: The current quantity of stock for this inventory
+    type: integer
+  location:
+    description: 'Location of this inventory within the warehouse, if specified'
+    type: string
+  isPriority:
+    description: 'Indicates whether the inventory gets priority shipping, when available'
+    type: boolean
+  reservedQuantity:
+    description: The reserved quantity of stock for this inventory
+    type: integer
+  isActive:
+    type: boolean
+  isPerishable:
+    description: Is this product perishable?
+    type: boolean
+  isDangerous:
+    description: Is this product dangerous?
+    type: boolean
+  isFragile:
+    description: Is this product fragile?
+    type: boolean
+  length:
+    description: Length of the product in INCHES
+    type: number
+    format: float
+  width:
+    description: Width of the product in INCHES
+    type: number
+    format: float
+  height:
+    description: Height of the product in INCHES
+    type: number
+    format: float
+  weight:
+    description: Weight of the product in OUNCES
+    type: number
+    format: float
+  warehouse:
+    $ref: '#/definitions/Warehouse'
+  merchant:
+    $ref: '#/definitions/Merchant'
+  product:
+    $ref: '#/definitions/Product'
+type: object

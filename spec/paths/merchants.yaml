@@ -1,0 +1,54 @@
+get:
+  tags:
+    - Merchant
+  summary: Get a list of merchants
+  description: |-
+    To use multiple arguments in a filter separate values with a comma. <br/>
+         *              EX: 465,123,644 <br/>
+         *              A valid api call with multiple filters would look like this: http://api.fulfillment.com/endpoint?warehouses=10,12,13
+  operationId: getMerchants
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/pageIndex'
+    - name: merchantIds
+      in: query
+      description: Merchant IDs to filter by (restricted to FDC employees)
+      required: false
+      type: array
+      items:
+        type: integer
+      collectionFormat: multi
+    - name: names
+      in: query
+      description: Merchant names to filter by (restricted to FDC employees)
+      required: false
+      type: array
+      items:
+        type: string
+      collectionFormat: multi
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Merchant'
+post:
+  tags:
+    - Merchant
+  summary: Create a new merchant
+  operationId: createMerchant
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: body
+      in: body
+      description: The merchant to create
+      required: true
+      schema:
+        $ref: '#/definitions/Merchant'
+  responses:
+    '400':
+      description: Invalid merchant object
+    '401':
+      description: You do not have permission to create merchants

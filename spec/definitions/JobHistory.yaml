@@ -1,0 +1,9 @@
+properties:
+  id:
+    type: integer
+  job:
+    $ref: '#/definitions/Job'
+  createdAt:
+    type: string
+    format: date-time
+type: object

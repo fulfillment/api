@@ -1,0 +1,72 @@
+get:
+  tags:
+    - Inventory
+  summary: Get a list of inventory
+  description: |-
+    To use multiple arguments in a filter separate values with a comma. <br/>
+         *              EX: 465,123,644 <br/>
+         *              A valid api call with multiple filters would look like this: http://api.fulfillment.com/endpoint?warehouses=10,12,13
+  operationId: getInventory
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/limit'
+    - $ref: '#/parameters/pageIndex'
+    - name: ids
+      in: query
+      description: Filter by inventory IDs
+      required: false
+      type: integer
+    - name: productNames
+      in: query
+      description: Filter inventory by products with names like the given terms
+      required: false
+      type: string
+    - name: warehouseIds
+      in: query
+      description: Filter inventory by warehouse
+      required: false
+      type: integer
+    - name: productTypes
+      in: query
+      description: Filter inventory by products with the given type
+      required: false
+      type: string
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>warehouse,product,merchant</b>
+      required: false
+      type: string
+  responses:
+    '200':
+      description: success
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Inventory'
+post:
+  tags:
+    - Inventory
+  summary: Create new inventory entry for a product
+  operationId: createInventory
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: body
+      in: body
+      description: The inventory to create
+      required: true
+      schema:
+        $ref: '#/definitions/Inventory'
+    - name: hydrate
+      in: query
+      description: >-
+        Comma-delimited list of properties to include on model response.
+        Available properties: <b>warehouse,product,merchant</b>
+      required: false
+      type: string
+  responses:
+    '400':
+      description: Invalid inventory object
+    '403':
+      description: You do not have permission to create inventory
