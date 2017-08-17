@@ -22,6 +22,10 @@ properties:
   isCharged:
     description: Has this item been paid for?
     type: boolean
+  defaultValue:
+    description: Default declared value for a product
+    type: number
+    format: float
   skuProducts:
     description: The SKUs for this product
     type: array
