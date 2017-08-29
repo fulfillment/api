@@ -4,8 +4,8 @@ required:
   - email
   - phone
   - address1
-  - city
-  - province
+  - addressLocality
+  - addressRegion
   - postalCode
   - country
 properties:
@@ -25,10 +25,10 @@ properties:
   address2:
     description: Address Line 2
     type: string
-  city:
+  addressLocality:
     description: City
     type: string
-  province:
+  addressRegion:
     description: Province / State
     type: string
   postalCode:

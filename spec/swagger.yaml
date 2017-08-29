@@ -14,20 +14,6 @@ parameters:
   authHeader:
     name: Authorization
     in: header
-    description: Access token required to authenticate the request
+    description: OAuth 2.0 Bearer Access token required to authenticate the request
     required: true
     type: string
-  limit:
-    name: limit
-    in: query
-    description: >-
-      Number of results to return per page </br> <strong>default 80, max
-      200</strong>
-    required: false
-    type: integer
-  pageIndex:
-    name: page
-    in: query
-    description: Index of page results to return
-    required: false
-    type: integer

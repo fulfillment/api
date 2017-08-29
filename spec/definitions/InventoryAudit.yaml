@@ -1,8 +1,0 @@
-properties:
-  order:
-    $ref: '#/definitions/Order'
-  inventory:
-    $ref: '#/definitions/Inventory'
-  recordedBy:
-    $ref: '#/definitions/User'
-type: object

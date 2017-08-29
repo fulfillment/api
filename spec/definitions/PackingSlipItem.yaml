@@ -1,8 +1,0 @@
-properties:
-  product:
-    $ref: '#/definitions/Product'
-  quantity:
-    type: integer
-  type:
-    type: string
-type: object

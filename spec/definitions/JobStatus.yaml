@@ -1,8 +1,0 @@
-properties:
-  id:
-    type: integer
-  name:
-    type: string
-  message:
-    type: string
-type: object

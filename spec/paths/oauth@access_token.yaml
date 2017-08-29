@@ -1,0 +1,18 @@
+post:
+  tags:
+    - Auth
+  summary: >-
+    Get required Auth Token for future requests, you are going to need a
+    client_id and client_secret, please contact your account execuitive
+  parameters:
+    - name: body
+      in: body
+      description: Getting a token
+      required: true
+      schema:
+        $ref: '#/definitions/access_token'
+  responses:
+    '200':
+      description: Authorized
+    '404':
+      description: Unauthorized

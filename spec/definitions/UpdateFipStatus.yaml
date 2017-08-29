@@ -1,9 +1,0 @@
-required:
-  - fipStatusId
-  - notes
-properties:
-  fipStatusId:
-    type: integer
-  notes:
-    type: string
-type: object

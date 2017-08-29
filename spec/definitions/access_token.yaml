@@ -1,0 +1,28 @@
+properties:
+  client_id:
+    description: Client ID
+    type: string
+  client_secret:
+    description: Client Secret
+    type: string
+  grant_type:
+    description: Requested Grant Type
+    type: string
+    enum:
+      - password
+      - client_credentials
+      - refresh_token
+      - authorization_code
+    default: password
+  scope:
+    description: Scope
+    type: string
+    enum:
+      - oms
+    default: oms
+  username:
+    description: Username
+    type: string
+  password:
+    description: Password
+    type: string

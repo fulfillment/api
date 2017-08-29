@@ -13,4 +13,6 @@ delete:
       format: int64
   responses:
     '200':
-      description: successful operation
+      description: Your order was successfully canceled
+    '405':
+      description: 'Could not cancel your order, prehaps it already shipped'

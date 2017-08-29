@@ -8,6 +8,9 @@ properties:
   sku:
     type: string
   declaredValue:
+    description: A sum total of all declared values attached to this line item
     type: number
     format: double
+    exclusiveMinimum: true
+    minimum: 0
 type: object

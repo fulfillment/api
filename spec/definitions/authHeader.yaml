@@ -1,5 +1,0 @@
-properties:
-  Authorization:
-    description: OAuth 2.0 Bearer Authorization
-    type: string
-type: object

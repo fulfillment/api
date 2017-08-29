@@ -10,15 +10,12 @@
     + YAML https://fulfillment.github.io/api/swagger.yaml
 - Preview spec version for branch `[branch]`: https://fulfillment.github.io/api/preview/[branch]
 
-**Warning:** All above links are updated only after Travis CI finishes deployment
 
 ## Working on specification
-
 
 ### Usage
 
 Note use node v6 or lower, to manage your node version look into '[n](https://github.com/tj/n)'
-
 
 1. Run `npm start`
 2. Checkout console output to see where local server is started.
@@ -26,3 +23,5 @@ Note use node v6 or lower, to manage your node version look into '[n](https://gi
 4. All changes are immediately propagated to your local server, moreover all documentation pages will be automagically refreshed in a browser after each change
 **TIP:** you can open `swagger-editor`, documentation and `swagger-ui` in parallel
 5. Once you finish with the changes you can run tests using: `npm test`
+
+After you have committed your changes the above links will be updated only after Travis CI finishes deployment.
