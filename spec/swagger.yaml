@@ -75,7 +75,6 @@ parameters:
     type: string
 tags:
   - name: auth
-    description: null
   - name: orders
     description: Creating and Canceling Orders
 x-tagGroups:
