@@ -5,7 +5,6 @@ post:
   parameters:
     - name: body
       in: body
-      description: Getting a token
       required: true
       schema:
         $ref: '#/definitions/access_token'

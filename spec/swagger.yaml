@@ -56,7 +56,7 @@ parameters:
   authHeader:
     name: Authorization
     in: header
-    description: OAuth 2.0 Bearer Access token required to authenticate the request
+    description: OAuth 2.0 Bearer Access Token
     required: true
     type: string
 tags:
