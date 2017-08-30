@@ -15,7 +15,7 @@ delete:
     '200':
       description: Your order was successfully canceled
       schema:
-        $ref: '#/definitions/orderResponse'
+        $ref: '#/definitions/order'
     '405':
       description: 'Could not cancel your order, perhaps it already shipped'
       schema:

@@ -7,6 +7,7 @@ properties:
   merchantId:
     type: string
   merchantOrderId:
+    description: Unique ID provided by the merchant
     type: string
   items:
     type: array

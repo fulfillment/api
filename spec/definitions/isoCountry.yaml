@@ -1,0 +1,11 @@
+properties:
+  id:
+    type: integer
+  name:
+    description: Country Name
+    type: string
+  iso2:
+    description: Two character ISO code
+    type: string
+    minimum: 2
+    maximum: 2

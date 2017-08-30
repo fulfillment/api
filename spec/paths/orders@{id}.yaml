@@ -1,0 +1,19 @@
+get:
+  tags:
+    - orders
+  summary: Get order details
+  operationId: getOrder
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: The FDC order Id
+      required: true
+      type: integer
+  responses:
+    '200':
+      description: Order found
+      schema:
+        $ref: '#/definitions/order'
+    '404':
+      description: Order not found

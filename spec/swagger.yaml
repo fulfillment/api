@@ -15,7 +15,7 @@ info:
     an existing API request.
 
 
-    #### Current Response from `POST /order`
+    #### A Current Response
 
     ```javascript
 
@@ -26,15 +26,13 @@ info:
     ```
 
 
-    #### Potential Future Response
+    #### A Potential Future Response
 
     ```javascript
 
     {
       id: 123,
-      currentStatus: {
-        # "Knowledge of what may need correction"
-      }
+      reason: "More Knowledge"
     }
 
     ```
@@ -44,6 +42,22 @@ info:
 
     All you need to do is specify the version in the URL of your request
     https://api.fulfillment.com/v2
+
+
+    # Getting Started
+
+    1. We use oAuth 2.0, you will need to contact your account executive so that
+    you may obtain an oAuth `client_id` and `client_secret`
+
+    2. Using those auth credentials along with a your `username` and `password`
+    obtain an `access_token`
+
+    see [POST
+    /oauth/access_token](#tag/auth%2Fpaths%2F~1oauth~1access_token%2Fpost).
+
+    3. After you have obtained your access token you can make future requests to
+    our other API's by filling your `Authorization` header with `Bearer
+    {access_token}`
   x-logo:
     url: 'https://s3.amazonaws.com/fdc-client-logos/FDC_API_144x144.png'
   termsOfService: 'https://fulfillment.github.io/api/terms/'
@@ -61,19 +75,7 @@ parameters:
     type: string
 tags:
   - name: auth
-    description: >
-      1. We use oAuth 2.0, you will need to contact your account executive so
-      that you may obtain an oAuth `client_id` and `client_secret`
-
-      2. Using those auth credentials along with a your (or an designated user
-      account) `username` and `password` to obtain an `access_token`
-
-      see [POST
-      /oauth/access_token](#tag/auth%2Fpaths%2F~1oauth~1access_token%2Fpost).
-
-      3. After you have obtained your access token you can make future requests
-      to our other API's by filling your `Authorization` header with `Bearer
-      {access_token}`
+    description: null
   - name: orders
     description: Creating and Canceling Orders
 x-tagGroups:

@@ -1,0 +1,18 @@
+required:
+  - id
+  - name
+  - isClosed
+properties:
+  id:
+    description: Unique ID
+    type: integer
+  name:
+    description: Status' name
+    type: string
+  reason:
+    description: Possible description of reasoning for status
+    type: string
+  isClosed:
+    description: Does this status event close the order
+    type: boolean
+type: object

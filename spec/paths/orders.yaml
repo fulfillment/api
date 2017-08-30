@@ -15,7 +15,7 @@ post:
     '200':
       description: Order Accepted
       schema:
-        $ref: '#/definitions/orderResponse'
+        $ref: '#/definitions/order'
     '400':
       description: Invalid order object
       schema:

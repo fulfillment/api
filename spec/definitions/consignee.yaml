@@ -1,29 +1,22 @@
 required:
+  - id
   - firstName
   - lastName
-  - email
-  - phone
   - address1
-  - addressLocality
-  - addressRegion
-  - postalCode
-  - country
 properties:
+  id:
+    type: integer
   email:
-    description: 'Email, required for international shipments'
     type: string
   firstName:
     type: string
   lastName:
     type: string
   phone:
-    description: 'Phone Number, required for international shipments'
     type: string
   address1:
-    description: Address Line 1
     type: string
   address2:
-    description: Address Line 2
     type: string
   addressLocality:
     description: City
@@ -35,8 +28,15 @@ properties:
     description: Postal Code / Zip
     type: string
   country:
-    description: 'Country, for best results please provide the two character ISO code'
+    description: Ideally provide the two character ISO code
     type: string
   companyName:
     type: string
+  iso:
+    $ref: '#/definitions/isoCountry'
+  updatedAt:
+    type: string
+    format: date-time
+  updatedBy:
+    $ref: '#/definitions/user'
 type: object

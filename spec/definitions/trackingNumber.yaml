@@ -1,0 +1,10 @@
+properties:
+  value:
+    description: The human readable tracking number recipients will expect
+    type: string
+  barcodeScanValue:
+    description: The computer readable alternative to the human readable
+    type: string
+  carrier:
+    type: string
+type: object

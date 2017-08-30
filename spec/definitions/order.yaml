@@ -1,0 +1,44 @@
+required:
+  - id
+properties:
+  id:
+    description: Unique ID for this order
+    type: integer
+  parentOrder:
+    description: Possible reference to id if we've grouped orders
+    type: integer
+  merchantOrderId:
+    description: Unique ID provided by the merchant
+    type: string
+  purchaseOrderNum:
+    description: 'Merchant supplied PO#'
+    type: string
+  merchantShippingMethod:
+    description: Requested ship method
+    type: string
+  recordedOn:
+    description: UTC DateTime order was recorded by FDC
+    type: string
+    format: date-time
+  dispatchDate:
+    description: UTC DateTime order was dispatched for fulfillment by FDC
+    type: string
+    format: date-time
+  departDate:
+    description: UTC DateTime order departed an FDC facility
+    type: string
+    format: date-time
+  merchant:
+    $ref: '#/definitions/merchant'
+  warehouse:
+    $ref: '#/definitions/warehouse'
+  currentStatus:
+    $ref: '#/definitions/statusEvent'
+  originalConsignee:
+    $ref: '#/definitions/consignee'
+  validatedConsignee:
+    $ref: '#/definitions/consignee'
+  trackingNumbers:
+    items:
+      $ref: '#/definitions/trackingNumber'
+type: object
