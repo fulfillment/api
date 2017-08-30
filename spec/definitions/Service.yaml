@@ -1,8 +1,0 @@
-properties:
-  id:
-    type: integer
-  name:
-    type: string
-  carrier:
-    $ref: '#/definitions/Carrier'
-type: object

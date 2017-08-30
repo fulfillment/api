@@ -8,7 +8,7 @@ properties:
   sku:
     type: string
   declaredValue:
-    description: A sum total of all declared values attached to this line item
+    description: A per unit value
     type: number
     format: double
     exclusiveMinimum: true

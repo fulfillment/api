@@ -1,8 +1,6 @@
 properties:
-  id:
+  error_code:
     type: integer
-  name:
+  message:
     type: string
-  fdcOnly:
-    type: boolean
 type: object

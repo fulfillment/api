@@ -1,6 +1,6 @@
 delete:
   tags:
-    - Order
+    - orders
   summary: Cancel an order
   operationId: cancelOrder
   parameters:
@@ -15,4 +15,4 @@ delete:
     '200':
       description: Your order was successfully canceled
     '405':
-      description: 'Could not cancel your order, prehaps it already shipped'
+      description: 'Could not cancel your order, perhaps it already shipped'

@@ -18,7 +18,7 @@ properties:
     type: string
   phone:
     description: 'Phone Number, required for international shipments'
-    type: integer
+    type: string
   address1:
     description: Address Line 1
     type: string

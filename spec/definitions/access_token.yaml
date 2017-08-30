@@ -26,3 +26,4 @@ properties:
   password:
     description: Password
     type: string
+type: object

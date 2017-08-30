@@ -1,6 +1,6 @@
 post:
   tags:
-    - Order
+    - orders
   summary: Create a new order
   operationId: createOrder
   parameters:
@@ -11,18 +11,14 @@ post:
       required: true
       schema:
         $ref: '#/definitions/newOrder'
-    - name: hydrate
-      in: query
-      description: >-
-        Comma-delimited list of properties to include on model response.
-        Available properties: <b>statusHistory, orderItems, orderSkus,
-        fipStatusHistory</b>
-      required: false
-      type: string
   responses:
     '200':
       description: Order Accepted
+      schema:
+        $ref: '#/definitions/newOrderResponse'
     '400':
       description: Invalid order object
+      schema:
+        $ref: '#/definitions/standardError'
     '401':
       description: You do not have permission to create orders

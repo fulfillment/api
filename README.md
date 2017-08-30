@@ -1,19 +1,18 @@
 # Fulfillment.com API v2 OpenAPI Specification
 [![Build Status](https://travis-ci.org/fulfillment/api.svg?branch=master)](https://travis-ci.org/fulfillment/api)
 
+Our current version is hosted at https://api.fulfillment.com/v2
+
 ## Links
 
-- Documentation(ReDoc): https://fulfillment.github.io/api/
-- SwaggerUI: https://fulfillment.github.io/api/swagger-ui/
+- [Official Documentation](https://fulfillment.github.io/api/) (ReDoc)
+- [SwaggerUI](https://fulfillment.github.io/api/swagger-ui/)
 - Look full spec:
     + JSON https://fulfillment.github.io/api/swagger.json
     + YAML https://fulfillment.github.io/api/swagger.yaml
-- Preview spec version for branch `[branch]`: https://fulfillment.github.io/api/preview/[branch]
 
 
 ## Working on specification
-
-### Usage
 
 Note use node v6 or lower, to manage your node version look into '[n](https://github.com/tj/n)'
 

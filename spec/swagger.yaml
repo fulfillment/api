@@ -1,14 +1,56 @@
 swagger: '2.0'
 info:
-  title: Api Next
-  description: Documentation for FDC's API
+  title: Fulfillment.com API
+  description: >
+    Welcome to our current iteration of our REST API. While we encourage you to
+    upgrade to v2.0 we will continue support for our [SOAP
+    API](https://github.com/fulfillment/soap-integration).
+
+    # Versioning
+
+    The FDC REST API is version controlled and backwards compatible. Meaning you
+    have nothing to worry about... while we have many future API's scheduled for
+    publication within our v2.0 spec, we will not remove knowledge from
+    previously published API's. But be prepared for us to add response data to
+    an existing API request.
+
+
+    #### Current Response from `POST /order`
+
+    ```javascript
+
+    {
+      id: 123
+    }
+
+    ```
+
+
+    #### Potential Future Response
+
+    ```javascript
+
+    {
+      id: 123,
+      currentStatus: {
+        # "Knowledge of what may need correction"
+      }
+    }
+
+    ```
+
+
+    ## Using v2.0
+
+    All you need to do is specify the version in the URL of your request
+    https://api.fulfillment.com/v2
+  x-logo:
+    url: 'https://s3.amazonaws.com/fdc-client-logos/FDC_API_144x144.png'
   termsOfService: 'https://fulfillment.github.io/api/terms/'
   contact:
     email: dev@fulfillment.com
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   version: '2.0'
+host: api.fulfillment.com
 basePath: /v2
 parameters:
   authHeader:
@@ -17,3 +59,27 @@ parameters:
     description: OAuth 2.0 Bearer Access token required to authenticate the request
     required: true
     type: string
+tags:
+  - name: auth
+    description: >
+      1. We use oAuth 2.0, you will need to contact your account executive so
+      that you may obtain an oAuth `client_id` and `client_secret`
+
+      2. Using those auth credentials along with a your (or an designated user
+      account) `username` and `password` to obtain an `access_token`
+
+      see [POST
+      /oauth/access_token](#tag/auth%2Fpaths%2F~1oauth~1access_token%2Fpost).
+
+      3. After you have obtained your access token you can make future requests
+      to our other API's by filling your `Authorization` header with `Bearer
+      {access_token}`
+  - name: orders
+    description: Creating and Canceling Orders
+x-tagGroups:
+  - name: Support
+    tags:
+      - auth
+  - name: Order Management
+    tags:
+      - orders

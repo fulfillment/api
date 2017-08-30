@@ -1,9 +1,7 @@
 post:
   tags:
-    - Auth
-  summary: >-
-    Get required Auth Token for future requests, you are going to need a
-    client_id and client_secret, please contact your account execuitive
+    - auth
+  summary: Get an access token
   parameters:
     - name: body
       in: body
@@ -14,5 +12,9 @@ post:
   responses:
     '200':
       description: Authorized
+      schema:
+        $ref: '#/definitions/access_token_response'
     '404':
       description: Unauthorized
+      schema:
+        $ref: '#/definitions/standardError'
