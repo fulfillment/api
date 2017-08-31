@@ -10,3 +10,4 @@ properties:
     pattern: '[A-Z]{2}'
     minimum: 2
     maximum: 2
+type: object
