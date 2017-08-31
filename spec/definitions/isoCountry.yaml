@@ -7,5 +7,6 @@ properties:
   iso2:
     description: Two character ISO code
     type: string
+    pattern: '[A-Z]{2}'
     minimum: 2
     maximum: 2

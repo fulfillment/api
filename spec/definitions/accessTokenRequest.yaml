@@ -10,9 +10,6 @@ properties:
     type: string
     enum:
       - password
-      - client_credentials
-      - refresh_token
-      - authorization_code
     default: password
   scope:
     description: Scope

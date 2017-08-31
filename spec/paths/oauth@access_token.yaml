@@ -8,7 +8,7 @@ post:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/accessToken'
+        $ref: '#/definitions/accessTokenRequest'
   responses:
     '200':
       description: Authorized

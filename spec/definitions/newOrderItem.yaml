@@ -15,5 +15,4 @@ properties:
       `declaredValue` against the `quantity` for customs declaration.
     type: number
     format: double
-    minimum: 0.01
 type: object
