@@ -5,6 +5,7 @@ required:
 properties:
   quantity:
     type: integer
+    minimum: 1
   sku:
     type: string
   declaredValue:
@@ -14,6 +15,5 @@ properties:
       `declaredValue` against the `quantity` for customs declaration.
     type: number
     format: double
-    exclusiveMinimum: true
-    minimum: 0
+    minimum: 0.01
 type: object

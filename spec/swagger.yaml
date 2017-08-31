@@ -8,11 +8,11 @@ info:
 
     # Versioning
 
-    The FDC REST API is version controlled and backwards compatible. Meaning you
-    have nothing to worry about... while we have many future API's scheduled for
-    publication within our v2.0 spec, we will not remove knowledge from
-    previously published API's. But be prepared for us to add data nodes in our
-    responses.
+    The Fulfillment.com (FDC) REST API is version controlled and backwards
+    compatible. Meaning you have nothing to worry about... while we have many
+    future APIs scheduled for publication within our v2.0 spec, we will not
+    remove knowledge from previously published APIs. But be prepared for us to
+    add data nodes in our responses.
 
 
     #### A Current Response
@@ -56,7 +56,7 @@ info:
     /oauth/access_token](#tag/auth%2Fpaths%2F~1oauth~1access_token%2Fpost).
       + Tip: Generate an additional login and use those credentials for your integration so that changes are accredited to that "user".
     3. After you obtain an access token you can make future requests to our
-    other API's by filling your `Authorization` header with `Bearer
+    other APIs by filling your `Authorization` header with `Bearer
     {access_token}`.
 
 

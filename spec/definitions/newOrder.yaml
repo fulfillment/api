@@ -5,7 +5,7 @@ required:
   - shippingMethod
 properties:
   merchantId:
-    type: string
+    type: integer
   merchantOrderId:
     description: Unique ID provided by the merchant
     type: string
