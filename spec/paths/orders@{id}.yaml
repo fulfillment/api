@@ -1,7 +1,8 @@
 get:
   tags:
     - orders
-  summary: Get order details
+  summary: Get Order Details
+  description: Optionally you can use your `merchantOrderId` as the `id`
   operationId: getOrder
   parameters:
     - $ref: '#/parameters/authHeader'
@@ -9,7 +10,7 @@ get:
       in: path
       description: The FDC order Id
       required: true
-      type: integer
+      type: string
   responses:
     '200':
       description: Order found

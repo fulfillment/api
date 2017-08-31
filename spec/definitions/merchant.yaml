@@ -3,7 +3,6 @@ required:
   - name
 properties:
   id:
-    description: Unique ID
     type: integer
   name:
     description: Merchant Company Name

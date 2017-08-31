@@ -6,4 +6,5 @@ properties:
     default: Bearer
   expires_in:
     type: integer
+    default: 604800
 type: object

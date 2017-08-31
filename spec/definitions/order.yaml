@@ -1,31 +1,38 @@
 required:
   - id
+  - merchantOrderId
+  - merchantShippingMethod
+  - recordedOn
+  - merchant
+  - currentStatus
+  - originalConsignee
+  - validatedConsignee
 properties:
   id:
-    description: Unique ID for this order
+    description: FDC ID for this order
     type: integer
   parentOrder:
-    description: Possible reference to id if we've grouped orders
+    description: Possible reference to `id` if we've grouped orders
     type: integer
   merchantOrderId:
-    description: Unique ID provided by the merchant
+    description: Merchant provided ID
     type: string
   purchaseOrderNum:
-    description: 'Merchant supplied PO#'
+    description: 'Merchant provided PO#'
     type: string
   merchantShippingMethod:
     description: Requested ship method
     type: string
   recordedOn:
-    description: UTC DateTime order was recorded by FDC
+    description: DateTime order was recorded by FDC
     type: string
     format: date-time
   dispatchDate:
-    description: UTC DateTime order was dispatched for fulfillment by FDC
+    description: DateTime order was dispatched for fulfillment by FDC
     type: string
     format: date-time
   departDate:
-    description: UTC DateTime order departed an FDC facility
+    description: DateTime order departed an FDC warehouse
     type: string
     format: date-time
   merchant:
@@ -41,4 +48,5 @@ properties:
   trackingNumbers:
     items:
       $ref: '#/definitions/trackingNumber'
+    type: array
 type: object

@@ -1,5 +1,4 @@
 # Fulfillment.com API v2 OpenAPI Specification
-[![Build Status](https://travis-ci.org/fulfillment/api.svg?branch=master)](https://travis-ci.org/fulfillment/api)
 
 Our current version is hosted at https://api.fulfillment.com/v2
 
@@ -13,6 +12,7 @@ Our current version is hosted at https://api.fulfillment.com/v2
 
 
 ## Working on specification
+[![Build Status](https://travis-ci.org/fulfillment/api.svg?branch=master)](https://travis-ci.org/fulfillment/api)
 
 Note use node v6 or lower, to manage your node version look into '[n](https://github.com/tj/n)'
 

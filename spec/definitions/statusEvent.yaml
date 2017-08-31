@@ -2,7 +2,6 @@ required:
   - id
 properties:
   id:
-    description: Unique ID
     type: integer
   date:
     description: DateTime of Status Event

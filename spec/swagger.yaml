@@ -11,8 +11,8 @@ info:
     The FDC REST API is version controlled and backwards compatible. Meaning you
     have nothing to worry about... while we have many future API's scheduled for
     publication within our v2.0 spec, we will not remove knowledge from
-    previously published API's. But be prepared for us to add response data to
-    an existing API request.
+    previously published API's. But be prepared for us to add data nodes in our
+    responses.
 
 
     #### A Current Response
@@ -38,7 +38,7 @@ info:
     ```
 
 
-    ## Using v2.0
+    ## Using FDC API v2.0
 
     All you need to do is specify the version in the URL of your request
     https://api.fulfillment.com/v2
@@ -46,18 +46,44 @@ info:
 
     # Getting Started
 
-    1. We use oAuth 2.0, you will need to contact your account executive so that
-    you may obtain an oAuth `client_id` and `client_secret`
+    1. We use OAuth v2.0 to authenticate clients, you will need to contact your
+    account executive so that you may obtain an OAuth `client_id` and
+    `client_secret`.
 
     2. Using those auth credentials along with a your `username` and `password`
     obtain an `access_token`
 
     see [POST
     /oauth/access_token](#tag/auth%2Fpaths%2F~1oauth~1access_token%2Fpost).
+      + Tip: Generate an additional login and use those credentials for your integration so that changes are accredited to that "user".
+    3. After you obtain an access token you can make future requests to our
+    other API's by filling your `Authorization` header with `Bearer
+    {access_token}`.
 
-    3. After you have obtained your access token you can make future requests to
-    our other API's by filling your `Authorization` header with `Bearer
-    {access_token}`
+
+    ## Date Time Definitions
+
+    We will report all date-time stamps using the [ISO
+    8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+
+
+    ### The Fulfillment Process
+
+    Although many steps are required to fulfill your order we report back to you
+    three fundamental milestones inside the orders model.
+
+    * `recordedOn` When we received your order. This will never change.
+
+    * `dispatchedOn` When the current iteration of your order was scheduled for
+    fulfillment. This may change however it is an indicator that the physical
+    process of fulfillment has begun and a tracking number has been **assigned**
+    to your order. The tracking number **MAY CHANGE**. You will not be able to
+    cancel an order once it has been dispatched. If you need to recall an order
+    that has been dispatched please contact your account executive.
+
+    * `departedOn` When we recorded your order passing our final inspection and
+    placed with the carrier. At this point it is **safe to inform the
+    consignee** of the tracking number as it will not change.
   x-logo:
     url: 'https://s3.amazonaws.com/fdc-client-logos/FDC_API_144x144.png'
   termsOfService: 'https://fulfillment.github.io/api/terms/'
@@ -75,8 +101,11 @@ parameters:
     type: string
 tags:
   - name: auth
+    description: >-
+      Please note that in keeping with the OAuth standard, parameters are
+      underscored however all other API parameters are cammelCase.
   - name: orders
-    description: Creating and Canceling Orders
+    description: 'Creating, viewing, and canceling orders'
 x-tagGroups:
   - name: Support
     tags:

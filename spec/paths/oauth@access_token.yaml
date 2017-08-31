@@ -1,7 +1,8 @@
 post:
   tags:
     - auth
-  summary: Get an access token
+  summary: Generate an Access Token
+  description: By default tokens are valid for 7 days.
   parameters:
     - name: body
       in: body

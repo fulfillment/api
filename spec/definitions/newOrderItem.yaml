@@ -8,7 +8,10 @@ properties:
   sku:
     type: string
   declaredValue:
-    description: A per unit value
+    description: >-
+      Using USD, a per unit value of a single SKU. If your declaring a kit this
+      is the sum total for a single kit. In both scenarios we will multiply the
+      `declaredValue` against the `quantity` for customs declaration.
     type: number
     format: double
     exclusiveMinimum: true

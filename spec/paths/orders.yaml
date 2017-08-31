@@ -1,7 +1,7 @@
 post:
   tags:
     - orders
-  summary: Create a new order
+  summary: Create a New Order
   operationId: createOrder
   parameters:
     - $ref: '#/parameters/authHeader'

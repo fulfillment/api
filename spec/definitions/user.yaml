@@ -2,6 +2,5 @@ required:
   - id
 properties:
   id:
-    description: Unique user id
     type: integer
 type: object
