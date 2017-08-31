@@ -8,12 +8,12 @@ post:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/access_token'
+        $ref: '#/definitions/accessToken'
   responses:
     '200':
       description: Authorized
       schema:
-        $ref: '#/definitions/access_token_response'
+        $ref: '#/definitions/accessTokenResponse'
     '404':
       description: Unauthorized
       schema:
