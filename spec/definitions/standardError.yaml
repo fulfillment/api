@@ -1,5 +1,5 @@
 properties:
-  error_code:
+  errorCode:
     type: integer
   message:
     type: string

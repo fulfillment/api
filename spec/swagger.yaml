@@ -102,7 +102,7 @@ tags:
   - name: auth
     description: >-
       Please note that in keeping with the OAuth standard, parameters are
-      underscored however all other API parameters are cammelCase.
+      underscored however all other API parameters are camelCase.
   - name: orders
     description: 'Creating, viewing, and canceling orders'
 x-tagGroups:
