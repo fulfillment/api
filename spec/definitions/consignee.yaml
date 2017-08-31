@@ -3,6 +3,10 @@ required:
   - firstName
   - lastName
   - address1
+  - addressLocality
+  - addressRegion
+  - postalCode
+  - country
 properties:
   id:
     type: integer

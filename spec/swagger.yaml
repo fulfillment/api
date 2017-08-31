@@ -84,7 +84,7 @@ info:
     placed with the carrier. At this point it is **safe to inform the
     consignee** of the tracking number as it will not change.
   x-logo:
-    url: 'https://s3.amazonaws.com/fdc-client-logos/FDC_API_144x144.png'
+    url: 'https://fulfillment.github.io/api/FDC_API_144x144.png'
   termsOfService: 'https://fulfillment.github.io/api/terms/'
   contact:
     email: dev@fulfillment.com
