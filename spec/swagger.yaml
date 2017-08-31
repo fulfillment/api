@@ -47,8 +47,7 @@ info:
     # Getting Started
 
     1. We use OAuth v2.0 to authenticate clients, you will need to contact your
-    account executive so that you may obtain an OAuth `client_id` and
-    `client_secret`.
+    account executive to obtain an OAuth `client_id` and `client_secret`.
 
     2. Using those auth credentials along with a your `username` and `password`
     obtain an `access_token`
