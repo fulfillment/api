@@ -18,3 +18,27 @@ get:
         $ref: '#/definitions/order'
     '404':
       description: Order not found
+delete:
+  tags:
+    - orders
+  summary: Cancel an Order
+  operationId: cancelOrder
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: ID of order that needs to be canceled
+      required: true
+      type: integer
+      format: int64
+  responses:
+    '200':
+      description: Your order was successfully canceled
+      schema:
+        $ref: '#/definitions/order'
+    '404':
+      description: Order not found
+    '405':
+      description: 'Could not cancel your order, perhaps it already shipped'
+      schema:
+        $ref: '#/definitions/standardError'
