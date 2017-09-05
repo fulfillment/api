@@ -12,8 +12,8 @@ post:
       schema:
         $ref: '#/definitions/newOrder'
   responses:
-    '200':
-      description: Order Accepted
+    '201':
+      description: Order Created
       schema:
         $ref: '#/definitions/order'
     '400':
