@@ -23,4 +23,4 @@ Note use node v6 or lower, to manage your node version look into '[n](https://gi
 **TIP:** you can open `swagger-editor`, documentation and `swagger-ui` in parallel
 5. Once you finish with the changes you can run tests using: `npm test`
 
-After you have committed your changes the above links will be updated only after Travis CI finishes deployment.
+After you have committed your changes the above links will be updated only after [Travis CI](https://travis-ci.org/fulfillment/api) finishes deployment.
