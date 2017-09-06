@@ -15,7 +15,7 @@ post:
       description: Authorized
       schema:
         $ref: '#/definitions/accessTokenResponse'
-    '404':
+    '401':
       description: Unauthorized
       schema:
         $ref: '#/definitions/standardError'
