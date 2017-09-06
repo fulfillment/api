@@ -2,6 +2,7 @@ post:
   tags:
     - auth
   summary: Generate an Access Token
+  operationId: generateToken
   description: By default tokens are valid for 7 days.
   parameters:
     - name: body

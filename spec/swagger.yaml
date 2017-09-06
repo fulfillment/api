@@ -52,8 +52,7 @@ info:
     2. Using those auth credentials along with a your `username` and `password`
     obtain an `access_token`
 
-    see [POST
-    /oauth/access_token](#tag/auth%2Fpaths%2F~1oauth~1access_token%2Fpost).
+    see [POST /oauth/access_token](#operation/generateToken).
       + Tip: Generate an additional login and use those credentials for your integration so that changes are accredited to that "user".
     3. After you obtain an access token you can make future requests to our
     other APIs by filling your `Authorization` header with `Bearer
