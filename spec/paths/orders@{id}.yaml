@@ -19,7 +19,7 @@ get:
       type: integer
   responses:
     '200':
-      description: Order found
+      description: Order Found
       schema:
         $ref: '#/definitions/order'
     '404':

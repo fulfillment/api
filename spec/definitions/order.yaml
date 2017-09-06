@@ -12,8 +12,11 @@ properties:
     description: FDC ID for this order
     type: integer
   parentOrder:
-    description: Possible reference to `id` if we've grouped orders
-    type: integer
+    properties:
+      id:
+        description: Reference to parent `id` if order was grouped
+        type: integer
+    type: object
   merchantOrderId:
     description: Merchant provided ID
     type: string
