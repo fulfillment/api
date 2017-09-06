@@ -5,6 +5,9 @@ required:
   - shippingMethod
 properties:
   merchantId:
+    description: >-
+      Necessary if you have a multitenancy account, otherwise we will associate
+      the order with your account
     type: integer
   merchantOrderId:
     description: Unique ID provided by the merchant

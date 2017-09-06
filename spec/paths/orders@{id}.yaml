@@ -11,6 +11,12 @@ get:
       description: The FDC order Id
       required: true
       type: string
+    - name: merchantId
+      in: query
+      description: >-
+        Optional, if you are using your `merchantOrderId` instead of the FDC
+        `id` providing your `merchantId` will speed up your results
+      type: integer
   responses:
     '200':
       description: Order found

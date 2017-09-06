@@ -6,7 +6,6 @@ required:
   - address1
   - addressLocality
   - addressRegion
-  - postalCode
   - country
 properties:
   email:
@@ -17,7 +16,7 @@ properties:
   lastName:
     type: string
   phone:
-    description: 'Phone Number, required for international shipments'
+    description: 'Phone number, required for international shipments'
     type: string
   address1:
     description: Address Line 1
