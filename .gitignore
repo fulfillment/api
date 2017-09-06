@@ -1,4 +1,5 @@
 # Dir for API portal deploy
+web_deploy/index.html
 web_deploy/swagger-ui
 web_deploy/swagger.json
 web_deploy/swagger.yaml
