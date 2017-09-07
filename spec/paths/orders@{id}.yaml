@@ -2,7 +2,9 @@ get:
   tags:
     - orders
   summary: Get Order Details
-  description: Optionally you can use your `merchantOrderId` as the `id`
+  description: >-
+    For the fastest results use the FDC provided `id` however you can use your
+    `merchantOrderId` as the `id`.
   operationId: getOrder
   parameters:
     - $ref: '#/parameters/authHeader'
@@ -14,8 +16,10 @@ get:
     - name: merchantId
       in: query
       description: >-
-        Optional, if you are using your `merchantOrderId` instead of the FDC
-        `id` providing your `merchantId` will speed up your results
+        Providing your `merchantId` indicates the `id` is your
+        `merchantOrderId`. Although it is not necessary to provide this it will
+        speed up your results when using your `merchantOrderId` however it will
+        slow your results when using the FDC provided `id`.
       type: integer
   responses:
     '200':
