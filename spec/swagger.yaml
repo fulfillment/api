@@ -49,14 +49,13 @@ info:
     1. We use OAuth v2.0 to authenticate clients, you will need to contact your
     account executive to obtain an OAuth `client_id` and `client_secret`.
 
-    2. Using those auth credentials along with a your `username` and `password`
+    2. Using those auth credentials along with your `username` and `password`
     obtain an `access_token`
 
     see [POST /oauth/access_token](#operation/generateToken).
       + Tip: Generate an additional login and use those credentials for your integration so that changes are accredited to that "user".
-    3. After you obtain an access token you can make future requests to our
-    other APIs by filling your `Authorization` header with `Bearer
-    {access_token}`.
+    3. Now you can make future requests to our other APIs by filling your
+    `Authorization` header with `Bearer {access_token}`.
 
 
     ## Date Time Definitions
@@ -67,8 +66,8 @@ info:
 
     ### The Fulfillment Process
 
-    Although many steps are required to fulfill your order we report back to you
-    three fundamental milestones inside the orders model.
+    Many steps are required to fulfill your order we report back to you three
+    fundamental milestones inside the orders model.
 
     * `recordedOn` When we received your order. This will never change.
 
