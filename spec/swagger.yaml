@@ -71,14 +71,14 @@ info:
 
     * `recordedOn` When we received your order. This will never change.
 
-    * `dispatchedOn` When the current iteration of your order was scheduled for
+    * `dispatchDate` When the current iteration of your order was scheduled for
     fulfillment. This may change however it is an indicator that the physical
     process of fulfillment has begun and a tracking number has been **assigned**
     to your order. The tracking number **MAY CHANGE**. You will not be able to
     cancel an order once it has been dispatched. If you need to recall an order
     that has been dispatched please contact your account executive.
 
-    * `departedOn` When we recorded your order passing our final inspection and
+    * `departDate` When we recorded your order passing our final inspection and
     placed with the carrier. At this point it is **safe to inform the
     consignee** of the tracking number as it will not change.
   x-logo:
