@@ -1,0 +1,8 @@
+properties:
+  errorCode:
+    type: integer
+  message:
+    type: string
+  context:
+    type: array
+type: object

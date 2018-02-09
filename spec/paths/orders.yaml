@@ -2,6 +2,11 @@ post:
   tags:
     - orders
   summary: Create a New Order
+  description: >
+    Error Notes&#58;
+
+    * When `409 Conflict` is a 'Duplicate Order' the `context` will include the
+    FDC `id`, see the example.
   operationId: createOrder
   parameters:
     - $ref: '#/parameters/authHeader'
@@ -22,3 +27,13 @@ post:
         $ref: '#/definitions/standardError'
     '401':
       description: You do not have permission to create orders
+    '409':
+      description: Conflict
+      schema:
+        $ref: '#/definitions/standardErrorWithContext'
+      examples:
+        application/json:
+          errorCode: 0
+          message: Duplicate Order
+          context:
+            id: 123

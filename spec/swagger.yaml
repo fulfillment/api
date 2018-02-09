@@ -81,6 +81,16 @@ info:
     * `departDate` When we recorded your order passing our final inspection and
     placed with the carrier. At this point it is **safe to inform the
     consignee** of the tracking number as it will not change.
+
+
+    ## Evaluating Error Responses
+
+    We currently return two different error models, with and without context.
+    All errors will include a `message` node while errors with `context` will
+    include additional information designed to save you time when encountering
+    highly probable errors. For example, when you send us a request to create a
+    duplicate order, we will reject your request and the context will include
+    the FDC order `id` so that you may record it for your records.
   x-logo:
     url: 'https://fulfillment.github.io/api/FDC_API_144x144.png'
   termsOfService: 'https://fulfillment.github.io/api/terms/'
