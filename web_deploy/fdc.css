@@ -8,6 +8,8 @@ body h1 {
   padding-top: 60px !important; }
 body h2, body h3, body h4, body h5, body h6 {
   color: #4D4D4F !important; }
+body h3 {
+  margin-top: 1.2em !important; }
 body .operation-samples h5, body .powered-by-badge h5 {
   color: white !important; }
 body .operation-samples a, body .powered-by-badge a {

@@ -6,7 +6,7 @@ post:
     Error Notes&#58;
 
     * When `409 Conflict` is a 'Duplicate Order' the `context` will include the
-    FDC `id`, see the example.
+    FDC `id`, see samples.
   operationId: createOrder
   parameters:
     - $ref: '#/parameters/authHeader'
@@ -33,7 +33,6 @@ post:
         $ref: '#/definitions/standardErrorWithContext'
       examples:
         application/json:
-          errorCode: 0
           message: Duplicate Order
           context:
             id: 123

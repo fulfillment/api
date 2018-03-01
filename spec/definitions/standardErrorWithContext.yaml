@@ -1,6 +1,4 @@
 properties:
-  errorCode:
-    type: integer
   message:
     type: string
   context:

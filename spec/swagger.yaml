@@ -9,10 +9,9 @@ info:
     # Versioning
 
     The Fulfillment.com (FDC) REST API is version controlled and backwards
-    compatible. Meaning you have nothing to worry about... while we have many
-    future APIs scheduled for publication within our v2.0 spec, we will not
-    remove knowledge from previously published APIs. But be prepared for us to
-    add data nodes in our responses.
+    compatible. We have many future APIs scheduled for publication within our
+    v2.0 spec so please be prepared for us to add data nodes in our responses,
+    however, we will not remove knowledge from previously published APIs.
 
 
     #### A Current Response
@@ -91,6 +90,51 @@ info:
     highly probable errors. For example, when you send us a request to create a
     duplicate order, we will reject your request and the context will include
     the FDC order `id` so that you may record it for your records.
+
+
+    ### Without Context
+
+    New order with missing required fields.
+
+
+    | Header | Response |
+
+    | ------ | -------- |
+
+    | Status | `400 Bad Request` |
+
+
+    ```javascript
+
+    {
+        "message": "Invalid request body"
+    }
+
+    ```
+
+
+    ### With Context
+
+    New order with duplicate `merchantOrderId`.
+
+
+    | Header | Response |
+
+    | ------ | -------- |
+
+    | Status | `409 Conflict` |
+
+
+    ```javascript
+
+    {
+        "message": "Duplicate Order",
+        "context": {
+            "id": 123
+        }
+    }
+
+    ```
   x-logo:
     url: 'https://fulfillment.github.io/api/FDC_API_144x144.png'
   termsOfService: 'https://fulfillment.github.io/api/terms/'
