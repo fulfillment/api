@@ -7,4 +7,6 @@ properties:
   expires_in:
     type: integer
     default: 604800
+  refresh_token:
+    type: string
 type: object
