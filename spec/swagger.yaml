@@ -51,7 +51,7 @@ info:
     2. Using those auth credentials along with your `username` and `password`
     obtain an `access_token` and `refresh_token`
 
-    see [POST /oauth/access_token]('#operation/generateToken').
+    see [POST /oauth/access_token](#operation/generateToken).
         + Tip: Generate an additional login and use those credentials for your integration so that changes are accredited to that "user".
     3. You are now ready to make requests to our other APIs by filling your
     `Authorization` header with `Bearer {access_token}`.
@@ -60,16 +60,17 @@ info:
     ## Perpetuating Access
 
     Perpetuating access to FDC without storing your password locally can be
-    achieved using the `refresh_token` returned from [POST
-    /oauth/access_token]('#operation/generateToken') at a later date. A simple
-    concept to achieve this is outlined below.
+    achieved using the `refresh_token` returned by [POST
+    /oauth/access_token](#operation/generateToken). 
+
+    A simple concept to achieve this is outlined below.
 
 
     1. Your application/script will ask you for your `username` and `password`,
     your `client_id` and `client_secret` will be accessible via a DB or ENV.
 
-    2. [Request an access_token]('#operation/generateToken')
-        + Your function should be capable of formatting your request for both a `grant_type` of 'password' (step 1) and 'refresh_token' (step 4).
+    2. [Request an access_token](#operation/generateToken)
+        + Your function should be capable of formatting your request for both a `grant_type` of "password" (step 1) and "refresh_token" (step 4).
     3. Store the `access_token` and `refresh_token` so future requests can skip
     step 1
 
@@ -87,7 +88,7 @@ info:
     ## Date Time Definitions
 
     We will report all date-time stamps using the [ISO
-    8601]('https://en.wikipedia.org/wiki/ISO_8601') standard.
+    8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
 
 
     ### The Fulfillment Process
