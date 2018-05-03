@@ -1,7 +1,7 @@
 post:
   tags:
     - orders
-  summary: Create a New Order
+  summary: New Order
   description: >
     Error Notes&#58;
 
@@ -36,3 +36,26 @@ post:
           message: Duplicate Order
           context:
             id: 123
+get:
+  tags:
+    - orders
+  summary: List of Orders
+  description: Retrieve many orders at once
+  operationId: getOrders
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - $ref: '#/parameters/fromDateParam'
+    - $ref: '#/parameters/toDateParam'
+    - $ref: '#/parameters/merchantParam'
+    - $ref: '#/parameters/warehouseParam'
+    - $ref: '#/parameters/pageParam'
+    - $ref: '#/parameters/limitParam'
+  responses:
+    '200':
+      description: Found Orders
+      schema:
+        $ref: '#/definitions/ordersArray'
+    '404':
+      description: No Orders Found
+      schema:
+        $ref: '#/definitions/standardError'

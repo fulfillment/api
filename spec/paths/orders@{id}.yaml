@@ -1,7 +1,7 @@
 get:
   tags:
     - orders
-  summary: Get Order Details
+  summary: Order Details
   description: >-
     For the fastest results use the FDC provided `id` however you can use your
     `merchantOrderId` as the `id`.

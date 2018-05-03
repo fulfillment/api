@@ -88,7 +88,9 @@ info:
     ## Date Time Definitions
 
     We will report all date-time stamps using the [ISO
-    8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+    8601](https://en.wikipedia.org/wiki/ISO_8601) standard. When using listing
+    API's where fromDate and toDate are available note that both dates are
+    inclusive while requiring the fromDate to be before or at the toDate.
 
 
     ### The Fulfillment Process
@@ -171,13 +173,6 @@ info:
   version: '2.0'
 host: api.fulfillment.com
 basePath: /v2
-parameters:
-  authHeader:
-    name: Authorization
-    in: header
-    description: OAuth 2.0 Bearer Access Token
-    required: true
-    type: string
 tags:
   - name: auth
     description: >-
@@ -192,3 +187,61 @@ x-tagGroups:
   - name: Order Management
     tags:
       - orders
+parameters:
+  authHeader:
+    name: Authorization
+    in: header
+    description: OAuth 2.0 Bearer Access Token.
+    required: true
+    type: string
+  fromDateParam:
+    name: fromDate
+    in: query
+    description: >-
+      Date-time in ISO 8601 format for selecting orders after, or at, the
+      specified time.
+    required: true
+    type: string
+  toDateParam:
+    name: toDate
+    in: query
+    description: >-
+      Date-time in ISO 8601 format for selecting orders before, or at, the
+      specified time.
+    required: true
+    type: string
+  pageParam:
+    name: page
+    in: query
+    required: false
+    type: integer
+    minimum: 0
+    description: >-
+      A multiplier of the number of items (limit paramater) to skip before
+      returning results.
+  limitParam:
+    name: limit
+    in: query
+    required: false
+    type: integer
+    minimum: 1
+    default: 80
+    description: The numbers of items to return.
+  merchantParam:
+    name: merchantIds
+    in: query
+    required: false
+    type: array
+    collectionFormat: csv
+    items:
+      type: integer
+    description: 'A CSV of merchant id, ''123'' or ''1,2,3'''
+  warehouseParam:
+    name: warehouseIds
+    in: query
+    required: false
+    type: array
+    items:
+      type: integer
+    collectionFormat: csv
+    description: 'A CSV of warehouse id, ''123'' or ''1,2,3'''

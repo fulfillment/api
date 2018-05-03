@@ -1,0 +1,8 @@
+properties:
+  data:
+    type: array
+    items:
+      $ref: '#/definitions/order'
+  pagination:
+    $ref: '#/definitions/pagination'
+type: object
