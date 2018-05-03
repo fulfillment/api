@@ -215,7 +215,7 @@ parameters:
     in: query
     required: false
     type: integer
-    minimum: 0
+    minimum: 1
     description: >-
       A multiplier of the number of items (limit paramater) to skip before
       returning results.
