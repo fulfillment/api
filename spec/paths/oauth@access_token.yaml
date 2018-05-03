@@ -7,7 +7,7 @@ post:
     By default tokens are valid for 7 days while refresh tokens are valid for 30
     days. If your `grant_type` is "password" include the `username` and
     `password`, if however your `grant_type` is "refresh_token" the
-    username/password are not required, instead set the `refresh_token`.
+    username/password are not required, instead set the `refresh_token`
   externalDocs:
     description: More Information on Refresh Tokens
     url: '#section/Getting-Started/Perpetuating-Access'

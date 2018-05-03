@@ -19,7 +19,7 @@ get:
         Providing your `merchantId` indicates the `id` is your
         `merchantOrderId`. Although it is not necessary to provide this it will
         speed up your results when using your `merchantOrderId` however it will
-        slow your results when using the FDC provided `id`.
+        slow your results when using the FDC provided `id`
       type: integer
   responses:
     '200':

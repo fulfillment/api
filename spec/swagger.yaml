@@ -179,7 +179,7 @@ tags:
       Please note that in keeping with the OAuth standard, parameters are
       underscored however all other API parameters are camelCase.
   - name: orders
-    description: 'Creating, viewing, and canceling orders'
+    description: 'Creating, viewing, and canceling orders.'
 x-tagGroups:
   - name: Support
     tags:
@@ -191,7 +191,7 @@ parameters:
   authHeader:
     name: Authorization
     in: header
-    description: OAuth 2.0 Bearer Access Token.
+    description: OAuth 2.0 Bearer Access Token
     required: true
     type: string
   fromDateParam:
@@ -199,7 +199,7 @@ parameters:
     in: query
     description: >-
       Date-time in ISO 8601 format for selecting orders after, or at, the
-      specified time.
+      specified time
     required: true
     type: string
   toDateParam:
@@ -207,7 +207,7 @@ parameters:
     in: query
     description: >-
       Date-time in ISO 8601 format for selecting orders before, or at, the
-      specified time.
+      specified time
     required: true
     type: string
   pageParam:
@@ -216,17 +216,19 @@ parameters:
     required: false
     type: integer
     minimum: 1
+    default: 1
     description: >-
       A multiplier of the number of items (limit paramater) to skip before
-      returning results.
+      returning results
   limitParam:
     name: limit
     in: query
     required: false
     type: integer
     minimum: 1
+    maximum: 200
     default: 80
-    description: The numbers of items to return.
+    description: The numbers of items to return
   merchantParam:
     name: merchantIds
     in: query
