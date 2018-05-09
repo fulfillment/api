@@ -1,0 +1,9 @@
+properties:
+  trackingNumber:
+    description: Tracking number of package
+    type: string
+  weightOverride:
+    description: Override predicted weight of package
+    type: number
+    format: float
+type: object

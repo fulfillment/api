@@ -1,0 +1,26 @@
+put:
+  tags:
+    - Partners
+  summary: Ship an Order
+  operationId: orderShip
+  parameters:
+    - $ref: '#/parameters/authHeader'
+    - name: id
+      in: path
+      description: The FDC order Id
+      required: true
+      type: integer
+      format: int32
+    - name: body
+      in: body
+      description: Shipping Details
+      required: true
+      schema:
+        $ref: '#/definitions/orderShip'
+  responses:
+    '200':
+      description: Order Found
+      schema:
+        $ref: '#/definitions/order'
+    '404':
+      description: Order not found
