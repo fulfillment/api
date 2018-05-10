@@ -1,17 +1,51 @@
+type: object
 required:
-  - id
-  - name
-  - isClosed
+  - code
+  - detailCode
+  - stage
+  - state
 properties:
   id:
+    description: 'Depricated, use code instead'
     type: integer
+  code:
+    description: 'Code, see [status codes](#section/Getting-Started/Status-Codes)'
+    type: string
+    pattern: '^\d{6}$'
+  detailCode:
+    type: string
+    pattern: '^\d{2}$'
   name:
-    description: Status' name
+    description: 'Depricated, use stage/state instead'
     type: string
   reason:
-    description: Possible description of reasoning for status
+    description: Depricated
     type: string
+  detail:
+    type: string
+  state:
+    type: object
+    properties:
+      name:
+        type: string
+      code:
+        type: string
+  stage:
+    type: object
+    properties:
+      name:
+        type: string
+      code:
+        type: string
+  actionRequiredBy:
+    description: Responsibility for resolving this issue
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+        description: Human readable description of responsible party to resolve the issue
   isClosed:
-    description: Does this status event close the order
+    description: 'Depricated, does this status event close the order'
     type: boolean
-type: object

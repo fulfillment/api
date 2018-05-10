@@ -90,7 +90,10 @@ info:
     We will report all date-time stamps using the [ISO
     8601](https://en.wikipedia.org/wiki/ISO_8601) standard. When using listing
     API's where fromDate and toDate are available note that both dates are
-    inclusive while requiring the fromDate to be before or at the toDate.
+    inclusive while requiring the fromDate to be before or at the toDate. 
+
+    #Alternativly you can use `dateRange` with [ISO
+    8601]("https://en.wikipedia.org/wiki/ISO_8601#Durations")
 
 
     ### The Fulfillment Process
