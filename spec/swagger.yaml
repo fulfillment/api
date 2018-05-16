@@ -245,15 +245,15 @@ info:
 
     | 010901 | Processing Order | Released To WMS | Released |
 
-    | 020401 | Fulfillment In Progress | External Processing |
+    | 020401 | Fulfillment In Progress | 4PL Processing |
 
     | 020101 | Fulfillment In Progress | Postage Problem | Address Issue |
 
     | 020102 | Fulfillment In Progress | Postage Problem | Postage OK, OMS Issue
     Occurred |
 
-    | 020501 | Fulfillment In Progress | External Problem | Order is
-    Proccessable, Postage Issue Occurred |
+    | 020501 | Fulfillment In Progress | 4PL Problem | Order is Proccessable,
+    Postage Issue Occurred |
 
     | 020201 | Fulfillment In Progress | Postage Acquired | |
 
@@ -274,12 +274,12 @@ info:
 
     | 020301 | Fulfillment In Progress | Hold | Departure Hold Requested |
 
-    | 030101 | Shipped | Fulfilled | With External Knowlege |
+    | 030101 | Shipped | Fulfilled By 4PL | |
 
-    | 030102 | Shipped | Fulfilled | With External Knowlege, OMS encountered
-    issue during processing |
+    | 030102 | Shipped | Fulfilled By 4PL | Successfully Fulfilled, OMS
+    Encountered Issue During Processing |
 
-    | 030201 | Shipped | Fulfilled | With Internal Knowlege |
+    | 030201 | Shipped | Fulfilled By FDC | |
 
     | 040101 | Returned | Returned | |
 

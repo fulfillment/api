@@ -1,7 +1,9 @@
 put:
   tags:
     - Partners
-  summary: Update Status
+  summary: >-
+    Note, this API is used to update orders and is reserved for our shipping
+    partners.
   parameters:
     - $ref: '#/parameters/authHeader'
     - name: id

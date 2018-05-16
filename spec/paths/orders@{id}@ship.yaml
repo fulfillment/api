@@ -1,7 +1,9 @@
 put:
   tags:
     - Partners
-  summary: Ship an Order
+  summary: >-
+    Note, this API is used to update orders and is reserved for our shipping
+    partners.
   operationId: orderShip
   parameters:
     - $ref: '#/parameters/authHeader'
