@@ -1,7 +1,8 @@
 put:
   tags:
     - Partners
-  summary: >-
+  summary: Update Order Status
+  description: >-
     Note, this API is used to update orders and is reserved for our shipping
     partners.
   parameters:
