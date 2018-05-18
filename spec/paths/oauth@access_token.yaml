@@ -14,47 +14,12 @@ post:
   consumes:
     - application/x-www-form-urlencoded
   parameters:
-    - in: formData
-      name: client_id
+    - name: body
+      in: body
+      description: Get an access token
       required: true
-      description: Id and secret provided by FDC
-      type: string
-    - in: formData
-      name: client_secret
-      required: true
-      type: string
-    - in: formData
-      name: grant_type
-      required: true
-      description: >-
-        Indicates how you're authenticating your request, see `username`,
-        `password`, and `refresh_token` below
-      type: string
-      enum:
-        - password
-        - refresh_token
-    - in: formData
-      name: scope
-      required: true
-      description: Currently limited to Order Management System
-      type: string
-      enum:
-        - oms
-      default: oms
-    - in: formData
-      name: username
-      description: Required along with `password` if not "refreshing" the token
-      type: string
-    - in: formData
-      name: password
-      description: See above
-      type: string
-    - in: formData
-      name: refresh_token
-      description: >-
-        You may request future tokens with the `refresh_token` from your
-        previous `/oauth/access_token` request
-      type: string
+      schema:
+        $ref: '#/definitions/accessTokenRequest'
   responses:
     '200':
       description: Authorized

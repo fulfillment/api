@@ -1,0 +1,37 @@
+properties:
+  client_id:
+    description: Id and secret provided by FDC
+    type: string
+  client_secret:
+    type: string
+  grant_type:
+    description: >-
+      Indicates how you're authenticating your request, see `username`,
+      `password`, and `refresh_token` below
+    type: string
+    enum:
+      - password
+      - refresh_token
+  scope:
+    description: Currently limited to Order Management System
+    type: string
+    enum:
+      - oms
+    default: oms
+  username:
+    description: Required along with `password` if not "refreshing" the token
+    type: string
+  password:
+    description: See above
+    type: string
+  refresh_token:
+    description: >-
+      You may request future tokens with the `refresh_token` from your previous
+      `/oauth/access_token` request
+    type: string
+type: object
+required:
+  - client_id
+  - client_secret
+  - grant_type
+  - scope
