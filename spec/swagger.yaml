@@ -183,7 +183,7 @@ info:
 
     | 010102 | Processing Order | Recieved | Recieved |
 
-    | 010201 | Processing Order | Approved |  |
+    | 010201 | Processing Order | Approved | |
 
     | 010301 | Processing Order | Hold | Merchant Stock |
 
@@ -191,11 +191,15 @@ info:
 
     | 010303 | Processing Order | Hold | For Merchant |
 
+    | 010304 | Processing Order | Hold | Oversized Shipment |
+
+    | 010305 | Processing Order | Hold | Invalid Parent Order |
+
+    | 010306 | Processing Order | Hold | Invalid Address |
+
+    | 010307 | Processing Order | Hold | By Admin |
+
     | 010401 | Processing Order | Address Problem | Incomplete Address |
-
-    | 010501 | Processing Order | Sku Problem | Invalid SKU |
-
-    | 010601 | Processing Order | Facility Problem | Facility Not Mapped |
 
     | 010402 | Processing Order | Address Problem | Invalid Locality |
 
@@ -211,56 +215,54 @@ info:
 
     | 010408 | Processing Order | Address Problem | Invalid Recipient Name |
 
-    | 010701 | Processing Order | Ship Method Problem | Unmapped Ship Method |
-
-    | 010702 | Processing Order | Ship Method Problem | Unmapped Ship Cost |
-
     | 010409 | Processing Order | Address Problem | Bad UK Address |
 
     | 010410 | Processing Order | Address Problem | Invalid Address Line 1 or 2
     |
 
+    | 010501 | Processing Order | Sku Problem | Invalid SKU |
+
+    | 010501 | Processing Order | Sku Problem | Child Order has Invalid SKUs |
+
+    | 010601 | Processing Order | Facility Problem | Facility Not Mapped |
+
+    | 010701 | Processing Order | Ship Method Problem | Unmapped Ship Method |
+
+    | 010702 | Processing Order | Ship Method Problem | Unmapped Ship Cost |
+
     | 010703 | Processing Order | Ship Method Problem | Missing Ship Method |
 
     | 010704 | Processing Order | Ship Method Problem | Invalid Ship Method |
 
-    | 010801 | Processing Order | Inventory Problem | Insufficient Inventory In
-    Facility |
-
     | 010705 | Processing Order | Ship Method Problem | Order Weight Outside of
     Ship Method Weight |
 
-    | 010501 | Processing Order | Sku Problem | Child Order has Invalid SKUs |
-
-    | 010304 | Processing Order | Hold | Oversized Shipment |
-
-    | 010305 | Processing Order | Hold | Invalid Parent Order |
-
-    | 010306 | Processing Order | Hold | Invalid Address |
-
-    | 010307 | Processing Order | Hold | By Admin |
+    | 010801 | Processing Order | Inventory Problem | Insufficient Inventory In
+    Facility |
 
     | 010802 | Processing Order | Inventory Problem | Issue Encountered During
     Inventory Adjustment |
 
     | 010901 | Processing Order | Released To WMS | Released |
 
-    | 020401 | Fulfillment In Progress | 4PL Processing |
-
     | 020101 | Fulfillment In Progress | Postage Problem | Address Issue |
 
     | 020102 | Fulfillment In Progress | Postage Problem | Postage OK, OMS Issue
     Occurred |
 
-    | 020501 | Fulfillment In Progress | 4PL Problem | Order is Proccessable,
-    Postage Issue Occurred |
+    | 020103 | Fulfillment In Progress | Postage Problem | Postage Void Failed |
 
     | 020201 | Fulfillment In Progress | Postage Acquired | |
 
-    | 020103 | Fulfillment In Progress | Postage Problem | Postage Void Failed |
-
     | 020301 | Fulfillment In Progress | Postage Voided | Postage Void Failed
     Gracefully |
+
+    | 020301 | Fulfillment In Progress | Hold | Departure Hold Requested |
+
+    | 020401 | Fulfillment In Progress | 4PL Processing | |
+
+    | 020501 | Fulfillment In Progress | 4PL Problem | Order is Proccessable,
+    Postage Issue Occurred |
 
     | 020601 | Fulfillment In Progress | Label Printed | |
 
@@ -271,8 +273,6 @@ info:
     | 020901 | Fulfillment In Progress | Label Print Verified | |
 
     | 021001 | Fulfillment In Progress | Passed Final Inspection | |
-
-    | 020301 | Fulfillment In Progress | Hold | Departure Hold Requested |
 
     | 030101 | Shipped | Fulfilled By 4PL | |
 
