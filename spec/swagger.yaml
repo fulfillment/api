@@ -301,8 +301,6 @@ tags:
       underscored however all other API parameters are camelCase.
   - name: orders
     description: 'Creating, viewing, and canceling orders.'
-  - name: items
-    description: Get inventory for items.
 x-tagGroups:
   - name: Support
     tags:
