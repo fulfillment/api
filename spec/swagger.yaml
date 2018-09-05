@@ -309,6 +309,9 @@ x-tagGroups:
     tags:
       - orders
       - Partners
+  - name: Items
+    tags:
+      - Inventory
 parameters:
   authHeader:
     name: Authorization
@@ -369,3 +372,12 @@ parameters:
       type: integer
     collectionFormat: csv
     description: 'A CSV of warehouse id, ''123'' or ''1,2,3'''
+  externalSkuNameParam:
+    name: externalSkuNames
+    in: query
+    required: false
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    description: 'A CSV of sku reference names, ''skuName1'' or ''skuName1,skuName2,skuName3'''
