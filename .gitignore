@@ -38,3 +38,4 @@ node_modules
 .env
 
 package-lock.json
+\.ghpages-tmp/

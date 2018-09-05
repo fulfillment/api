@@ -24,4 +24,66 @@ properties:
     type: string
   integrator:
     type: string
+    description: >-
+      Use of this property requires special permission and must be discussed
+      with your account executive; values are restricted while custom values
+      need to be accepted by your AE
+    enum:
+      - 1ShoppingCart
+      - 3dCart
+      - AdobeBC
+      - AmazonAU
+      - AmazonEU
+      - AmazonNA
+      - BigCommerce
+      - BrandBoom
+      - BrightPearl
+      - Celery
+      - ChannelAdvisor
+      - Clickbank
+      - CommerceHub
+      - Demandware
+      - Ebay
+      - Ecwid
+      - Etsy
+      - FoxyCart
+      - Goodsie
+      - Infusionsoft
+      - Konnektive
+      - LimeLight
+      - Linio
+      - Linnworks
+      - Magento
+      - Netsuite
+      - NewEgg
+      - Nexternal
+      - NuOrder
+      - Opencart
+      - OrderWave
+      - osCommerce1
+      - Overstock
+      - PayPal
+      - PrestaShop
+      - Pricefalls
+      - Quickbooks
+      - Rakuten
+      - Sears
+      - Sellbrite
+      - SellerCloud
+      - Shipstation
+      - Shopify
+      - Skubana
+      - SolidCommerce
+      - SparkPay
+      - SpreeCommerce
+      - spsCommerce
+      - StitchLabs
+      - StoneEdge
+      - TradeGecko
+      - UltraCart
+      - Volusion
+      - VTEX
+      - Walmart
+      - WooCommerce
+      - Yahoo
 type: object
