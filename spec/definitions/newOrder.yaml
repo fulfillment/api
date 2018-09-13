@@ -20,6 +20,18 @@ properties:
     $ref: '#/definitions/newContactInfo'
   shippingMethod:
     type: string
+  priorityType:
+    type:
+      - string
+      - 'null'
+    description: >-
+      Use with caution, escalating priority can result in additional cost while
+      incorrectly designating priority may result in unintended costs while
+      simultaneously delaying a shipment.
+    default: null
+    enum:
+      - null
+      - Amazon Prime
   notes:
     type: string
   integrator:
@@ -27,7 +39,7 @@ properties:
     description: >-
       Use of this property requires special permission and must be discussed
       with your account executive; values are restricted while custom values
-      need to be accepted by your AE
+      need to be accepted by your AE.
     enum:
       - 1ShoppingCart
       - 3dCart
@@ -88,4 +100,13 @@ properties:
       - Walmart
       - WooCommerce
       - Yahoo
+  warehouse:
+    properties:
+      id:
+        type: integer
+    description: >-
+      We automatically select a warehouse based on inventory availability,
+      requested carrier and delivery schedule, and carrier cost. You may however
+      override this process. Because this is not recommended please inform your
+      AE prior to using so they may enable this feature.
 type: object
