@@ -101,6 +101,7 @@ properties:
       - WooCommerce
       - Yahoo
   warehouse:
+    type: object
     properties:
       id:
         type: integer
