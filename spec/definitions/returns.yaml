@@ -1,11 +1,11 @@
+type: object
 properties:
   data:
     type: array
     items:
-      $ref: '#/definitions/order'
+      $ref: '#/definitions/return'
   meta:
     type: object
     properties:
       pagination:
         $ref: '#/definitions/pagination'
-type: object

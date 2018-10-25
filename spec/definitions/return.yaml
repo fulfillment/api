@@ -1,0 +1,60 @@
+type: object
+required:
+  - id
+  - updatedAt
+  - createdAt
+  - reason
+  - status
+  - createdBy
+  - updatedBy
+properties:
+  id:
+    type: integer
+  comments:
+    type:
+      - 'null'
+      - string
+  returnedBy:
+    type:
+      - 'null'
+      - string
+    description: >-
+      Name of person on the return postage. This can be useful if we are unable
+      to identify the original order id.
+  updatedAt:
+    type: string
+    format: date-time
+  createdAt:
+    type: string
+    format: date-time
+  reason:
+    type: object
+    required:
+      - id
+      - title
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+  status:
+    type: object
+    required:
+      - id
+      - title
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+  createdBy:
+    $ref: '#/definitions/user'
+  updatedBy:
+    $ref: '#/definitions/user'
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+      merchantId:
+        type: integer

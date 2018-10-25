@@ -1,0 +1,15 @@
+get:
+  tags:
+    - Users
+  summary: About Me
+  operationId: getUserMe
+  description: >-
+    Returns the user profile of the access token's owner. This could be useful
+    if managing multiple accounts or confirming validity of a token.
+  parameters:
+    - $ref: '#/parameters/authHeader'
+  responses:
+    '200':
+      description: User
+      schema:
+        $ref: '#/definitions/userContact'

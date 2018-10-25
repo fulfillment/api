@@ -2,6 +2,7 @@ put:
   tags:
     - Partners
   summary: Update Order Status
+  operationId: putOrderStatus
   description: >-
     Note, this API is used to update orders and is reserved for our shipping
     partners.
