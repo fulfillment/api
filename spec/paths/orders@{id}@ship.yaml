@@ -2,10 +2,10 @@ put:
   tags:
     - Partners
   summary: Ship an Order
+  operationId: putOrderShip
   description: >-
     Note, this API is used to update orders and is reserved for our shipping
     partners.
-  operationId: orderShip
   parameters:
     - $ref: '#/parameters/authHeader'
     - name: id

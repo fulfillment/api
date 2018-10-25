@@ -305,9 +305,11 @@ x-tagGroups:
   - name: Support
     tags:
       - auth
+      - Users
   - name: Order Management
     tags:
       - orders
+      - Returns
       - Partners
   - name: Items
     tags:
