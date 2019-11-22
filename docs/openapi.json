@@ -45,15 +45,6 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "page",
             "in": "query",
             "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
@@ -220,15 +211,6 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "fromDate",
             "in": "query",
             "description": "Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
@@ -331,17 +313,6 @@
             ]
           }
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "description": "The order to create",
           "content": {
@@ -415,15 +386,6 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "id",
             "in": "path",
             "description": "The FDC order Id",
@@ -472,15 +434,6 @@
           }
         ],
         "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -536,15 +489,6 @@
           }
         ],
         "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -603,15 +547,6 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "id",
             "in": "path",
             "description": "The FDC order Id",
@@ -668,15 +603,6 @@
           }
         ],
         "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "fromDate",
             "in": "query",
@@ -744,17 +670,6 @@
             ]
           }
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "description": "RMA",
           "content": {
@@ -813,17 +728,6 @@
             "fdcAuth": [
               "oms"
             ]
-          }
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "OAuth 2.0 Bearer Access Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
