@@ -1,7 +1,0 @@
-properties:
-  message:
-    type: string
-  context:
-    items: {}
-    type: array
-type: object
