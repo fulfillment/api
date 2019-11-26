@@ -1416,19 +1416,21 @@
             "$ref": "#/components/schemas/newContactInfo"
           },
           "items": {
-            "type": "object",
-            "required": [
-              "sku",
-              "quantityExpected"
-            ],
-            "properties": {
-              "sku": {
-                "type": "string"
-              },
-              "quantityExpected": {
-                "type": "integer",
-                "example": 1,
-                "minimum": 1
+            "type": "array",
+            "items": {
+              "required": [
+                "sku",
+                "quantityExpected"
+              ],
+              "properties": {
+                "sku": {
+                  "type": "string"
+                },
+                "quantityExpected": {
+                  "type": "integer",
+                  "example": 1,
+                  "minimum": 1
+                }
               }
             }
           }
