@@ -615,13 +615,13 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: '#/components/schemas/rma'
+                $ref: '#/components/schemas/rmaResponse'
         202:
           description: RMA Updated
           content:
             'application/json':
               schema:
-                $ref: '#/components/schemas/rma'
+                $ref: '#/components/schemas/rmaResponse'
         404:
           description: A Component of Your Request Was Not Found
           content:
@@ -633,7 +633,7 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: '#/components/schemas/rma'
+                $ref: '#/components/schemas/rmaResponse'
   /users/me:
     get:
       tags:
@@ -1155,6 +1155,32 @@ components:
           type: string
         recipient:
           $ref: '#/components/schemas/newContactInfo'
+        items:
+          type: array
+          items:
+            required:
+              - sku
+              - quantityExpected
+            properties:
+              sku:
+                type: string
+              quantityExpected:
+                type: integer
+                example: 1
+                minimum: 1
+    rmaResponse:
+      type: object
+      required:
+        - rmaNumber
+        - recipient
+        - items
+      properties:
+        rmaNumber:
+          type: string
+        merchantOrderId:
+          type: string
+        recipient:
+          $ref: '#/components/schemas/consignee'
         items:
           type: array
           items:
