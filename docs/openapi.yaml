@@ -622,6 +622,12 @@ paths:
             'application/json':
               schema:
                 $ref: '#/components/schemas/rma'
+        404:
+          description: A Component of Your Request Was Not Found
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/standardError'
         409:
           description: RMA Already Processed
           content:
