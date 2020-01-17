@@ -1093,6 +1093,11 @@ components:
       properties:
         id:
           type: integer
+        comments:
+          type: string
+          nullable: true
+        returnedBy:
+          type: string
         updatedAt:
           type: string
           format: date-time
@@ -1125,11 +1130,49 @@ components:
           $ref: '#/components/schemas/user'
         order:
           type: object
+          nullable: true
           properties:
             id:
               type: integer
             merchantId:
               type: integer
+            merchantOrderId:
+              type: string
+        rmaDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/rmaDetail'
+    rmaDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+        rmaNumber:
+          type: string
+        nonRestockedReason:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+            title:
+              type: string
+        quantityShipped:
+          type: integer
+        quantityReturned:
+          type: integer
+        quantityRestocked:
+          type: integer
+        comments:
+          type: string
+          nullable: true
+        item:
+          type: object
+          properties:
+            id:
+              type: integer
+            sku:
+              type: string
     returns:
       type: object
       properties:
