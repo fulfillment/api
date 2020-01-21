@@ -1332,6 +1332,9 @@
           "id": {
             "type": "integer"
           },
+          "rmaNumber": {
+            "type": "string"
+          },
           "comments": {
             "type": "string",
             "nullable": true
@@ -1411,9 +1414,6 @@
         "properties": {
           "id": {
             "type": "integer"
-          },
-          "rmaNumber": {
-            "type": "string"
           },
           "nonRestockedReason": {
             "type": "object",
