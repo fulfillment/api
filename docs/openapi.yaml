@@ -1095,6 +1095,7 @@ components:
           type: integer
         rmaNumber:
           type: string
+          nullable: true
         comments:
           type: string
           nullable: true
