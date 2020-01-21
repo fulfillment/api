@@ -1138,11 +1138,11 @@ components:
               type: integer
             merchantOrderId:
               type: string
-        rmaDetails:
+        rmaItems:
           type: array
           items:
-            $ref: '#/components/schemas/rmaDetail'
-    rmaDetail:
+            $ref: '#/components/schemas/rmaItem'
+    rmaItem:
       type: object
       properties:
         id:
