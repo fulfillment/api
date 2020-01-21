@@ -1163,6 +1163,9 @@ components:
           type: integer
         quantityRestocked:
           type: integer
+        quantityExpected:
+          nullable: true
+          type: integer
         comments:
           type: string
           nullable: true
