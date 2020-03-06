@@ -161,7 +161,7 @@
 		"requestBody": {
 		  "description": "Get an access token",
 		  "content": {
-			"application/x-www-form-urlencoded": {
+			"application/json": {
 			  "schema": {
 				"$ref": "#/components/schemas/accessTokenRequest"
 			  }
