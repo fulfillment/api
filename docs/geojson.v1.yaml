@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  title: geojson
+  version: '1.0'
+  description: GeoJSON
+  contact:
+    email: dev@fulfillment.com
+    url: 'https://fulfillment.com'
+servers:
+  - url: 'http://localhost:3000'
+paths: {}
+components:
+  schemas:
+    FeatureCollection:
+      type: object
+      description: GeoJSon Feature collection
+      externalDocs:
+        url: 'https://tools.ietf.org/html/rfc7946#section-3.3'
+      properties:
+        type:
+          type: string
+          enum:
+            - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+      required:
+        - type
+        - features
+      x-tags:
+        - GeoJSON
+    Feature:
+      type: object
+      description: GeoJSon Feature
+      externalDocs:
+        url: 'https://tools.ietf.org/html/rfc7946#section-3.2'
+      x-tags:
+        - GeoJSON
+      properties:
+        type:
+          type: string
+          enum:
+            - Feature
+        id:
+          type: integer
+        geometry:
+          $ref: '#/components/schemas/GeometryCollection'
+        properties:
+          type: object
+          properties:
+            '':
+              type: string
+      required:
+        - type
+        - geometry
+    GeometryCollection:
+      type: object
+      description: GeoJSon geometry collection
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#geometrycollection'
+      properties:
+        type:
+          type: string
+          enum:
+            - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Geometry'
+      required:
+        - type
+        - geometries
+      x-tags:
+        - GeoJSON
+    MultiPolygon:
+      description: GeoJSon geometry
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id6'
+      allOf:
+        - $ref: '#/components/schemas/Geometry'
+        - properties:
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Point3D'
+      type: object
+      x-tags:
+        - GeoJSON
+    MultiLineString:
+      description: GeoJSon geometry
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id6'
+      allOf:
+        - $ref: '#/components/schemas/Geometry'
+        - properties:
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point3D'
+      type: object
+      x-tags:
+        - GeoJSON
+    MultiPoint:
+      description: GeoJSon geometry
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id5'
+      allOf:
+        - $ref: '#/components/schemas/Geometry'
+        - properties:
+            coordinates:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point3D'
+      type: object
+      x-tags:
+        - GeoJSON
+    Polygon:
+      description: GeoJSon geometry
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id4'
+      allOf:
+        - $ref: '#/components/schemas/Geometry'
+        - properties:
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point3D'
+      type: object
+      x-tags:
+        - GeoJSON
+    LineString:
+      description: GeoJSon geometry
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id3'
+      allOf:
+        - $ref: '#/components/schemas/Geometry'
+        - properties:
+            coordinates:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point3D'
+      type: object
+      x-tags:
+        - GeoJSON
+    Point:
+      description: GeoJSon geometry
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id2'
+      allOf:
+        - $ref: '#/components/schemas/Geometry'
+        - properties:
+            coordinates:
+              $ref: '#/components/schemas/Point3D'
+      type: object
+      x-tags:
+        - GeoJSON
+    Point3D:
+      type: array
+      description: Point in 3D space
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#id2'
+      minItems: 2
+      maxItems: 3
+      items:
+        type: number
+      x-tags:
+        - GeoJSON
+    Geometry:
+      type: object
+      description: GeoJSon geometry
+      discriminator: type
+      required:
+        - type
+      externalDocs:
+        url: 'http://geojson.org/geojson-spec.html#geometry-objects'
+      properties:
+        type:
+          type: string
+          enum:
+            - Point
+            - LineString
+            - Polygon
+            - MultiPoint
+            - MultiLineString
+            - MultiPolygon
+          description: the geometry type
+      x-tags:
+        - GeoJSON
+  parameters: null
+  securitySchemes: {}
