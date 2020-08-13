@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "title": "TrackingNumber.v2",
+  "x-tags": [
+    "Tracking"
+  ],
+  "properties": {
+    "carrier": {
+      "$ref": "./CarrierSimple.v2.json"
+    },
+    "barcodeScanValue": {
+      "type": "string",
+      "description": "The computer readable alternative to the human readable",
+      "deprecated": true
+    },
+    "value": {
+      "type": "string",
+      "description": "The human readable tracking number recipients (consignee) expect"
+    }
+  }
+}

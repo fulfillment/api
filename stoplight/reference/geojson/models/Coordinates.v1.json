@@ -1,0 +1,13 @@
+{
+  "title": "Coordinates.v1",
+  "type": "array",
+  "items": {
+    "type": "number"
+  },
+  "x-examples": {
+    "example": [
+      102,
+      0.5
+    ]
+  }
+}

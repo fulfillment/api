@@ -1,0 +1,43 @@
+{
+  "title": "TrackingEvent.v2",
+  "type": "object",
+  "x-tags": [
+    "Tracking"
+  ],
+  "x-examples": {
+    "example-1": {
+      "eventStatus": "Delivered, In/At Mailbox",
+      "eventCategory": "Delivered",
+      "eventCategoryCode": 5,
+      "eventDateTime": "2018-07-31 16:15:00",
+      "eventLocation": {},
+      "statusSource": "carrier"
+    }
+  },
+  "properties": {
+    "eventSource": {
+      "type": "string",
+      "enum": [
+        "carrier",
+        "internal"
+      ],
+      "example": "carrier"
+    },
+    "eventLocation": {
+      "$ref": "../../geojson/models/Feature.v1.json"
+    },
+    "eventDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "eventCategoryCode": {
+      "type": "integer"
+    },
+    "eventCategory": {
+      "type": "string"
+    },
+    "eventStatus": {
+      "type": "string"
+    }
+  }
+}

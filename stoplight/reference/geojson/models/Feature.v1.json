@@ -1,0 +1,49 @@
+{
+  "title": "Feature",
+  "type": "object",
+  "description": "GeoJSon Feature",
+  "x-tags": [
+    "GeoJSON"
+  ],
+  "externalDocs": {
+    "url": "https://tools.ietf.org/html/rfc7946#section-3.2"
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "Feature"
+      ],
+      "example": "Feature"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "geometry": {
+      "$ref": "./Geometry.v1.json"
+    },
+    "bbox": {
+      "type": "array",
+      "items": {}
+    },
+    "title": {
+      "type": "string"
+    },
+    "centerline": {
+      "$ref": "./Geometry.v1.json"
+    }
+  },
+  "required": [
+    "type",
+    "properties",
+    "geometry"
+  ]
+}

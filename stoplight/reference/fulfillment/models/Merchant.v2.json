@@ -1,0 +1,17 @@
+{
+  "title": "Merchant.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "Merchant Company Name"
+    }
+  },
+  "required": [
+    "id",
+    "name"
+  ]
+}

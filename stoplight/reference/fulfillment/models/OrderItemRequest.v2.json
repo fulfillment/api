@@ -1,0 +1,23 @@
+{
+  "title": "OrderItemRequest.v2",
+        "required": [
+          "declaredValue",
+          "quantity",
+          "sku"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "declaredValue": {
+            "type": "number",
+            "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
+            "format": "double"
+          }
+        }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "AccessTokenRequestRefresh.v2",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "refresh_token": {
+          "type": "string",
+          "description": "You may request future tokens with the `refresh_token` from your previous `/oauth/access_token` request"
+        }
+      },
+      "required": [
+        "refresh_token"
+      ]
+    },
+    {
+      "$ref": "./AccessTokenRequestBase.v2.json"
+    }
+  ]
+}

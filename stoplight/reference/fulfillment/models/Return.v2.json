@@ -1,0 +1,94 @@
+{
+  "title": "Return.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "rmaItems": {
+      "type": "array",
+      "items": {
+        "$ref": "./RmaItem.v2.json"
+      }
+    },
+    "order": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "merchantId": {
+          "type": "integer"
+        },
+        "merchantOrderId": {
+          "type": "string"
+        }
+      }
+    },
+    "updatedBy": {
+      "$ref": "./User.v2.json"
+    },
+    "createdBy": {
+      "$ref": "./User.v2.json"
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "id",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "reason": {
+      "type": "object",
+      "required": [
+        "id",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "returnedBy": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "string",
+      "nullable": true
+    },
+    "rmaNumber": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": [
+    "id",
+    "updatedBy",
+    "createdBy",
+    "status",
+    "reason",
+    "createdAt",
+    "updatedAt"
+  ]
+}

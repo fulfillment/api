@@ -1,0 +1,49 @@
+{
+  "title": "RmaItem.v2",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nonRestockedReason": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "quantityShipped": {
+            "type": "integer"
+          },
+          "quantityReturned": {
+            "type": "integer"
+          },
+          "quantityRestocked": {
+            "type": "integer"
+          },
+          "quantityExpected": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "comments": {
+            "type": "string",
+            "nullable": true
+          },
+          "item": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "sku": {
+                "type": "string"
+              }
+            }
+          }
+        }
+}

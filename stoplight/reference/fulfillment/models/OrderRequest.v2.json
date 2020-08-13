@@ -1,0 +1,128 @@
+{
+  "title": "OrderRequest.v2",
+  "type": "object",
+  "properties": {
+    "warehouse": {
+      "type": "object",
+      "description": "We automatically select a warehouse based on inventory availability, requested carrier and delivery schedule, and carrier cost. You may however override this process. Because this is not recommended please inform your AE prior to using so they may enable this feature.",
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "integrator": {
+      "type": "string",
+      "description": "Use of this property requires special permission and must be discussed with your account executive; values are restricted while custom values need to be accepted by your AE.",
+      "enum": [
+        "1ShoppingCart",
+        "3dCart",
+        "AdobeBC",
+        "AmazonAU",
+        "AmazonEU",
+        "AmazonNA",
+        "BigCommerce",
+        "BrandBoom",
+        "BrightPearl",
+        "BuyGoods",
+        "Celery",
+        "ChannelAdvisor",
+        "Clickbank",
+        "CommerceHub",
+        "Custom",
+        "Demandware",
+        "Ebay",
+        "Ecwid",
+        "Etsy",
+        "FoxyCart",
+        "Goodsie",
+        "Infusionsoft",
+        "Konnektive",
+        "LimeLight",
+        "Linio",
+        "Linnworks",
+        "Magento",
+        "Netsuite",
+        "NewEgg",
+        "Nexternal",
+        "NuOrder",
+        "Opencart",
+        "OrderWave",
+        "osCommerce1",
+        "Overstock",
+        "PayPal",
+        "PrestaShop",
+        "Pricefalls",
+        "Quickbooks",
+        "Rakuten",
+        "Sears",
+        "Sellbrite",
+        "SellerCloud",
+        "Shipstation",
+        "Shopify",
+        "Skubana",
+        "SolidCommerce",
+        "SparkPay",
+        "SpreeCommerce",
+        "spsCommerce",
+        "StitchLabs",
+        "StoneEdge",
+        "TradeGecko",
+        "UltraCart",
+        "Volusion",
+        "VTEX",
+        "Walmart",
+        "WooCommerce",
+        "Yahoo"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "shippingMethod": {
+      "type": "string"
+    },
+    "recipient": {
+      "$ref": "./ConsigneeNew.v2.json"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "declaredValue": {
+            "type": "number",
+            "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
+            "format": "double"
+          }
+        },
+        "required": [
+          "quantity",
+          "sku",
+          "declaredValue"
+        ]
+      }
+    },
+    "merchantOrderId": {
+      "type": "string",
+      "description": "Unique ID provided by the merchant"
+    },
+    "merchantId": {
+      "type": "integer",
+      "description": "Necessary if you have a multitenancy account, otherwise we will associate the order with your account"
+    }
+  },
+  "required": [
+    "shippingMethod",
+    "recipient",
+    "items",
+    "merchantOrderId"
+  ]
+}

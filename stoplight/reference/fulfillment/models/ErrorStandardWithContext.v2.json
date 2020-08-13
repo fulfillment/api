@@ -1,0 +1,15 @@
+{
+  "title": "ErrorStandardWithContext.v2",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

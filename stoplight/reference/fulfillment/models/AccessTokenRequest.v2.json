@@ -1,0 +1,11 @@
+{
+  "title": "AccessTokenRequest.v2",
+  "oneOf": [
+    {
+      "$ref": "./AccessTokenRequestPassword.v2.json"
+    },
+    {
+      "$ref": "./AccessTokenRequestRefresh.v2.json"
+    }
+  ]
+}

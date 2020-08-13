@@ -1,0 +1,54 @@
+{
+  "title": "UserContact.v2",
+  "type": "object",
+  "description": "",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "apiKey": {
+      "type": "string",
+      "description": "Depricated",
+      "deprecated": true
+    },
+    "contactInfo": {
+      "$ref": "./Consignee.v2.json"
+    },
+    "merchant": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "createDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedBy": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "deptLeader": {
+      "type": "boolean",
+      "deprecated": true
+    },
+    "username": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

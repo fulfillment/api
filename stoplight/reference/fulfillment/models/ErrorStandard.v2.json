@@ -1,0 +1,9 @@
+{
+  "title": "ErrorStandard.v2",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    }
+  }
+}

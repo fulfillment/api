@@ -1,0 +1,20 @@
+{
+  "title": "ReturnsArray.v2",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "$ref": "./Pagination.v2.json"
+        }
+      }
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "./Return.v2.json"
+      }
+    }
+  }
+}
