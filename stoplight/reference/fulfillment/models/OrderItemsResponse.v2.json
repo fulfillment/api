@@ -1,0 +1,67 @@
+{
+  "title": "OrderItemsResponse.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "lineDetails": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "externalSku": {
+          "type": "string"
+        },
+        "totalQuantity": {
+          "type": "integer"
+        }
+      }
+    },
+    "requestedSkuData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "declaredValue": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        }
+      }
+    },
+    "inventoryDetails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lotNum": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "string"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "serialNum": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

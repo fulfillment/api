@@ -1,0 +1,44 @@
+{
+  "title": "ItemInventory.v2",
+  "type": "object",
+  "properties": {
+    "quantity": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "object",
+          "properties": {
+            "availableToPromise": {
+              "type": "integer",
+              "description": "Number of items that are available to be used in an order"
+            }
+          }
+        }
+      }
+    },
+    "merchant": {
+      "type": "object",
+      "description": "Merchant that owns this item",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Merchants name for this item"
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "description": "Item this inventory data is based on",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "FDC ID for this Item"
+        },
+        "skuReference": {
+          "type": "string",
+          "description": "Sku reference name for this item"
+        }
+      }
+    }
+  }
+}

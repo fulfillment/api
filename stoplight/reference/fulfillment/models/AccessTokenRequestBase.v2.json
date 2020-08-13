@@ -1,0 +1,35 @@
+{
+  "title": "AccessTokenRequestBase.v2",
+  "type": "object",
+  "properties": {
+    "scope": {
+      "type": "string",
+      "description": "Currently limited to Order Management System",
+      "default": "oms",
+      "enum": [
+        "oms"
+      ]
+    },
+    "grant_type": {
+      "type": "string",
+      "description": "Indicates how you're authenticating your request",
+      "enum": [
+        "password",
+        "refresh_token"
+      ]
+    },
+    "client_secret": {
+      "type": "string"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Id and secret provided by FDC"
+    }
+  },
+  "required": [
+    "scope",
+    "grant_type",
+    "client_secret",
+    "client_id"
+  ]
+}

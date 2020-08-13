@@ -1,0 +1,67 @@
+{
+  "title": "Consignee.v2",
+  "type": "object",
+  "description": "",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "updatedBy": {
+      "$ref": "./User.v2.json"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "iso": {
+      "$ref": "./IsoCountry.v2.json"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "Ideally provide the two character ISO code"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal Code / Zip"
+    },
+    "addressRegion": {
+      "type": "string",
+      "description": "Province / State"
+    },
+    "addressLocality": {
+      "type": "string",
+      "description": "City"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "country",
+    "postalCode",
+    "addressRegion",
+    "addressLocality",
+    "address1",
+    "lastName",
+    "firstName"
+  ]
+}

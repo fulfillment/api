@@ -1,0 +1,43 @@
+{
+  "title": "Geometry",
+  "type": "object",
+  "x-tags": [
+    "GeoJSON"
+  ],
+  "externalDocs": {
+    "url": "http://geojson.org/geojson-spec.html#geometry-objects"
+  },
+  "description": "GeoJSon geometry",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the geometry type",
+      "enum": [
+        "Point",
+        "LineString",
+        "Polygon",
+        "MultiPoint",
+        "MultiLineString",
+        "MultiPolygon"
+      ],
+      "example": "Point"
+    },
+    "coordinates": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "./Coordinates.v1.json"
+          }
+        },
+        {
+          "$ref": "./Coordinates.v1.json"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "coordinates"
+  ]
+}

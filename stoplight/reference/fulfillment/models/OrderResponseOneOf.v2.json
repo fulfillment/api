@@ -1,0 +1,10 @@
+{
+  "oneOf": [
+    {
+      "$ref": "./OrderResponse.v2.json"
+    },
+    {
+      "$ref": "./OrderResponseHydrate.v2.json"
+    }
+  ]
+}

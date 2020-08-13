@@ -1,0 +1,13 @@
+{
+  "title": "Warehouse.v2",
+  "type": "object",
+  "description": "",
+  "properties": {
+    "id": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

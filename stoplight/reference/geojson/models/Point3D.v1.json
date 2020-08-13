@@ -1,0 +1,9 @@
+{
+  "type": "array",
+  "title": "Point3D.v1",
+  "maxItems": 3,
+  "minItems": 2,
+  "items": {
+    "type": "number"
+  }
+}

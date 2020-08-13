@@ -1,0 +1,75 @@
+{
+  "title": "StatusType.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Depricated, use code instead"
+    },
+    "isClosed": {
+      "type": "boolean",
+      "description": "Depricated, does this status event close the order"
+    },
+    "actionRequiredBy": {
+      "type": "object",
+      "description": "Responsibility for resolving this issue",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human readable description of responsible party to resolve the issue"
+        }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "detail": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Depricated"
+    },
+    "name": {
+      "type": "string",
+      "description": "Depricated, use stage/state instead"
+    },
+    "detailCode": {
+      "pattern": "^\\d{2}$",
+      "type": "string"
+    },
+    "code": {
+      "pattern": "^\\d{6}$",
+      "type": "string",
+      "description": "Code, see [status codes](#section/Getting-Started/Status-Codes)"
+    }
+  },
+  "required": [
+    "stage",
+    "state",
+    "detailCode",
+    "code"
+  ]
+}

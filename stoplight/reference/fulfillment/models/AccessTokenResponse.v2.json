@@ -1,0 +1,19 @@
+{
+  "title": "AccessTokenResponse.v2",
+  "type": "object",
+  "properties": {
+    "refresh_token": {
+      "type": "string"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "token_type": {
+      "type": "string",
+      "default": "Bearer"
+    },
+    "access_token": {
+      "type": "string"
+    }
+  }
+}

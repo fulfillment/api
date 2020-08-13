@@ -1,0 +1,57 @@
+{
+  "title": "ConsigneeNew.v2",
+  "type": "object",
+  "properties": {
+    "companyName": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country, for best results please provide the two character ISO code"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal Code / Zip"
+    },
+    "addressRegion": {
+      "type": "string",
+      "description": "Province / State"
+    },
+    "addressLocality": {
+      "type": "string",
+      "description": "City"
+    },
+    "address2": {
+      "type": "string",
+      "description": "Address Line 2"
+    },
+    "address1": {
+      "type": "string",
+      "description": "Address Line 1"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number, required for international shipments"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email, required for international shipments"
+    }
+  },
+  "required": [
+    "country",
+    "addressRegion",
+    "addressLocality",
+    "address1",
+    "phone",
+    "lastName",
+    "firstName",
+    "email"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "tracking",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  }
+}
