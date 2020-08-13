@@ -886,12 +886,12 @@
                               "type": "string",
                               "description": ""
                             },
-                            "orderItems": {
-                              "title": "OrderItemsResponse.v2",
+                            "lineItems": {
+                              "title": "LineItemsResponse.v2",
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "string"
+                                  "type": "integer"
                                 },
                                 "lineDetails": {
                                   "type": "object",
@@ -939,7 +939,7 @@
                                         "type": "string"
                                       },
                                       "quantity": {
-                                        "type": "string"
+                                        "type": "integer"
                                       },
                                       "expirationDate": {
                                         "type": "string",
@@ -2204,7 +2204,7 @@
             "type": "string",
             "enum": [
               "integrator",
-              "orderItems"
+              "lineItems"
             ]
           }
         }
