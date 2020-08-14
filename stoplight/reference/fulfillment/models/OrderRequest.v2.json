@@ -2,6 +2,49 @@
   "title": "OrderRequest.v2",
   "type": "object",
   "properties": {
+    "merchantId": {
+      "type": "integer",
+      "description": "Necessary if you have a multitenancy account, otherwise we will associate the order with your account"
+    },
+    "merchantOrderId": {
+      "type": "string",
+      "description": "Unique ID provided by the merchant"
+    },
+    "shippingMethod": {
+      "type": "string",
+      "description": "Custom for you, it will be mapped to an actual method within the OMS UI",
+      "example": "Ground"
+    },
+    "recipient": {
+      "$ref": "./ConsigneeNew.v2.json"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "declaredValue": {
+            "type": "string",
+            "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
+            "format": "double",
+            "pattern": "^[0-9.]+$",
+            "example": "129.99"
+          }
+        },
+        "required": [
+          "quantity",
+          "sku",
+          "declaredValue"
+        ]
+      }
+    },
     "warehouse": {
       "type": "object",
       "description": "We automatically select a warehouse based on inventory availability, requested carrier and delivery schedule, and carrier cost. You may however override this process. Because this is not recommended please inform your AE prior to using so they may enable this feature.",
@@ -78,51 +121,12 @@
     },
     "notes": {
       "type": "string"
-    },
-    "shippingMethod": {
-      "type": "string"
-    },
-    "recipient": {
-      "$ref": "./ConsigneeNew.v2.json"
-    },
-    "items": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer"
-          },
-          "sku": {
-            "type": "string"
-          },
-          "declaredValue": {
-            "type": "number",
-            "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
-            "format": "double"
-          }
-        },
-        "required": [
-          "quantity",
-          "sku",
-          "declaredValue"
-        ]
-      }
-    },
-    "merchantOrderId": {
-      "type": "string",
-      "description": "Unique ID provided by the merchant"
-    },
-    "merchantId": {
-      "type": "integer",
-      "description": "Necessary if you have a multitenancy account, otherwise we will associate the order with your account"
     }
   },
   "required": [
+    "merchantOrderId",
     "shippingMethod",
     "recipient",
-    "items",
-    "merchantOrderId"
+    "items"
   ]
 }

@@ -55,7 +55,58 @@
                       "deprecated": true
                     },
                     "contactInfo": {
-                      "$ref": "#/paths/~1returns/put/responses/201/content/application~1json/schema/properties/recipient"
+                      "title": "UserContact.v2",
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "apiKey": {
+                          "type": "string",
+                          "description": "Depricated",
+                          "deprecated": true
+                        },
+                        "contactInfo": {
+                          "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/originalConsignee"
+                        },
+                        "merchant": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "createDate": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedBy": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "status": {
+                          "type": "boolean"
+                        },
+                        "deptLeader": {
+                          "type": "boolean",
+                          "deprecated": true
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
                     },
                     "merchant": {
                       "type": "object",
@@ -270,10 +321,19 @@
                             }
                           },
                           "updatedBy": {
-                            "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/currentStatus/properties/createdBy"
+                            "title": "User.v2",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
                           },
                           "createdBy": {
-                            "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/currentStatus/properties/createdBy"
+                            "$ref": "#/paths/~1returns/get/responses/200/content/application~1json/schema/properties/data/items/properties/updatedBy"
                           },
                           "status": {
                             "type": "object",
@@ -443,7 +503,7 @@
                           "type": "integer"
                         },
                         "updatedBy": {
-                          "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/currentStatus/properties/createdBy"
+                          "$ref": "#/paths/~1returns/get/responses/200/content/application~1json/schema/properties/data/items/properties/updatedBy"
                         },
                         "updatedAt": {
                           "type": "string",
@@ -886,9 +946,10 @@
                               "type": "string",
                               "description": ""
                             },
-                            "lineItems": {
-                              "title": "LineItemsResponse.v2",
+                            "orderItems": {
+                              "title": "OrderItemsResponse.v2",
                               "type": "object",
+                              "description": "",
                               "properties": {
                                 "id": {
                                   "type": "integer"
@@ -923,7 +984,8 @@
                                       "type": "string"
                                     },
                                     "declaredValue": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "pattern": "^[0-9.]+$"
                                     },
                                     "quantity": {
                                       "type": "integer"
@@ -1003,6 +1065,103 @@
                 "title": "OrderRequest.v2",
                 "type": "object",
                 "properties": {
+                  "merchantId": {
+                    "type": "integer",
+                    "description": "Necessary if you have a multitenancy account, otherwise we will associate the order with your account"
+                  },
+                  "merchantOrderId": {
+                    "type": "string",
+                    "description": "Unique ID provided by the merchant"
+                  },
+                  "shippingMethod": {
+                    "type": "string",
+                    "description": "Custom for you, it will be mapped to an actual method within the OMS UI",
+                    "example": "Ground"
+                  },
+                  "recipient": {
+                    "title": "ConsigneeNew.v2",
+                    "type": "object",
+                    "properties": {
+                      "companyName": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Country, for best results please provide the two character ISO code"
+                      },
+                      "postalCode": {
+                        "type": "string",
+                        "description": "Postal Code / Zip"
+                      },
+                      "addressRegion": {
+                        "type": "string",
+                        "description": "Province / State"
+                      },
+                      "addressLocality": {
+                        "type": "string",
+                        "description": "City"
+                      },
+                      "address2": {
+                        "type": "string",
+                        "description": "Address Line 2"
+                      },
+                      "address1": {
+                        "type": "string",
+                        "description": "Address Line 1"
+                      },
+                      "phone": {
+                        "type": "string",
+                        "description": "Phone number, required for international shipments"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Email, required for international shipments"
+                      }
+                    },
+                    "required": [
+                      "country",
+                      "addressRegion",
+                      "addressLocality",
+                      "address1",
+                      "phone",
+                      "lastName",
+                      "firstName",
+                      "email"
+                    ]
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "quantity": {
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "sku": {
+                          "type": "string"
+                        },
+                        "declaredValue": {
+                          "type": "string",
+                          "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
+                          "format": "double",
+                          "pattern": "^[0-9.]+$",
+                          "example": "129.99"
+                        }
+                      },
+                      "required": [
+                        "quantity",
+                        "sku",
+                        "declaredValue"
+                      ]
+                    }
+                  },
                   "warehouse": {
                     "type": "object",
                     "description": "We automatically select a warehouse based on inventory availability, requested carrier and delivery schedule, and carrier cost. You may however override this process. Because this is not recommended please inform your AE prior to using so they may enable this feature.",
@@ -1079,106 +1238,13 @@
                   },
                   "notes": {
                     "type": "string"
-                  },
-                  "shippingMethod": {
-                    "type": "string"
-                  },
-                  "recipient": {
-                    "title": "ConsigneeNew.v2",
-                    "type": "object",
-                    "properties": {
-                      "companyName": {
-                        "type": "string"
-                      },
-                      "country": {
-                        "type": "string",
-                        "description": "Country, for best results please provide the two character ISO code"
-                      },
-                      "postalCode": {
-                        "type": "string",
-                        "description": "Postal Code / Zip"
-                      },
-                      "addressRegion": {
-                        "type": "string",
-                        "description": "Province / State"
-                      },
-                      "addressLocality": {
-                        "type": "string",
-                        "description": "City"
-                      },
-                      "address2": {
-                        "type": "string",
-                        "description": "Address Line 2"
-                      },
-                      "address1": {
-                        "type": "string",
-                        "description": "Address Line 1"
-                      },
-                      "phone": {
-                        "type": "string",
-                        "description": "Phone number, required for international shipments"
-                      },
-                      "lastName": {
-                        "type": "string"
-                      },
-                      "firstName": {
-                        "type": "string"
-                      },
-                      "email": {
-                        "type": "string",
-                        "description": "Email, required for international shipments"
-                      }
-                    },
-                    "required": [
-                      "country",
-                      "addressRegion",
-                      "addressLocality",
-                      "address1",
-                      "phone",
-                      "lastName",
-                      "firstName",
-                      "email"
-                    ]
-                  },
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "quantity": {
-                          "minimum": 1,
-                          "type": "integer"
-                        },
-                        "sku": {
-                          "type": "string"
-                        },
-                        "declaredValue": {
-                          "type": "number",
-                          "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
-                          "format": "double"
-                        }
-                      },
-                      "required": [
-                        "quantity",
-                        "sku",
-                        "declaredValue"
-                      ]
-                    }
-                  },
-                  "merchantOrderId": {
-                    "type": "string",
-                    "description": "Unique ID provided by the merchant"
-                  },
-                  "merchantId": {
-                    "type": "integer",
-                    "description": "Necessary if you have a multitenancy account, otherwise we will associate the order with your account"
                   }
                 },
                 "required": [
+                  "merchantOrderId",
                   "shippingMethod",
                   "recipient",
-                  "items",
-                  "merchantOrderId"
+                  "items"
                 ]
               }
             }
@@ -1201,14 +1267,120 @@
                     "trackingNumbers": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/trackingNumber"
+                        "type": "object",
+                        "title": "TrackingNumber.v2",
+                        "x-tags": [
+                          "Tracking"
+                        ],
+                        "properties": {
+                          "carrier": {
+                            "title": "CarrierSimple.v2",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ]
+                          },
+                          "barcodeScanValue": {
+                            "type": "string",
+                            "description": "The computer readable alternative to the human readable",
+                            "deprecated": true
+                          },
+                          "value": {
+                            "type": "string",
+                            "description": "The human readable tracking number recipients (consignee) expect"
+                          }
+                        }
                       }
                     },
                     "validatedConsignee": {
-                      "$ref": "#/paths/~1returns/put/responses/201/content/application~1json/schema/properties/recipient"
+                      "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/originalConsignee"
                     },
                     "originalConsignee": {
-                      "$ref": "#/paths/~1returns/put/responses/201/content/application~1json/schema/properties/recipient"
+                      "title": "Consignee.v2",
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "updatedBy": {
+                          "$ref": "#/paths/~1returns/get/responses/200/content/application~1json/schema/properties/data/items/properties/updatedBy"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "iso": {
+                          "title": "IsoCountry.v2",
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "iso2": {
+                              "pattern": "[A-Z]{2}",
+                              "type": "string",
+                              "description": "Two character ISO code"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Country Name"
+                            }
+                          }
+                        },
+                        "companyName": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "Ideally provide the two character ISO code"
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "description": "Postal Code / Zip"
+                        },
+                        "addressRegion": {
+                          "type": "string",
+                          "description": "Province / State"
+                        },
+                        "addressLocality": {
+                          "type": "string",
+                          "description": "City"
+                        },
+                        "address2": {
+                          "type": "string"
+                        },
+                        "address1": {
+                          "type": "string"
+                        },
+                        "phone": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "country",
+                        "postalCode",
+                        "addressRegion",
+                        "addressLocality",
+                        "address1",
+                        "lastName",
+                        "firstName"
+                      ]
                     },
                     "currentStatus": {
                       "title": "StatusEvent.v2",
@@ -1218,16 +1390,7 @@
                           "type": "integer"
                         },
                         "createdBy": {
-                          "title": "User.v2",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
+                          "$ref": "#/paths/~1returns/get/responses/200/content/application~1json/schema/properties/data/items/properties/updatedBy"
                         },
                         "status": {
                           "title": "StatusType.v2",
@@ -1383,9 +1546,6 @@
                           "description": "Reference to parent `id` if order was grouped"
                         }
                       }
-                    },
-                    "integrator": {
-                      "type": "string"
                     }
                   },
                   "required": [
@@ -1692,7 +1852,26 @@
                       "type": "object",
                       "properties": {
                         "pagination": {
-                          "$ref": "#/paths/~1returns/get/responses/200/content/application~1json/schema/properties/meta/properties/pagination"
+                          "title": "Pagination.v2",
+                          "type": "object",
+                          "properties": {
+                            "totalPages": {
+                              "type": "integer",
+                              "description": "Total number of pages available to request"
+                            },
+                            "currentPage": {
+                              "type": "integer",
+                              "description": "Current page of the response, this will match the page paramater"
+                            },
+                            "count": {
+                              "type": "integer",
+                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                            },
+                            "total": {
+                              "type": "integer",
+                              "description": "Total number of records available to request"
+                            }
+                          }
                         }
                       }
                     },
@@ -2204,7 +2383,7 @@
             "type": "string",
             "enum": [
               "integrator",
-              "lineItems"
+              "orderItems"
             ]
           }
         }
