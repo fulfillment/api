@@ -1,9 +1,10 @@
 {
   "title": "OrderItemsResponse.v2",
   "type": "object",
+  "description": "",
   "properties": {
     "id": {
-      "type": "string"
+      "type": "integer"
     },
     "lineDetails": {
       "type": "object",
@@ -35,7 +36,8 @@
           "type": "string"
         },
         "declaredValue": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[0-9.]+$"
         },
         "quantity": {
           "type": "integer"
@@ -51,7 +53,7 @@
             "type": "string"
           },
           "quantity": {
-            "type": "string"
+            "type": "integer"
           },
           "expirationDate": {
             "type": "string",

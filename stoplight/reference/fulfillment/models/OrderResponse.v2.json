@@ -62,9 +62,6 @@
           "description": "Reference to parent `id` if order was grouped"
         }
       }
-    },
-    "integrator": {
-      "type": "string"
     }
   },
   "required": [

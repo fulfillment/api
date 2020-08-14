@@ -55,7 +55,7 @@
                       "deprecated": true
                     },
                     "contactInfo": {
-                      "$ref": "#/paths/~1returns/put/responses/201/content/application~1json/schema/properties/recipient"
+                      "$ref": "./models/UserContact.v2.json"
                     },
                     "merchant": {
                       "type": "object",
@@ -270,10 +270,10 @@
                             }
                           },
                           "updatedBy": {
-                            "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/currentStatus/properties/createdBy"
+                            "$ref": "./models/User.v2.json"
                           },
                           "createdBy": {
-                            "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema/properties/currentStatus/properties/createdBy"
+                            "$ref": "./models/User.v2.json"
                           },
                           "status": {
                             "type": "object",
@@ -632,7 +632,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema"
+                  "$ref": "./models/OrderResponse.v2.json"
                 }
               }
             }
@@ -704,7 +704,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema"
+                  "$ref": "./models/OrderResponse.v2.json"
                 }
               }
             }
@@ -760,7 +760,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/paths/~1orders/get/responses/200/content/application~1json/schema"
+                  "$ref": "./models/OrderResponseOneOf.v2.json"
                 }
               }
             }
@@ -869,96 +869,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema"
-                    },
-                    {
-                      "title": "OrderResponseHydrate.v2",
-                      "allOf": [
-                        {
-                          "$ref": "#/paths/~1orders/post/responses/201/content/application~1json/schema"
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "integrator": {
-                              "type": "string",
-                              "description": ""
-                            },
-                            "orderItems": {
-                              "title": "OrderItemsResponse.v2",
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                },
-                                "lineDetails": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "integer"
-                                    },
-                                    "name": {
-                                      "type": "string"
-                                    },
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "externalSku": {
-                                      "type": "string"
-                                    },
-                                    "totalQuantity": {
-                                      "type": "integer"
-                                    }
-                                  }
-                                },
-                                "requestedSkuData": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "integer"
-                                    },
-                                    "sku": {
-                                      "type": "string"
-                                    },
-                                    "declaredValue": {
-                                      "type": "string"
-                                    },
-                                    "quantity": {
-                                      "type": "integer"
-                                    }
-                                  }
-                                },
-                                "inventoryDetails": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "lotNum": {
-                                        "type": "string"
-                                      },
-                                      "quantity": {
-                                        "type": "string"
-                                      },
-                                      "expirationDate": {
-                                        "type": "string",
-                                        "format": "date"
-                                      },
-                                      "serialNum": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      ],
-                      "description": "Requires hydrate to be set in the request and the corresponding node will be filled, respectfully."
-                    }
-                  ]
+                  "$ref": "./models/OrderResponseOneOf.v2.json"
                 }
               }
             }
@@ -1000,186 +911,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "OrderRequest.v2",
-                "type": "object",
-                "properties": {
-                  "warehouse": {
-                    "type": "object",
-                    "description": "We automatically select a warehouse based on inventory availability, requested carrier and delivery schedule, and carrier cost. You may however override this process. Because this is not recommended please inform your AE prior to using so they may enable this feature.",
-                    "properties": {
-                      "id": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "integrator": {
-                    "type": "string",
-                    "description": "Use of this property requires special permission and must be discussed with your account executive; values are restricted while custom values need to be accepted by your AE.",
-                    "enum": [
-                      "1ShoppingCart",
-                      "3dCart",
-                      "AdobeBC",
-                      "AmazonAU",
-                      "AmazonEU",
-                      "AmazonNA",
-                      "BigCommerce",
-                      "BrandBoom",
-                      "BrightPearl",
-                      "BuyGoods",
-                      "Celery",
-                      "ChannelAdvisor",
-                      "Clickbank",
-                      "CommerceHub",
-                      "Custom",
-                      "Demandware",
-                      "Ebay",
-                      "Ecwid",
-                      "Etsy",
-                      "FoxyCart",
-                      "Goodsie",
-                      "Infusionsoft",
-                      "Konnektive",
-                      "LimeLight",
-                      "Linio",
-                      "Linnworks",
-                      "Magento",
-                      "Netsuite",
-                      "NewEgg",
-                      "Nexternal",
-                      "NuOrder",
-                      "Opencart",
-                      "OrderWave",
-                      "osCommerce1",
-                      "Overstock",
-                      "PayPal",
-                      "PrestaShop",
-                      "Pricefalls",
-                      "Quickbooks",
-                      "Rakuten",
-                      "Sears",
-                      "Sellbrite",
-                      "SellerCloud",
-                      "Shipstation",
-                      "Shopify",
-                      "Skubana",
-                      "SolidCommerce",
-                      "SparkPay",
-                      "SpreeCommerce",
-                      "spsCommerce",
-                      "StitchLabs",
-                      "StoneEdge",
-                      "TradeGecko",
-                      "UltraCart",
-                      "Volusion",
-                      "VTEX",
-                      "Walmart",
-                      "WooCommerce",
-                      "Yahoo"
-                    ]
-                  },
-                  "notes": {
-                    "type": "string"
-                  },
-                  "shippingMethod": {
-                    "type": "string"
-                  },
-                  "recipient": {
-                    "title": "ConsigneeNew.v2",
-                    "type": "object",
-                    "properties": {
-                      "companyName": {
-                        "type": "string"
-                      },
-                      "country": {
-                        "type": "string",
-                        "description": "Country, for best results please provide the two character ISO code"
-                      },
-                      "postalCode": {
-                        "type": "string",
-                        "description": "Postal Code / Zip"
-                      },
-                      "addressRegion": {
-                        "type": "string",
-                        "description": "Province / State"
-                      },
-                      "addressLocality": {
-                        "type": "string",
-                        "description": "City"
-                      },
-                      "address2": {
-                        "type": "string",
-                        "description": "Address Line 2"
-                      },
-                      "address1": {
-                        "type": "string",
-                        "description": "Address Line 1"
-                      },
-                      "phone": {
-                        "type": "string",
-                        "description": "Phone number, required for international shipments"
-                      },
-                      "lastName": {
-                        "type": "string"
-                      },
-                      "firstName": {
-                        "type": "string"
-                      },
-                      "email": {
-                        "type": "string",
-                        "description": "Email, required for international shipments"
-                      }
-                    },
-                    "required": [
-                      "country",
-                      "addressRegion",
-                      "addressLocality",
-                      "address1",
-                      "phone",
-                      "lastName",
-                      "firstName",
-                      "email"
-                    ]
-                  },
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "quantity": {
-                          "minimum": 1,
-                          "type": "integer"
-                        },
-                        "sku": {
-                          "type": "string"
-                        },
-                        "declaredValue": {
-                          "type": "number",
-                          "description": "Using USD, a per unit value of a single SKU. If your declaring a kit this is the sum total for a single kit. In both scenarios we will multiply the `declaredValue` against the `quantity` for customs declaration.",
-                          "format": "double"
-                        }
-                      },
-                      "required": [
-                        "quantity",
-                        "sku",
-                        "declaredValue"
-                      ]
-                    }
-                  },
-                  "merchantOrderId": {
-                    "type": "string",
-                    "description": "Unique ID provided by the merchant"
-                  },
-                  "merchantId": {
-                    "type": "integer",
-                    "description": "Necessary if you have a multitenancy account, otherwise we will associate the order with your account"
-                  }
-                },
-                "required": [
-                  "shippingMethod",
-                  "recipient",
-                  "items",
-                  "merchantOrderId"
-                ]
+                "$ref": "./models/OrderRequest.v2.json"
               }
             }
           },
@@ -1191,213 +923,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "OrderResponse.v2",
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "description": "FDC ID for this order"
-                    },
-                    "trackingNumbers": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/trackingNumber"
-                      }
-                    },
-                    "validatedConsignee": {
-                      "$ref": "#/paths/~1returns/put/responses/201/content/application~1json/schema/properties/recipient"
-                    },
-                    "originalConsignee": {
-                      "$ref": "#/paths/~1returns/put/responses/201/content/application~1json/schema/properties/recipient"
-                    },
-                    "currentStatus": {
-                      "title": "StatusEvent.v2",
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer"
-                        },
-                        "createdBy": {
-                          "title": "User.v2",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "status": {
-                          "title": "StatusType.v2",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "Depricated, use code instead"
-                            },
-                            "isClosed": {
-                              "type": "boolean",
-                              "description": "Depricated, does this status event close the order"
-                            },
-                            "actionRequiredBy": {
-                              "type": "object",
-                              "description": "Responsibility for resolving this issue",
-                              "properties": {
-                                "id": {
-                                  "type": "integer"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "Human readable description of responsible party to resolve the issue"
-                                }
-                              }
-                            },
-                            "stage": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string"
-                                },
-                                "code": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "state": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string"
-                                },
-                                "code": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "detail": {
-                              "type": "string"
-                            },
-                            "reason": {
-                              "type": "string",
-                              "description": "Depricated"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Depricated, use stage/state instead"
-                            },
-                            "detailCode": {
-                              "pattern": "^\\d{2}$",
-                              "type": "string"
-                            },
-                            "code": {
-                              "pattern": "^\\d{6}$",
-                              "type": "string",
-                              "description": "Code, see [status codes](#section/Getting-Started/Status-Codes)"
-                            }
-                          },
-                          "required": [
-                            "stage",
-                            "state",
-                            "detailCode",
-                            "code"
-                          ]
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Explanation for status"
-                        },
-                        "date": {
-                          "type": "string",
-                          "description": "DateTime of Status Event",
-                          "format": "date-time"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "warehouse": {
-                      "title": "Warehouse.v2",
-                      "type": "object",
-                      "description": "",
-                      "properties": {
-                        "id": {
-                          "type": "integer"
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ]
-                    },
-                    "merchant": {
-                      "title": "Merchant.v2",
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer"
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Merchant Company Name"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "name"
-                      ]
-                    },
-                    "departDate": {
-                      "type": "string",
-                      "description": "DateTime order departed an FDC warehouse",
-                      "format": "date-time"
-                    },
-                    "dispatchDate": {
-                      "type": "string",
-                      "description": "DateTime order was dispatched for fulfillment by FDC",
-                      "format": "date-time"
-                    },
-                    "recordedOn": {
-                      "type": "string",
-                      "description": "DateTime order was recorded by FDC",
-                      "format": "date-time"
-                    },
-                    "merchantShippingMethod": {
-                      "type": "string",
-                      "description": "Requested ship method"
-                    },
-                    "purchaseOrderNum": {
-                      "type": "string",
-                      "description": "Merchant provided PO#"
-                    },
-                    "merchantOrderId": {
-                      "type": "string",
-                      "description": "Merchant provided ID"
-                    },
-                    "parentOrder": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "description": "Reference to parent `id` if order was grouped"
-                        }
-                      }
-                    },
-                    "integrator": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "validatedConsignee",
-                    "originalConsignee",
-                    "currentStatus",
-                    "merchant",
-                    "recordedOn",
-                    "merchantShippingMethod",
-                    "merchantOrderId"
-                  ]
+                  "$ref": "./models/OrderResponse.v2.json"
                 },
                 "examples": {
                   "duplicate-order": {
@@ -1692,7 +1218,7 @@
                       "type": "object",
                       "properties": {
                         "pagination": {
-                          "$ref": "#/paths/~1returns/get/responses/200/content/application~1json/schema/properties/meta/properties/pagination"
+                          "$ref": "./models/Pagination.v2.json"
                         }
                       }
                     },
@@ -1839,7 +1365,7 @@
                             "example": "carrier"
                           },
                           "eventLocation": {
-                            "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin"
+                            "$ref": "../geojson/models/Feature.v1.json"
                           },
                           "eventDateTime": {
                             "type": "string",
@@ -1890,106 +1416,10 @@
                       "type": "string"
                     },
                     "destination": {
-                      "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin"
+                      "$ref": "../geojson/models/Feature.v1.json"
                     },
                     "origin": {
-                      "title": "Feature",
-                      "type": "object",
-                      "description": "GeoJSon Feature",
-                      "x-tags": [
-                        "GeoJSON"
-                      ],
-                      "externalDocs": {
-                        "url": "https://tools.ietf.org/html/rfc7946#section-3.2"
-                      },
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "Feature"
-                          ],
-                          "example": "Feature"
-                        },
-                        "id": {
-                          "type": "integer"
-                        },
-                        "properties": {
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "geometry": {
-                          "title": "Geometry",
-                          "type": "object",
-                          "x-tags": [
-                            "GeoJSON"
-                          ],
-                          "externalDocs": {
-                            "url": "http://geojson.org/geojson-spec.html#geometry-objects"
-                          },
-                          "description": "GeoJSon geometry",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "description": "the geometry type",
-                              "enum": [
-                                "Point",
-                                "LineString",
-                                "Polygon",
-                                "MultiPoint",
-                                "MultiLineString",
-                                "MultiPolygon"
-                              ],
-                              "example": "Point"
-                            },
-                            "coordinates": {
-                              "oneOf": [
-                                {
-                                  "type": "array",
-                                  "items": {
-                                    "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin/properties/geometry/properties/coordinates/oneOf/1"
-                                  }
-                                },
-                                {
-                                  "title": "Coordinates.v1",
-                                  "type": "array",
-                                  "items": {
-                                    "type": "number"
-                                  },
-                                  "x-examples": {
-                                    "example": [
-                                      102,
-                                      0.5
-                                    ]
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "required": [
-                            "type",
-                            "coordinates"
-                          ]
-                        },
-                        "bbox": {
-                          "type": "array",
-                          "items": {}
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "centerline": {
-                          "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin/properties/geometry"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "properties",
-                        "geometry"
-                      ]
+                      "$ref": "../geojson/models/Feature.v1.json"
                     },
                     "trackingNumber": {
                       "type": "object",
