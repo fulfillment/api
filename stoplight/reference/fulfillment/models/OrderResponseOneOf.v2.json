@@ -6,5 +6,7 @@
     {
       "$ref": "./OrderResponseHydrate.v2.json"
     }
-  ]
+  ],
+  "title": "OrderResponseOneOf.v2",
+  "description": "Standard Order Response or a Hydrated Response"
 }
