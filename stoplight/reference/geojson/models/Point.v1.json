@@ -1,0 +1,19 @@
+{
+  "title": "Point.v1",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "$ref": "./Geometry.v1.json"
+    }
+  ]
+}

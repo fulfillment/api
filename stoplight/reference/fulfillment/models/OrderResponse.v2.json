@@ -1,0 +1,77 @@
+{
+  "title": "OrderResponse.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "FDC ID for this order"
+    },
+    "trackingNumbers": {
+      "type": "array",
+      "items": {
+        "$ref": "./TrackingNumber.v2.json"
+      }
+    },
+    "validatedConsignee": {
+      "$ref": "./Consignee.v2.json"
+    },
+    "originalConsignee": {
+      "$ref": "./Consignee.v2.json"
+    },
+    "currentStatus": {
+      "$ref": "./StatusEvent.v2.json"
+    },
+    "warehouse": {
+      "$ref": "./Warehouse.v2.json"
+    },
+    "merchant": {
+      "$ref": "./Merchant.v2.json"
+    },
+    "departDate": {
+      "type": "string",
+      "description": "DateTime order departed an FDC warehouse",
+      "format": "date-time"
+    },
+    "dispatchDate": {
+      "type": "string",
+      "description": "DateTime order was dispatched for fulfillment by FDC",
+      "format": "date-time"
+    },
+    "recordedOn": {
+      "type": "string",
+      "description": "DateTime order was recorded by FDC",
+      "format": "date-time"
+    },
+    "merchantShippingMethod": {
+      "type": "string",
+      "description": "Requested ship method"
+    },
+    "purchaseOrderNum": {
+      "type": "string",
+      "description": "Merchant provided PO#"
+    },
+    "merchantOrderId": {
+      "type": "string",
+      "description": "Merchant provided ID"
+    },
+    "parentOrder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Reference to parent `id` if order was grouped"
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "validatedConsignee",
+    "originalConsignee",
+    "currentStatus",
+    "merchant",
+    "recordedOn",
+    "merchantShippingMethod",
+    "merchantOrderId"
+  ]
+}

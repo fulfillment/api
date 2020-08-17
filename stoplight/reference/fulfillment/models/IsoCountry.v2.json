@@ -1,0 +1,18 @@
+{
+  "title": "IsoCountry.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "iso2": {
+      "pattern": "[A-Z]{2}",
+      "type": "string",
+      "description": "Two character ISO code"
+    },
+    "name": {
+      "type": "string",
+      "description": "Country Name"
+    }
+  }
+}

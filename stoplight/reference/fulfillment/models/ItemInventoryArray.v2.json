@@ -1,0 +1,20 @@
+{
+  "title": "ItemInventoryArray.v2",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "$ref": "./Pagination.v2.json"
+        }
+      }
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "./ItemInventory.v2.json"
+      }
+    }
+  }
+}

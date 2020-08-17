@@ -1,0 +1,58 @@
+{
+  "title": "trackingResponse",
+  "type": "object",
+  "description": "",
+  "x-tags": [
+    "Tracking"
+  ],
+  "x-examples": {},
+  "properties": {
+    "trackedEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "./TrackingEvent.v2.json"
+      }
+    },
+    "fdcOrderId": {
+      "type": "integer"
+    },
+    "firstTransitEvent": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUpdatedDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastCheckedDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "firstCheckedDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "statusMessage": {
+      "type": "string"
+    },
+    "statusCategoryCode": {
+      "type": "integer"
+    },
+    "statusDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string"
+    },
+    "destination": {
+      "$ref": "../../geojson/models/Feature.v1.json"
+    },
+    "origin": {
+      "$ref": "../../geojson/models/Feature.v1.json"
+    },
+    "trackingNumber": {
+      "$ref": "../../fulfillment/models/TrackingNumber.v2.json"
+    }
+  }
+}

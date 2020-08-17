@@ -1,0 +1,40 @@
+{
+  "title": "RmaResponse.v2",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string"
+          },
+          "quantityExpected": {
+            "type": "integer",
+            "example": 1,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "sku",
+          "quantityExpected"
+        ]
+      }
+    },
+    "recipient": {
+      "$ref": "./Consignee.v2.json"
+    },
+    "merchantOrderId": {
+      "type": "string"
+    },
+    "rmaNumber": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "recipient",
+    "rmaNumber"
+  ]
+}

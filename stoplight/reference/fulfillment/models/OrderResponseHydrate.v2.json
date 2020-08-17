@@ -1,0 +1,21 @@
+{
+  "title": "OrderResponseHydrate.v2",
+  "allOf": [
+    {
+      "$ref": "./OrderResponse.v2.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "integrator": {
+          "type": "string",
+          "description": ""
+        },
+        "lineItems": {
+          "$ref": "./LineItemsResponse.v2.json"
+        }
+      }
+    }
+  ],
+  "description": "Requires hydrate to be set in the request and the corresponding node will be filled, respectfully."
+}

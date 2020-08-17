@@ -1,0 +1,18 @@
+{
+  "title": "OrderShip.v2",
+  "type": "object",
+  "properties": {
+    "weightOverride": {
+      "type": "number",
+      "description": "Override predicted weight of package",
+      "format": "float"
+    },
+    "trackingNumber": {
+      "description": "Tracking number of package",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trackingNumber"
+  ]
+}

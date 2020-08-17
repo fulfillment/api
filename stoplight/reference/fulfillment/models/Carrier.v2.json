@@ -1,0 +1,11 @@
+{
+  "title": "Carrier.v2",
+  "oneOf": [
+    {
+      "$ref": "./CarrierSimple.v2.json"
+    },
+    {
+      "$ref": "./CarrierHydrated.v2.json"
+    }
+  ]
+}

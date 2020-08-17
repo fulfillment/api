@@ -1,0 +1,12 @@
+{
+  "title": "CarrierHydrated.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

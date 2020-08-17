@@ -1,0 +1,27 @@
+{
+  "title": "StatusEvent.v2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "createdBy": {
+      "$ref": "./User.v2.json"
+    },
+    "status": {
+      "$ref": "./StatusType.v2.json"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Explanation for status"
+    },
+    "date": {
+      "type": "string",
+      "description": "DateTime of Status Event",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

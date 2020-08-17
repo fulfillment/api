@@ -1,0 +1,26 @@
+{
+  "title": "StatusTypeSimple.v2",
+  "type": "object",
+  "properties": {
+    "reason": {
+      "type": "string",
+      "description": "Human-readable description"
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "pattern": "^\\d{6}$",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "reason",
+    "status"
+  ]
+}
