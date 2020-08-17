@@ -1015,86 +1015,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "title": "AccessTokenRequest.v2",
-                "oneOf": [
-                  {
-                    "title": "AccessTokenRequestPassword.v2",
-                    "allOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "username": {
-                            "type": "string",
-                            "description": ""
-                          },
-                          "password": {
-                            "type": "string",
-                            "description": ""
-                          }
-                        },
-                        "required": [
-                          "username",
-                          "password"
-                        ]
-                      },
-                      {
-                        "title": "AccessTokenRequestBase.v2",
-                        "type": "object",
-                        "properties": {
-                          "scope": {
-                            "type": "string",
-                            "description": "Currently limited to Order Management System",
-                            "default": "oms",
-                            "enum": [
-                              "oms"
-                            ]
-                          },
-                          "grant_type": {
-                            "type": "string",
-                            "description": "Indicates how you're authenticating your request",
-                            "enum": [
-                              "password",
-                              "refresh_token"
-                            ]
-                          },
-                          "client_secret": {
-                            "type": "string"
-                          },
-                          "client_id": {
-                            "type": "string",
-                            "description": "Id and secret provided by FDC"
-                          }
-                        },
-                        "required": [
-                          "scope",
-                          "grant_type",
-                          "client_secret",
-                          "client_id"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "title": "AccessTokenRequestRefresh.v2",
-                    "allOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "refresh_token": {
-                            "type": "string",
-                            "description": "You may request future tokens with the `refresh_token` from your previous `/oauth/access_token` request"
-                          }
-                        },
-                        "required": [
-                          "refresh_token"
-                        ]
-                      },
-                      {
-                        "$ref": "#/paths/~1oauth~1access_token/post/requestBody/content/application~1json/schema/oneOf/0/allOf/1"
-                      }
-                    ]
-                  }
-                ]
+                "$ref": "./models/AccessTokenRequest.v2.json"
               }
             }
           },
@@ -1634,7 +1555,8 @@
             "type": "string",
             "enum": [
               "integrator",
-              "lineItems"
+              "lineItems",
+              "trackingNumbers.carrier"
             ]
           }
         }

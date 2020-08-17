@@ -16,9 +16,20 @@
           "items": {
             "$ref": "./LineItemsResponse.v2.json"
           }
+        },
+        "trackingNumbers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "carrier": {
+                "$ref": "./CarrierHydrated.v2.json"
+              }
+            }
+          }
         }
       }
     }
   ],
-  "description": "Requires hydrate to be set in the request and the corresponding node will be filled, respectfully."
+  "description": "Requires hydrate to be set in the request and the corresponding node will be filled."
 }
