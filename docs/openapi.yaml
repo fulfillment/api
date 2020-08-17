@@ -1786,7 +1786,7 @@ components:
           type: string
           enum:
             - integrator
-            - orderItems
+            - lineItems
 tags:
   - name: Auth
     description: 'Please note that in keeping with the OAuth standard, parameters are underscored however all other API parameters are camelCase.'

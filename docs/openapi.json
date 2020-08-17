@@ -2385,7 +2385,7 @@
             "type": "string",
             "enum": [
               "integrator",
-              "orderItems"
+              "lineItems"
             ]
           }
         }
