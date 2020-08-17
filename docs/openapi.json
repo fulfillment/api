@@ -946,8 +946,8 @@
                               "type": "string",
                               "description": ""
                             },
-                            "orderItems": {
-                              "title": "OrderItemsResponse.v2",
+                            "lineItems": {
+                              "title": "LineItemsResponse.v2",
                               "type": "object",
                               "description": "",
                               "properties": {
@@ -1020,7 +1020,9 @@
                       ],
                       "description": "Requires hydrate to be set in the request and the corresponding node will be filled, respectfully."
                     }
-                  ]
+                  ],
+                  "title": "OrderResponseOneOf.v2",
+                  "description": "Standard Order Response or a Hydrated Response"
                 }
               }
             }

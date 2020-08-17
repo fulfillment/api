@@ -11,8 +11,8 @@
           "type": "string",
           "description": ""
         },
-        "orderItems": {
-          "$ref": "./OrderItemsResponse.v2.json"
+        "lineItems": {
+          "$ref": "./LineItemsResponse.v2.json"
         }
       }
     }

@@ -1,5 +1,5 @@
 {
-  "title": "OrderItemsResponse.v2",
+  "title": "LineItemsResponse.v2",
   "type": "object",
   "description": "",
   "properties": {
