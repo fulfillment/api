@@ -947,68 +947,71 @@
                               "description": ""
                             },
                             "lineItems": {
-                              "title": "LineItemsResponse.v2",
-                              "type": "object",
-                              "description": "",
-                              "properties": {
-                                "id": {
-                                  "type": "integer"
-                                },
-                                "lineDetails": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "integer"
-                                    },
-                                    "name": {
-                                      "type": "string"
-                                    },
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "externalSku": {
-                                      "type": "string"
-                                    },
-                                    "totalQuantity": {
-                                      "type": "integer"
-                                    }
-                                  }
-                                },
-                                "requestedSkuData": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "integer"
-                                    },
-                                    "sku": {
-                                      "type": "string"
-                                    },
-                                    "declaredValue": {
-                                      "type": "string",
-                                      "pattern": "^[0-9.]+$"
-                                    },
-                                    "quantity": {
-                                      "type": "integer"
-                                    }
-                                  }
-                                },
-                                "inventoryDetails": {
-                                  "type": "array",
-                                  "items": {
+                              "type": "array",
+                              "items": {
+                                "title": "LineItemsResponse.v2",
+                                "type": "object",
+                                "description": "",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "lineDetails": {
                                     "type": "object",
                                     "properties": {
-                                      "lotNum": {
+                                      "id": {
+                                        "type": "integer"
+                                      },
+                                      "name": {
                                         "type": "string"
+                                      },
+                                      "description": {
+                                        "type": "string"
+                                      },
+                                      "externalSku": {
+                                        "type": "string"
+                                      },
+                                      "totalQuantity": {
+                                        "type": "integer"
+                                      }
+                                    }
+                                  },
+                                  "requestedSkuData": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer"
+                                      },
+                                      "sku": {
+                                        "type": "string"
+                                      },
+                                      "declaredValue": {
+                                        "type": "string",
+                                        "pattern": "^[0-9.]+$"
                                       },
                                       "quantity": {
                                         "type": "integer"
-                                      },
-                                      "expirationDate": {
-                                        "type": "string",
-                                        "format": "date"
-                                      },
-                                      "serialNum": {
-                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "inventoryDetails": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "lotNum": {
+                                          "type": "string"
+                                        },
+                                        "quantity": {
+                                          "type": "integer"
+                                        },
+                                        "expirationDate": {
+                                          "type": "string",
+                                          "format": "date"
+                                        },
+                                        "serialNum": {
+                                          "type": "string"
+                                        }
                                       }
                                     }
                                   }

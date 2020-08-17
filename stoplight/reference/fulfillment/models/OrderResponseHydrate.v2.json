@@ -12,7 +12,10 @@
           "description": ""
         },
         "lineItems": {
-          "$ref": "./LineItemsResponse.v2.json"
+          "type": "array",
+          "items": {
+            "$ref": "./LineItemsResponse.v2.json"
+          }
         }
       }
     }
