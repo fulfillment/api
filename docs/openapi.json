@@ -1017,6 +1017,40 @@
                                   }
                                 }
                               }
+                            },
+                            "trackingNumbers": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "carrier": {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "symbol": {
+                                        "type": "string"
+                                      },
+                                      "includePeripherals": {
+                                        "type": "boolean"
+                                      },
+                                      "enabled": {
+                                        "type": "boolean"
+                                      },
+                                      "canReprintPostage": {
+                                        "type": "boolean"
+                                      },
+                                      "requiresDimensions": {
+                                        "type": "boolean"
+                                      },
+                                      "internalRatesOnly": {
+                                        "type": "boolean"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -2388,7 +2422,8 @@
             "type": "string",
             "enum": [
               "integrator",
-              "lineItems"
+              "lineItems",
+              "trackingNumbers.carrier"
             ]
           }
         }

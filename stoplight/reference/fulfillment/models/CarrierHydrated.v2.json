@@ -7,6 +7,29 @@
     },
     "name": {
       "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "includePeripherals": {
+      "type": "boolean"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "canReprintPostage": {
+      "type": "boolean"
+    },
+    "requiresDimensions": {
+      "type": "boolean"
+    },
+    "internalRatesOnly": {
+      "type": "boolean"
     }
-  }
+  },
+  "required": [
+    "id",
+    "name",
+    "symbol"
+  ]
 }

@@ -828,7 +828,36 @@ paths:
                                         format: date
                                       serialNum:
                                         type: string
-                    description: 'Requires hydrate to be set in the request and the corresponding node will be filled, respectfully.'
+                          trackingNumbers:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                carrier:
+                                  title: CarrierHydrated.v2
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: integer
+                                    name:
+                                      type: string
+                                    symbol:
+                                      type: string
+                                    includePeripherals:
+                                      type: boolean
+                                    enabled:
+                                      type: boolean
+                                    canReprintPostage:
+                                      type: boolean
+                                    requiresDimensions:
+                                      type: boolean
+                                    internalRatesOnly:
+                                      type: boolean
+                                  required:
+                                    - id
+                                    - name
+                                    - symbol
+                    description: Requires hydrate to be set in the request and the corresponding node will be filled.
                 title: OrderResponseOneOf.v2
                 description: Standard Order Response or a Hydrated Response
         '404':
@@ -1789,6 +1818,7 @@ components:
           enum:
             - integrator
             - lineItems
+            - trackingNumbers.carrier
 tags:
   - name: Auth
     description: 'Please note that in keeping with the OAuth standard, parameters are underscored however all other API parameters are camelCase.'
