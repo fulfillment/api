@@ -1263,7 +1263,6 @@ paths:
                   - recordedOn
                   - merchantShippingMethod
                   - merchantOrderId
-              examples: {}
         '400':
           description: Invalid order object
           content:

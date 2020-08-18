@@ -924,8 +924,7 @@
               "application/json": {
                 "schema": {
                   "$ref": "./models/OrderResponse.v2.json"
-                },
-                "examples": {}
+                }
               }
             }
           },
