@@ -1606,8 +1606,7 @@
                     "merchantShippingMethod",
                     "merchantOrderId"
                   ]
-                },
-                "examples": {}
+                }
               }
             }
           },
