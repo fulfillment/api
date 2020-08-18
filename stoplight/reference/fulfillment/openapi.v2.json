@@ -925,16 +925,7 @@
                 "schema": {
                   "$ref": "./models/OrderResponse.v2.json"
                 },
-                "examples": {
-                  "duplicate-order": {
-                    "value": {
-                      "message": "Duplicate Order",
-                      "context": {
-                        "id": 123
-                      }
-                    }
-                  }
-                }
+                "examples": {}
               }
             }
           },

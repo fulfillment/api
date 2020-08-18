@@ -1024,8 +1024,12 @@
                                 "type": "object",
                                 "properties": {
                                   "carrier": {
+                                    "title": "CarrierHydrated.v2",
                                     "type": "object",
                                     "properties": {
+                                      "id": {
+                                        "type": "integer"
+                                      },
                                       "name": {
                                         "type": "string"
                                       },
@@ -1047,7 +1051,12 @@
                                       "internalRatesOnly": {
                                         "type": "boolean"
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "name",
+                                      "symbol"
+                                    ]
                                   }
                                 }
                               }
@@ -1055,7 +1064,7 @@
                           }
                         }
                       ],
-                      "description": "Requires hydrate to be set in the request and the corresponding node will be filled, respectfully."
+                      "description": "Requires hydrate to be set in the request and the corresponding node will be filled."
                     }
                   ],
                   "title": "OrderResponseOneOf.v2",
@@ -1598,16 +1607,7 @@
                     "merchantOrderId"
                   ]
                 },
-                "examples": {
-                  "duplicate-order": {
-                    "value": {
-                      "message": "Duplicate Order",
-                      "context": {
-                        "id": 123
-                      }
-                    }
-                  }
-                }
+                "examples": {}
               }
             }
           },
