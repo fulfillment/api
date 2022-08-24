@@ -1665,6 +1665,38 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Validation Failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "ErrorStandardWithContext.v2",
+                  "type": "object",
+                  "properties": {
+                    "context": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "validation-failure": {
+                    "value": {
+                      "message": "Validation Failure",
+                      "context": {
+                        "id": 123
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "x-codegen-request-body-name": "body"
