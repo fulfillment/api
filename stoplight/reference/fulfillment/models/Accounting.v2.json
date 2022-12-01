@@ -1,0 +1,91 @@
+{
+  "title": "Accounting.v2",
+  "type": "object",
+  "properties": {
+    "fees": {
+      "type": "object",
+      "properties": {
+        "fulfillment": {
+          "type": "integer",
+          "description": ""
+        },
+        "picking": {
+          "type": "integer",
+          "description": ""
+        },
+        "envelope": {
+          "type": "integer",
+          "description": ""
+        },
+        "insert": {
+          "type": "integer",
+          "description": ""
+        },
+        "kitting": {
+          "type": "integer",
+          "description": ""
+        },
+        "print": {
+          "type": "integer",
+          "description": ""
+        },
+        "box": {
+          "type": "integer",
+          "description": ""
+        },
+        "postage": {
+          "type": "integer",
+          "description": ""
+        },
+        "total": {
+          "type": "integer",
+          "description": ""
+        }
+      }
+    },
+    "order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": ""
+        },
+        "invoiceDate": {
+          "type": "string",
+          "description": "DateTime order was recorded by accounting",
+          "format": "date-time"
+        }
+      }
+    },
+    "merchant": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the merchant"
+        }
+      }
+    },
+    "warehouse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": ""
+        },
+        "shortName": {
+          "type": "string",
+          "description": "Name of the merchant"
+        }
+      }
+    },
+    "itemCount": {
+      "type": "integer",
+      "description": "Total number of items accounted for"
+    }
+  }
+}

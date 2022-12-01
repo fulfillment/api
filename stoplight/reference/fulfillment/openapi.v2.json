@@ -1418,6 +1418,76 @@
         ],
         "description": "Get uniformed tracking events for any package, this response is carrier independent. Please note, an API Key is required for throttling purposes, please contact your success manager for details."
       }
+    },
+    "/accounting": {
+      "get": {
+        "tags": [
+          "Accounting"
+        ],
+        "summary": "List Accounting",
+        "description": "Retrieves summary accounting activity during the queried timespan.",
+        "operationId": "get-accounting",
+        "security": [
+          {
+            "fdcAuth": [
+              "oms"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "schema": {
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "default": 80
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accounting",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "./models/Accounting.v2.json"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-tagGroups": [
@@ -1612,6 +1682,10 @@
     },
     {
       "name": "Users",
+      "description": ""
+    },
+    {
+      "name": "Accounting",
       "description": ""
     }
   ]
