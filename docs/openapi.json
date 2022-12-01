@@ -2294,6 +2294,200 @@
         ],
         "description": "Get uniformed tracking events for any package, this response is carrier independent. Please note, an API Key is required for throttling purposes, please contact your success manager for details."
       }
+    },
+    "/accounting": {
+      "get": {
+        "tags": [
+          "Accounting"
+        ],
+        "summary": "List Order Accounting",
+        "description": "Retrieves accounting activity during the queried timespan.",
+        "operationId": "get-accounting",
+        "security": [
+          {
+            "fdcAuth": [
+              "oms"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "schema": {
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "default": 80
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accounting",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "AccountingArray.v2",
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "title": "Pagination.v2",
+                          "type": "object",
+                          "properties": {
+                            "totalPages": {
+                              "type": "integer",
+                              "description": "Total number of pages available to request"
+                            },
+                            "currentPage": {
+                              "type": "integer",
+                              "description": "Current page of the response, this will match the page paramater"
+                            },
+                            "count": {
+                              "type": "integer",
+                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                            },
+                            "total": {
+                              "type": "integer",
+                              "description": "Total number of records available to request"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "title": "Accounting.v2",
+                        "type": "object",
+                        "properties": {
+                          "fees": {
+                            "type": "object",
+                            "properties": {
+                              "fulfillment": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "picking": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "envelope": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "insert": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "kitting": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "print": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "box": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "postage": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "total": {
+                                "type": "integer",
+                                "description": ""
+                              }
+                            }
+                          },
+                          "order": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "invoiceDate": {
+                                "type": "string",
+                                "description": "DateTime order was recorded by accounting",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          "merchant": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Name of the merchant"
+                              }
+                            }
+                          },
+                          "warehouse": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "shortName": {
+                                "type": "string",
+                                "description": "Name of the merchant"
+                              }
+                            }
+                          },
+                          "itemCount": {
+                            "type": "integer",
+                            "description": "Total number of items accounted for"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-tagGroups": [
@@ -2309,7 +2503,8 @@
       "tags": [
         "Orders",
         "Returns",
-        "Partners"
+        "Partners",
+        "Accounting"
       ]
     },
     {
@@ -2488,6 +2683,10 @@
     },
     {
       "name": "Users",
+      "description": ""
+    },
+    {
+      "name": "Accounting",
       "description": ""
     }
   ]
