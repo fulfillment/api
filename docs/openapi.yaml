@@ -284,7 +284,7 @@ paths:
             type: string
         - name: page
           in: query
-          description: A multiplier of the number of items (limit paramater) to skip before returning results
+          description: A multiplier of the number of items (limit parameter) to skip before returning results
           schema:
             minimum: 1
             type: integer
@@ -318,10 +318,10 @@ paths:
                             description: Total number of pages available to request
                           currentPage:
                             type: integer
-                            description: 'Current page of the response, this will match the page paramater'
+                            description: 'Current page of the response, this will match the page parameter'
                           count:
                             type: integer
-                            description: 'Count of records returned in response, this will be equal to or less then the limit paramater'
+                            description: 'Count of records returned in response, this will be equal to or less then the limit parameter'
                           total:
                             type: integer
                             description: Total number of records available to request
@@ -1403,7 +1403,7 @@ paths:
       parameters:
         - name: page
           in: query
-          description: A multiplier of the number of items (limit paramater) to skip before returning results
+          description: A multiplier of the number of items (limit parameter) to skip before returning results
           schema:
             minimum: 1
             type: integer
@@ -1455,10 +1455,10 @@ paths:
                             description: Total number of pages available to request
                           currentPage:
                             type: integer
-                            description: 'Current page of the response, this will match the page paramater'
+                            description: 'Current page of the response, this will match the page parameter'
                           count:
                             type: integer
-                            description: 'Count of records returned in response, this will be equal to or less then the limit paramater'
+                            description: 'Count of records returned in response, this will be equal to or less then the limit parameter'
                           total:
                             type: integer
                             description: Total number of records available to request
@@ -1755,7 +1755,7 @@ components:
     pageParam:
       name: page
       in: query
-      description: A multiplier of the number of items (limit paramater) to skip before returning results
+      description: A multiplier of the number of items (limit parameter) to skip before returning results
       schema:
         minimum: 1
         type: integer

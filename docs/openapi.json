@@ -189,7 +189,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -230,11 +230,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -1864,7 +1864,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -1931,11 +1931,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -2314,7 +2314,7 @@
           {
             "name": "fromDate",
             "in": "query",
-            "description": "Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
+            "description": "Orders invoice date. Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
             "required": true,
             "schema": {
               "type": "string"
@@ -2323,7 +2323,7 @@
           {
             "name": "toDate",
             "in": "query",
-            "description": "Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
+            "description": "Orders invoice date. Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
             "required": true,
             "schema": {
               "type": "string"
@@ -2332,7 +2332,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -2373,11 +2373,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -2444,7 +2444,7 @@
                               "invoiceDate": {
                                 "type": "string",
                                 "description": "DateTime order was recorded by accounting",
-                                "format": "date-time"
+                                "format": "date"
                               }
                             }
                           },
@@ -2579,7 +2579,7 @@
       "pageParam": {
         "name": "page",
         "in": "query",
-        "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+        "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
         "schema": {
           "minimum": 1,
           "type": "integer",
