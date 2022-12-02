@@ -189,7 +189,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -230,11 +230,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -1864,7 +1864,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -1931,11 +1931,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -2314,7 +2314,7 @@
           {
             "name": "fromDate",
             "in": "query",
-            "description": "Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
+            "description": "Orders invoice date. Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
             "required": true,
             "schema": {
               "type": "string"
@@ -2323,7 +2323,7 @@
           {
             "name": "toDate",
             "in": "query",
-            "description": "Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
+            "description": "Orders invoice date. Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
             "required": true,
             "schema": {
               "type": "string"
@@ -2332,7 +2332,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -2348,6 +2348,30 @@
               "minimum": 1,
               "type": "integer",
               "default": 80
+            }
+          },
+          {
+            "name" : "warehouseIds",
+            "in" : "query",
+            "description" : "A CSV of warehouse id, '123' or '1,2,3'",
+            "style" : "form",
+            "explode" : false,
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
+          },
+          {
+            "name" : "orderIds",
+            "in" : "query",
+            "description" : "A CSV of FDC order id, '123' or '1,2,3'",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
             }
           }
         ],
@@ -2373,11 +2397,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -2397,39 +2421,48 @@
                             "type": "object",
                             "properties": {
                               "fulfillment": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "picking": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "envelope": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "insert": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "kitting": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "print": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "box": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "postage": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "total": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               }
                             }
@@ -2439,12 +2472,12 @@
                             "properties": {
                               "id": {
                                 "type": "integer",
-                                "description": ""
+                                "description": "FDC order id"
                               },
                               "invoiceDate": {
                                 "type": "string",
-                                "description": "DateTime order was recorded by accounting",
-                                "format": "date-time"
+                                "description": "Date order was recorded by accounting",
+                                "format": "date"
                               }
                             }
                           },
@@ -2579,7 +2612,7 @@
       "pageParam": {
         "name": "page",
         "in": "query",
-        "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+        "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
         "schema": {
           "minimum": 1,
           "type": "integer",

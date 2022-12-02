@@ -138,7 +138,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -179,11 +179,11 @@
                             },
                             "currentPage": {
                               "type": "integer",
-                              "description": "Current page of the response, this will match the page paramater"
+                              "description": "Current page of the response, this will match the page parameter"
                             },
                             "count": {
                               "type": "integer",
-                              "description": "Count of records returned in response, this will be equal to or less then the limit paramater"
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
                             },
                             "total": {
                               "type": "integer",
@@ -1103,7 +1103,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -1456,7 +1456,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -1578,7 +1578,7 @@
       "pageParam": {
         "name": "page",
         "in": "query",
-        "description": "A multiplier of the number of items (limit paramater) to skip before returning results",
+        "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
         "schema": {
           "minimum": 1,
           "type": "integer",
