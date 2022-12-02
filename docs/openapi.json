@@ -2349,6 +2349,30 @@
               "type": "integer",
               "default": 80
             }
+          },
+          {
+            "name" : "warehouseIds",
+            "in" : "query",
+            "description" : "A CSV of warehouse id, '123' or '1,2,3'",
+            "style" : "form",
+            "explode" : false,
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
+          },
+          {
+            "name" : "orderIds",
+            "in" : "query",
+            "description" : "A CSV of FDC order id, '123' or '1,2,3'",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
           }
         ],
         "responses": {
@@ -2397,39 +2421,48 @@
                             "type": "object",
                             "properties": {
                               "fulfillment": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "picking": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "envelope": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "insert": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "kitting": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "print": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "box": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "postage": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               },
                               "total": {
-                                "type": "integer",
+                                "type": "number",
+                                "format" : "float",
                                 "description": ""
                               }
                             }
@@ -2439,11 +2472,11 @@
                             "properties": {
                               "id": {
                                 "type": "integer",
-                                "description": ""
+                                "description": "FDC order id"
                               },
                               "invoiceDate": {
                                 "type": "string",
-                                "description": "DateTime order was recorded by accounting",
+                                "description": "Date order was recorded by accounting",
                                 "format": "date"
                               }
                             }
