@@ -2373,6 +2373,23 @@
                 "type" : "integer"
               }
             }
+          },
+          {
+            "name": "hydrate",
+            "in": "query",
+            "description": "Adds additional information to the response, uses a CSV format for multiple values.",
+            "example": "items",
+            "required": true,
+            "style": "form",
+            "schema" : {
+              "type" : "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "items"
+                ]
+              }
+            }
           }
         ],
         "responses": {
@@ -2510,8 +2527,30 @@
                           "itemCount": {
                             "type": "integer",
                             "description": "Total number of items accounted for"
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "quantity": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "wmsItemId": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
-                        }
+                      }
                       }
                     }
                   }
