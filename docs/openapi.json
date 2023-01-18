@@ -1896,6 +1896,19 @@
             }
           },
           {
+            "name": "warehouseIds",
+            "in": "query",
+            "description": "A CSV of warehouse id, '123' or '1,2,3'",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          {
             "name": "externalSkuNames",
             "in": "query",
             "description": "A CSV of sku reference names, 'skuName1' or 'skuName1,skuName2,skuName3'",
@@ -2373,6 +2386,23 @@
                 "type" : "integer"
               }
             }
+          },
+          {
+            "name": "hydrate",
+            "in": "query",
+            "description": "Adds additional information to the response, uses a CSV format for multiple values.",
+            "example": "items",
+            "required": true,
+            "style": "form",
+            "schema" : {
+              "type" : "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "items"
+                ]
+              }
+            }
           }
         ],
         "responses": {
@@ -2474,6 +2504,10 @@
                                 "type": "integer",
                                 "description": "FDC order id"
                               },
+                              "merchantOrderId": {
+                                "type": "integer",
+                                "description": "Merchant order id"
+                              },
                               "invoiceDate": {
                                 "type": "string",
                                 "description": "Date order was recorded by accounting",
@@ -2510,8 +2544,30 @@
                           "itemCount": {
                             "type": "integer",
                             "description": "Total number of items accounted for"
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "quantity": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "wmsItemId": {
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
-                        }
+                      }
                       }
                     }
                   }
