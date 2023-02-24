@@ -2508,9 +2508,14 @@
                                 "type": "integer",
                                 "description": "Merchant order id"
                               },
+                              "recordedDate": {
+                                "type": "string",
+                                "description": "Date of the order when it was initially received.",
+                                "format": "date"
+                              },
                               "invoiceDate": {
                                 "type": "string",
-                                "description": "Date order was recorded by accounting",
+                                "description": "Date of the order when it was recorded by accounting.",
                                 "format": "date"
                               }
                             }
