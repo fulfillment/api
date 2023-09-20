@@ -2453,6 +2453,281 @@
         ],
         "description": "Get uniformed tracking events for any package, this response is carrier independent. Please note, an API Key is required for throttling purposes, please contact your success manager for details."
       }
+    },
+    "/accounting": {
+      "get": {
+        "tags": [
+          "Accounting"
+        ],
+        "summary": "List Order Accounting",
+        "description": "Retrieves accounting activity during the queried timespan.",
+        "operationId": "get-accounting",
+        "security": [
+          {
+            "fdcAuth": [
+              "oms"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "description": "Orders invoice date. Date-time in ISO 8601 format for selecting orders after, or at, the specified time",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "description": "Orders invoice date. Date-time in ISO 8601 format for selecting orders before, or at, the specified time",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "A multiplier of the number of items (limit parameter) to skip before returning results",
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "schema": {
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer",
+              "default": 80
+            }
+          },
+          {
+            "name" : "warehouseIds",
+            "in" : "query",
+            "description" : "A CSV of warehouse id, '123' or '1,2,3'",
+            "style" : "form",
+            "explode" : false,
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
+          },
+          {
+            "name" : "orderIds",
+            "in" : "query",
+            "description" : "A CSV of FDC order id, '123' or '1,2,3'",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer"
+              }
+            }
+          },
+          {
+            "name": "hydrate",
+            "in": "query",
+            "description": "Adds additional information to the response, uses a CSV format for multiple values.",
+            "example": "items",
+            "required": true,
+            "style": "form",
+            "schema" : {
+              "type" : "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "items"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accounting",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "AccountingArray.v2",
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "title": "Pagination.v2",
+                          "type": "object",
+                          "properties": {
+                            "totalPages": {
+                              "type": "integer",
+                              "description": "Total number of pages available to request"
+                            },
+                            "currentPage": {
+                              "type": "integer",
+                              "description": "Current page of the response, this will match the page parameter"
+                            },
+                            "count": {
+                              "type": "integer",
+                              "description": "Count of records returned in response, this will be equal to or less then the limit parameter"
+                            },
+                            "total": {
+                              "type": "integer",
+                              "description": "Total number of records available to request"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "title": "Accounting.v2",
+                        "type": "object",
+                        "properties": {
+                          "fees": {
+                            "type": "object",
+                            "properties": {
+                              "fulfillment": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "picking": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "envelope": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "insert": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "kitting": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "print": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "box": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "postage": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              },
+                              "total": {
+                                "type": "number",
+                                "format" : "float",
+                                "description": ""
+                              }
+                            }
+                          },
+                          "order": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": "FDC order id"
+                              },
+                              "merchantOrderId": {
+                                "type": "integer",
+                                "description": "Merchant order id"
+                              },
+                              "recordedDate": {
+                                "type": "string",
+                                "description": "Date of the order when it was initially received.",
+                                "format": "date"
+                              },
+                              "invoiceDate": {
+                                "type": "string",
+                                "description": "Date of the order when it was recorded by accounting.",
+                                "format": "date"
+                              }
+                            }
+                          },
+                          "merchant": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Name of the merchant"
+                              }
+                            }
+                          },
+                          "warehouse": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": ""
+                              },
+                              "shortName": {
+                                "type": "string",
+                                "description": "Name of the merchant"
+                              }
+                            }
+                          },
+                          "itemCount": {
+                            "type": "integer",
+                            "description": "Total number of items accounted for"
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "quantity": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "wmsItemId": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                      }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-tagGroups": [
@@ -2468,7 +2743,8 @@
       "tags": [
         "Orders",
         "Returns",
-        "Partners"
+        "Partners",
+        "Accounting"
       ]
     },
     {
@@ -2649,6 +2925,10 @@
     },
     {
       "name": "Users",
+      "description": ""
+    },
+    {
+      "name": "Accounting",
       "description": ""
     }
   ]
