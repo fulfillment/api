@@ -4,11 +4,11 @@
   "properties": {
     "id": {
       "type": "integer",
-      "description": "Depricated, use code instead"
+      "description": "Deprecated, use code instead"
     },
     "isClosed": {
       "type": "boolean",
-      "description": "Depricated, does this status event close the order"
+      "description": "Deprecated, does this status event close the order"
     },
     "actionRequiredBy": {
       "type": "object",
@@ -50,11 +50,11 @@
     },
     "reason": {
       "type": "string",
-      "description": "Depricated"
+      "description": "Deprecated"
     },
     "name": {
       "type": "string",
-      "description": "Depricated, use stage/state instead"
+      "description": "Deprecated, use stage/state instead"
     },
     "detailCode": {
       "pattern": "^\\d{2}$",

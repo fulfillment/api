@@ -8,7 +8,7 @@
     },
     "apiKey": {
       "type": "string",
-      "description": "Depricated",
+      "description": "Deprecated",
       "deprecated": true
     },
     "contactInfo": {
