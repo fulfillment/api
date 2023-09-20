@@ -107,8 +107,8 @@ Codes are a concatenation of State, Stage, and Detail.
 
 | Code | State              | Stage    | Detail         |
 | ---- | ------------------ | -------- | -------------- |
-| 010101 | Processing Order | Recieved | Customer Order |
-| 010102 | Processing Order | Recieved | Recieved |
+| 010101 | Processing Order | Received | Customer Order |
+| 010102 | Processing Order | Received | Received |
 | 010201 | Processing Order | Approved | |
 | 010301 | Processing Order | Hold | Merchant Stock |
 | 010302 | Processing Order | Hold | Merchant Funds |
