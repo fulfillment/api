@@ -1702,6 +1702,111 @@
         "x-codegen-request-body-name": "body"
       }
     },
+    "/orders/simple": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "List of Simplified Orders",
+        "description": "Retrieve many simplifed orders at once",
+        "operationId": "get-orders-simple",
+        "security": [
+          {
+            "fdcAuth": [
+              "oms"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fromDateParam"
+          },
+          {
+            "$ref": "#/components/parameters/toDateParam"
+          },
+          {
+            "$ref": "#/components/parameters/merchantParam"
+          },
+          {
+            "$ref": "#/components/parameters/warehouseParam"
+          },
+          {
+            "$ref": "#/components/parameters/pageParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "OrderResponseSimple.v2",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "FDC ID for this order"
+                    },
+                    "merchantOrderId": {
+                      "type": "string",
+                      "description": "Merchant-provided ID"
+                    },
+                    "parentOrderId": {
+                      "type": "integer",
+                      "description": "FDC ID for the parent of this order"
+                    },
+                    "warehouseId": {
+                      "type": "integer"
+                    },
+                    "firstPrintDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "departDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "deliveryDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "carrier": {
+                      "type": "string"
+                    },
+                    "trackingNumbers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "The human readable tracking number recipients (consignee) expect"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No Orders Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "ErrorStandard.v2",
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/oauth/access_token": {
       "post": {
         "tags": [
