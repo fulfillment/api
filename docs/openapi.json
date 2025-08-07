@@ -1900,9 +1900,6 @@
                         "required": [
                           "refresh_token"
                         ]
-                      },
-                      {
-                        "$ref": "#/paths/~1oauth~1access_token/post/requestBody/content/application~1json/schema/oneOf/0/allOf/1"
                       }
                     ]
                   }
@@ -2307,11 +2304,24 @@
         }
       }
     },
-    "/track": {
+    "/track/{trackingNumber}" : {
       "get": {
         "summary": "Tracking",
+        "operationId" : "get-track",
         "tags": [
           "Tracking"
+        ],
+        "description" : "Retrieve tracking events for a given shipment that exists within BestOMS.",
+        "parameters" : [
+          {
+            "name" : "trackingNumber",
+            "in" : "path",
+            "description" : "Tracking number for a shipment that exists within BestOMS.",
+            "required" : true,
+            "schema" : {
+              "type" : "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2321,221 +2331,85 @@
                 "schema": {
                   "title": "trackingResponse",
                   "type": "object",
-                  "description": "",
                   "x-tags": [
                     "Tracking"
                   ],
                   "x-examples": {},
                   "properties": {
-                    "trackedEvents": {
+                    "events" : {
                       "type": "array",
                       "items": {
-                        "title": "TrackingEvent.v2",
                         "type": "object",
                         "x-tags": [
                           "Tracking"
                         ],
                         "x-examples": {
                           "example-1": {
-                            "eventStatus": "Delivered, In/At Mailbox",
-                            "eventCategory": "Delivered",
-                            "eventCategoryCode": 5,
-                            "eventDateTime": "2018-07-31 16:15:00",
-                            "eventLocation": {},
-                            "statusSource": "carrier"
+                            "code" : "In Transit",
+                            "location" : "Tyler, TX, US",
+                            "status" : "Loaded on Delivery Vehicle",
+                            "timestamp" : "2025-08-04T15:25:23Z"
                           }
                         },
                         "properties": {
-                          "eventSource": {
+                          "code" : {
                             "type": "string",
                             "enum": [
-                              "carrier",
-                              "internal"
-                            ],
-                            "example": "carrier"
+                              "Pre Transit",
+                              "In Transit",
+                              "Action Required",
+                              "Delivered",
+                              "Returning",
+                              "Returned"
+                            ]
                           },
-                          "eventLocation": {
-                            "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin"
+                          "location" : {
+                            "type" : "string",
+                            "description" : "Location of the event utilizing all information accessible via the carrier"
                           },
-                          "eventDateTime": {
+                          "timestamp" : {
                             "type": "string",
-                            "format": "date-time"
+                            "format" : "date-time",
+                            "description" : "ISO 8601 Date and Time in UTC"
                           },
-                          "eventCategoryCode": {
-                            "type": "integer"
-                          },
-                          "eventCategory": {
-                            "type": "string"
-                          },
-                          "eventStatus": {
-                            "type": "string"
+                          "status" : {
+                            "type" : "string",
+                            "description" : "Description of the event"
                           }
                         }
                       }
                     },
-                    "fdcOrderId": {
-                      "type": "integer"
+                    "deliveryEvent" : {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2025-08-04 15:25:23"
                     },
-                    "firstTransitEvent": {
+                    "firstTransitEvent" : {
                       "type": "string",
                       "format": "date-time"
                     },
-                    "lastUpdatedDateTime": {
+                    "service" : {
                       "type": "string",
-                      "format": "date-time"
+                      "example": "SurePost"
                     },
-                    "lastCheckedDateTime": {
-                      "type": "string",
-                      "format": "date-time"
+                    "carrier" : {
+                      "type" : "string",
+                      "example": "UPS"
                     },
-                    "firstCheckedDateTime": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "statusMessage": {
-                      "type": "string"
-                    },
-                    "statusCategoryCode": {
-                      "type": "integer"
-                    },
-                    "statusDateTime": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "status": {
-                      "type": "string"
-                    },
-                    "destination": {
-                      "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin"
-                    },
-                    "origin": {
-                      "title": "Feature",
-                      "type": "object",
-                      "description": "GeoJSon Feature",
-                      "x-tags": [
-                        "GeoJSON"
-                      ],
-                      "externalDocs": {
-                        "url": "https://tools.ietf.org/html/rfc7946#section-3.2"
-                      },
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "Feature"
-                          ],
-                          "example": "Feature"
+                    "status" : {
+                      "type" : "object",
+                      "properties" : {
+                        "code" : {
+                          "type" : "string"
                         },
-                        "id": {
-                          "type": "integer"
-                        },
-                        "properties": {
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "geometry": {
-                          "title": "Geometry",
-                          "type": "object",
-                          "x-tags": [
-                            "GeoJSON"
-                          ],
-                          "externalDocs": {
-                            "url": "http://geojson.org/geojson-spec.html#geometry-objects"
-                          },
-                          "description": "GeoJSon geometry",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "description": "the geometry type",
-                              "enum": [
-                                "Point",
-                                "LineString",
-                                "Polygon",
-                                "MultiPoint",
-                                "MultiLineString",
-                                "MultiPolygon"
-                              ],
-                              "example": "Point"
-                            },
-                            "coordinates": {
-                              "oneOf": [
-                                {
-                                  "type": "array",
-                                  "items": {
-                                    "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin/properties/geometry/properties/coordinates/oneOf/1"
-                                  }
-                                },
-                                {
-                                  "title": "Coordinates.v1",
-                                  "type": "array",
-                                  "items": {
-                                    "type": "number"
-                                  },
-                                  "x-examples": {
-                                    "example": [
-                                      102,
-                                      0.5
-                                    ]
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "required": [
-                            "type",
-                            "coordinates"
-                          ]
-                        },
-                        "bbox": {
-                          "type": "array",
-                          "items": {}
-                        },
-                        "title": {
-                          "type": "string"
-                        },
-                        "centerline": {
-                          "$ref": "#/paths/~1track/get/responses/200/content/application~1json/schema/properties/origin/properties/geometry"
+                        "description" : {
+                          "type" : "string"
                         }
-                      },
-                      "required": [
-                        "type",
-                        "properties",
-                        "geometry"
-                      ]
+                      }
                     },
                     "trackingNumber": {
-                      "type": "object",
-                      "title": "TrackingNumber.v2",
-                      "x-tags": [
-                        "Tracking"
-                      ],
-                      "properties": {
-                        "carrier": {
-                          "title": "CarrierSimple.v2",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer"
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ]
-                        },
-                        "barcodeScanValue": {
-                          "type": "string",
-                          "description": "The computer readable alternative to the human readable",
-                          "deprecated": true
-                        },
-                        "value": {
-                          "type": "string",
-                          "description": "The human readable tracking number recipients (consignee) expect"
-                        }
-                      }
+                      "type" : "string",
+                      "example": "1ZC1F423YW00189XXX"
                     }
                   }
                 }
@@ -2548,18 +2422,7 @@
           "429": {
             "description": "Too Many Requests"
           }
-        },
-        "operationId": "get-track",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "trackingNumber"
-          }
-        ],
-        "description": "Get uniformed tracking events for any package, this response is carrier independent. Please note, an API Key is required for throttling purposes, please contact your success manager for details."
+        }
       }
     },
     "/accounting": {
@@ -2826,7 +2689,7 @@
                               }
                             }
                           }
-                      }
+                        }
                       }
                     }
                   }
@@ -3029,7 +2892,7 @@
     },
     {
       "name": "Tracking",
-      "description": "Carrier Independent Tracking"
+      "description": ""
     },
     {
       "name": "Users",
