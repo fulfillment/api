@@ -2052,6 +2052,10 @@
                                   "availableToPromise": {
                                     "type": "integer",
                                     "description": "Number of items that are available to be used in an order"
+                                  },
+                                  "onHand": {
+                                    "type": "integer",
+                                    "description": "The total physical quantity currently stored in the warehouse ready for use."
                                   }
                                 }
                               }
