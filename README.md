@@ -7,7 +7,14 @@
 
 ## FDC Developers
 
+Make changes in the swagger link here:
 https://editor.swagger.io/
+
+If there is nothing in the editor, copy/paste the openapi.yaml contents into it. This YAML file is the file we 
+update. You must then generate the JSON file from the YAML file somehow (used to be free on swagger before). You must 
+commit both 
+files when you are 
+finished. 
 
 ```bash
 docker pull swaggerapi/swagger-editor
