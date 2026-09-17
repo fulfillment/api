@@ -1510,10 +1510,6 @@
             "type" : "string",
             "description" : "Requested ship method"
           },
-          "purchaseOrderNum" : {
-            "type" : "string",
-            "description" : "Merchant provided PO#"
-          },
           "merchantOrderId" : {
             "type" : "string",
             "description" : "Merchant provided ID"
