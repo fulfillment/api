@@ -370,6 +370,24 @@ paths:
             minimum: 1
             type: integer
             default: 80
+        - name: hydrate
+          in: query
+          description: >-
+            Adds additional information to the response, uses a CSV format for
+            multiple values. `files` populates the `files` array on each return;
+            `files.file.publicUrl` also adds a `publicUrl` to each file (and
+            implies `files`).
+          example: files,files.file.publicUrl
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rmaDetails
+                - files
+                - files.file.publicUrl
       responses:
         '200':
           description: Returns
@@ -1704,6 +1722,11 @@ components:
     RmaResponse.v2:
       type: object
       properties:
+        id:
+          type: integer
+          description: >-
+            FDC return id. Matches `id` on the returns listed by
+            `GET /returns`.
         items:
           type: array
           items:
@@ -1725,6 +1748,7 @@ components:
         rmaNumber:
           type: string
       required:
+        - id
         - items
         - recipient
         - rmaNumber
@@ -1780,10 +1804,45 @@ components:
               type: integer
             merchantOrderId:
               type: string
-        updatedBy:
-          $ref: '#/components/schemas/UserRef.v2'
-        createdBy:
-          $ref: '#/components/schemas/UserRef.v2'
+        warehouse:
+          type: object
+          properties:
+            id:
+              type: integer
+            shortName:
+              type: string
+        files:
+          type: array
+          description: >-
+            Files attached to the return. Only populated when the `hydrate`
+            parameter includes `files`; otherwise an empty array.
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              association:
+                type: string
+              file:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  fileName:
+                    type: string
+                  mimeType:
+                    type: string
+                  fileSize:
+                    type: integer
+                  publicUrl:
+                    type: string
+                    format: uri
+                    description: >-
+                      Pre-signed download URL that expires 5 minutes after the
+                      response is generated. Download the file promptly rather
+                      than storing the URL; request the return again to get a
+                      fresh URL. Only included when the `hydrate` parameter
+                      includes `files.file.publicUrl`.
         status:
           type: object
           required:
@@ -1818,14 +1877,23 @@ components:
         rmaNumber:
           type: string
           nullable: true
+        weight:
+          type: number
+          nullable: true
       required:
         - id
-        - updatedBy
-        - createdBy
-        - status
-        - reason
+        - rmaNumber
+        - comments
+        - returnedBy
         - createdAt
         - updatedAt
+        - weight
+        - reason
+        - status
+        - order
+        - warehouse
+        - rmaItems
+        - files
 
     MetaPagination.v2:
       type: object
