@@ -129,7 +129,7 @@
       "put" : {
         "tags" : [ "Returns" ],
         "summary" : "Inform us of an RMA",
-        "description" : "Inform FDC of an expected return.",
+        "description" : "Inform FDC of an expected return. If the `rmaNumber` matches an existing RMA, that RMA is updated with the information in the request instead of a new one being created. Both cases return `201`. RMAs that have already been processed cannot be updated and return `404`.",
         "operationId" : "put-returns",
         "security" : [ {
           "fdcAuth" : [ "oms" ]
@@ -147,17 +147,7 @@
         },
         "responses" : {
           "201" : {
-            "description" : "RMA Created",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RmaResponse.v2"
-                }
-              }
-            }
-          },
-          "202" : {
-            "description" : "RMA Updated",
+            "description" : "RMA Created or Updated",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -167,21 +157,11 @@
             }
           },
           "404" : {
-            "description" : "A Component of Your Request Was Not Found",
+            "description" : "A Component of Your Request Was Not Found, or the RMA Has Already Been Processed",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/ErrorStandard.v2"
-                }
-              }
-            }
-          },
-          "409" : {
-            "description" : "RMA Already Processed",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/RmaResponse.v2"
                 }
               }
             }
@@ -1745,6 +1725,15 @@
                   "type" : "integer",
                   "example" : 1,
                   "minimum" : 1
+                },
+                "reason" : {
+                  "type" : "string",
+                  "description" : "Reason the item is being returned"
+                },
+                "requestedAction" : {
+                  "type" : "string",
+                  "description" : "What FDC should do with the item once received",
+                  "enum" : [ "Inspect", "Dispose", "Refurbish", "Hold for Pickup" ]
                 }
               },
               "required" : [ "sku", "quantityExpected" ]
@@ -1754,10 +1743,16 @@
             "$ref" : "#/components/schemas/ConsigneeNew.v2"
           },
           "merchantOrderId" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Unique ID provided by the merchant during order creation. This ID is used to match the return to the original order that is in Shipped status."
           },
           "rmaNumber" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Unique ID provided by the merchant. Sending an `rmaNumber` that already exists updates that RMA."
+          },
+          "trackingNumber" : {
+            "type" : "string",
+            "description" : "Tracking number of the return shipment"
           }
         },
         "required" : [ "items", "recipient", "rmaNumber" ]
@@ -1781,9 +1776,28 @@
                   "type" : "integer",
                   "example" : 1,
                   "minimum" : 1
+                },
+                "reason" : {
+                  "type" : "string",
+                  "description" : "Reason the item is being returned. Empty string if none was provided."
+                },
+                "requestedAction" : {
+                  "type" : "object",
+                  "nullable" : true,
+                  "description" : "What FDC should do with the item once received. Null if none was provided.",
+                  "required" : [ "id", "title" ],
+                  "properties" : {
+                    "id" : {
+                      "type" : "integer"
+                    },
+                    "title" : {
+                      "type" : "string",
+                      "enum" : [ "Inspect", "Dispose", "Refurbish", "Hold for Pickup" ]
+                    }
+                  }
                 }
               },
-              "required" : [ "sku", "quantityExpected" ]
+              "required" : [ "sku", "quantityExpected", "reason", "requestedAction" ]
             }
           },
           "recipient" : {
@@ -1794,9 +1808,13 @@
           },
           "rmaNumber" : {
             "type" : "string"
+          },
+          "trackingNumber" : {
+            "type" : "string",
+            "description" : "Tracking number of the return shipment. Empty string if none was provided."
           }
         },
-        "required" : [ "id", "items", "recipient", "rmaNumber" ]
+        "required" : [ "id", "items", "recipient", "rmaNumber", "trackingNumber" ]
       },
       "Return.v2" : {
         "type" : "object",
