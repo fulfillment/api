@@ -1784,6 +1784,9 @@ components:
           type: string
         rmaNumber:
           type: string
+        referenceOrderNumber:
+          type: string
+          description: Reference order number for the return.
         trackingNumber:
           type: string
           description: >-
@@ -1837,6 +1840,30 @@ components:
                     type: string
                   name:
                     type: string
+              reason:
+                type: string
+                description: >-
+                  Reason the item is being returned. Empty string if none was
+                  provided.
+              requestedAction:
+                type: object
+                nullable: true
+                description: >-
+                  What FDC should do with the item once received. Null if none
+                  was provided.
+                required:
+                  - id
+                  - title
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                    enum:
+                      - Inspect
+                      - Dispose
+                      - Refurbish
+                      - Hold for Pickup
         order:
           type: object
           nullable: true
@@ -1923,6 +1950,14 @@ components:
         weight:
           type: number
           nullable: true
+        referenceOrderNumber:
+          type: string
+          description: >-
+            Reference order number for the return.
+        trackingNumber:
+          type: string
+          description: >-
+            Tracking number of the return shipment.
       required:
         - id
         - rmaNumber
