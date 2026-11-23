@@ -345,7 +345,6 @@ paths:
           required: true
           schema:
             type: string
-          example: '2026-11-23T15:43:44'
         - name: toDate
           in: query
           description: >-
@@ -354,7 +353,6 @@ paths:
           required: true
           schema:
             type: string
-          example: '2026-11-23T15:43:44'
         - name: dateType
           in: query
           description: >-
