@@ -68,6 +68,15 @@
             "type" : "string"
           }
         }, {
+          "name" : "dateType",
+          "in" : "query",
+          "description" : "Which date field `fromDate` and `toDate` are applied to when selecting returns. Defaults to `createdAt`.",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "updatedAt", "createdAt" ],
+            "default" : "createdAt"
+          }
+        }, {
           "name" : "page",
           "in" : "query",
           "description" : "A multiplier of the number of items (limit parameter) to skip before returning results",

@@ -345,6 +345,7 @@ paths:
           required: true
           schema:
             type: string
+          example: '2026-11-23T15:43:44'
         - name: toDate
           in: query
           description: >-
@@ -353,6 +354,18 @@ paths:
           required: true
           schema:
             type: string
+          example: '2026-11-23T15:43:44'
+        - name: dateType
+          in: query
+          description: >-
+            Which date field `fromDate` and `toDate` are applied to when
+            selecting returns. Defaults to `createdAt`.
+          schema:
+            type: string
+            enum:
+              - updatedAt
+              - createdAt
+            default: createdAt
         - name: page
           in: query
           description: >-
